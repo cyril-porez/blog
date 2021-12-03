@@ -34,7 +34,8 @@ if(isset($_POST["submit"]))
                     if(count($result4)==0)
                     {   
                         echo "yo2";
-                        $requete2 = mysqli_query($bdd ,"INSERT INTO utilisateurs (email,login,password,id_droits) Values ('$email','$login','$passwordCrypted','$id_droits')");  
+                        $requete2 = mysqli_query($bdd ,"INSERT INTO utilisateurs (email,login,password,id_droits) Values ('$email','$login','$passwordCrypted','$id_droits')");
+                        header('location: connexion.php');  
                     }
                     else
                     {
