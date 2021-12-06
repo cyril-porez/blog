@@ -15,14 +15,9 @@ var_dump($_SESSION['user']);
     <title>Document</title>
 </head>
 <body>
-    <header>
-        <ul>
-            <li> <a href="deconnexion.php">deconnexion</a></li>
-            <li></li>
-            <li></li>
-            <li></li>
-        </ul>
-    </header>
+    
+    <a href="deconnexion.php">deconnexion</a>
+            
 
     
 </body>

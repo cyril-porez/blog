@@ -3,7 +3,7 @@ session_start();
 
 $bdd=mysqli_connect('localhost','root','root','blog');
 mysqli_set_charset($bdd,'utf8');
-
+$errorLog = "";
 if(isset($_POST["submit"]))
 {
 
@@ -21,8 +21,9 @@ if(isset($_POST["submit"]))
         // le select all me permet de recup toute les infos  y compris le password qui va me servir pour decrypter le hash
         //et le where à comparer le login de post et les logins ds ma bdd
          
-            $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-            $recupPassword = $result[0]["password"];
+            $result = mysqli_fetch_assoc($requete);
+            var_dump($result);
+            $recupPassword = $result["password"];
             //je dois recuperer ma le mot de passe crypté en bdd
             echo "yo1";
         
@@ -31,26 +32,27 @@ if(isset($_POST["submit"]))
 
             
             $_SESSION["user"]=$result;
+            $_SESSION["user"]['login'];
         
             echo "yo";
             header('location: profil.php');
         }
+        // elseif($login== && $password==)
+        // {   
+        // $_SESSION["user"]["id_droits"];
+
+
+        // }
         else
         {
-          echo "Le mot de passe est incorrect";
-        }
-        elseif($login== && $password==)
-        {   
-          $_SESSION["user"]["id_droits"];
-
-
+          $errorLog = "Le mot de passe est incorrect";
         }
         
         
     }   
     else
     {
-        echo "tous les champs doivent être remplis";
+        $errorLog = "tous les champs doivent être remplis";
     }
 }
 
@@ -89,11 +91,14 @@ if(isset($_POST["submit"]))
             <tr>
                 
                 <td>
-                    <input type="submit" name="subit" value="Je me connecte" >
+                    <input type="submit" name="submit" value="Je me connecte" >
                 </td>
             </tr>
         </table>
     </form>
+    <?php
+    echo "<p> $errorLog </p>"
+    ?>
     
 </body>
 </html>
