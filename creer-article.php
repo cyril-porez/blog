@@ -6,13 +6,9 @@
     $request= mysqli_query($bdd, "SELECT * FROM categories");
     $fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
     if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
-        $txt_article = $_POST["text_article"];
-        
-        $id_cat= $_POST["categorie"];
-        
-        $request2= mysqli_query($bdd, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', '$id_user', '$id_cat')");
-        
-    
+        $txt_article = $_POST["text_article"];        
+        $id_cat= $_POST["categorie"];        
+        $request2= mysqli_query($bdd, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', '$id_user', '$id_cat')");   
     }
 ?>
 
