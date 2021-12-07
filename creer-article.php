@@ -1,19 +1,19 @@
 <?php
-session_start();
-
-$bdd = mysqli_connect('localhost','root','','blog');
-mysqli_set_charset($bdd, 'utf8');
-$request= mysqli_query($bdd, "SELECT * FROM categories");
-if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
-    $txt_article = $_POST["text_article"];
-    $id_cat= $_POST["categorie"];
-    $request2= mysqli_query($bdd, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', 1337, '$id_cat')");
-}
-$fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
-// var_dump($_SESSION);
-// var_dump($_POST);
-
-
+    session_start();
+    $id_user = $_SESSION["user"]["id"];
+    $bdd = mysqli_connect('localhost','root','','blog');
+    mysqli_set_charset($bdd, 'utf8');
+    $request= mysqli_query($bdd, "SELECT * FROM categories");
+    $fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
+    if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
+        $txt_article = $_POST["text_article"];
+        
+        $id_cat= $_POST["categorie"];
+        
+        $request2= mysqli_query($bdd, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', '$id_user', '$id_cat')");
+        
+    
+    }
 ?>
 
 <!DOCTYPE html>
@@ -26,24 +26,27 @@ $fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
     <title>Creer Article</title>
 </head>
 <body class="body_ca">
-    <form class="form" method="POST">
-        <div class="webflow-style-input">
-            <input type="text" name="text_article" placeholder="Créer un Article">
-            <select name="categorie">
-                <option value="choose" name="choose">Choisir une catégorie d'article à ajouter</option>
-                <?php
-                foreach($fetch as $value) {
-                    echo "<option value=".$value["id"]." name=".$value["nom"]." >" .$value["nom"]. "</option>";
-                }?>
-                <input class="input1" type="submit" name="envoyer" value="envoyer">
-            </select>
-        </div>      
+    <header>
 
+    </header>
+    <main>
+        <form class="form" action="creer-article.php" method="POST">
+            <div class="webflow-style-input">
+                <input type="text" name="text_article" placeholder="Créer un Article">
+                <select name="categorie">
+                    <option value="choose" name="choose">Choisir une catégorie d'article</option>
+                    <?php
+                        foreach($fetch as $value) {
+                            echo "<option value=".$value["id"].">" .$value["nom"]. "</option>";
+                        }
+                    ?>
+                    <input class="input1" type="submit" name="envoyer" value="envoyer">
+                </select>
+            </div>
+        </form>
+        <footer>
 
-
-
-
-    </form>
-    
+        </footer>   
+    </main>
 </body>
 </html>
