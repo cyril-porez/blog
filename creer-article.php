@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-$bdd = mysqli_connect('localhost','root','root','blog');
+$bdd = mysqli_connect('localhost','root','','blog');
 mysqli_set_charset($bdd, 'utf8');
 $request= mysqli_query($bdd, "SELECT * FROM categories");
 if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
