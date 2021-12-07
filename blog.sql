@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : mer. 01 déc. 2021 à 12:24
+-- Généré le : ven. 03 déc. 2021 à 12:57
 -- Version du serveur : 5.7.36
 -- Version de PHP : 7.4.26
 
@@ -48,7 +48,17 @@ CREATE TABLE IF NOT EXISTS `categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(80) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `categories`
+--
+
+INSERT INTO `categories` (`id`, `nom`) VALUES
+(1, 'spaceX'),
+(2, 'Appolon11'),
+(3, 'mars'),
+(4, 'nasa');
 
 -- --------------------------------------------------------
 
@@ -101,7 +111,18 @@ CREATE TABLE IF NOT EXISTS `utilisateurs` (
   `email` varchar(255) NOT NULL,
   `id_droits` int(11) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `utilisateurs`
+--
+
+INSERT INTO `utilisateurs` (`id`, `login`, `password`, `email`, `id_droits`) VALUES
+(13, 'vegeta', '$argon2i$v=19$m=65536,t=4,p=1$d1ZyQS9RMnc2ak9lak50ZA$7eASto3/pjEk8b5ISB6BgD8ymXI+s9Uz/lFWNRrtpBo', 'vegeta@gmail.com', 1),
+(8, 'yamcha', '$argon2i$v=19$m=65536,t=4,p=1$YkhIQWVsOTY1aC9QcU9SOA$tP6uVayuWDsP17lVVAzwBML0mhl42uZqvSnZepSuw/o', 'yacha@gmail.com', 1),
+(9, 'free', '$argon2i$v=19$m=65536,t=4,p=1$SmJTeVR1UXpyVldJOS9sRg$pQiJtzoWnPtkieX2riWvwaXPe2LOGATw7JbBzCqdg8M', 'freezer@gmail.com', 1),
+(10, 'tenshinhan', '$argon2i$v=19$m=65536,t=4,p=1$YXYxNjV5Z3JkZW1lVUpLOQ$35t+AP1ndi/pVkGv2uJoDal/286qXecy2TkSN4TLj58', 'tenshinhan@gmail.com', 1),
+(12, 'goku', '$argon2i$v=19$m=65536,t=4,p=1$alpwejlQQkJqeEVSdTRrNQ$9hgaIEPyFhh82eM05xn2Mt6ps0cCYCpAmA7NEYeCcec', 'goku@gmail.com', 1);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

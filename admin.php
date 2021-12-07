@@ -7,7 +7,7 @@
     $infoUsers = mysqli_fetch_all($donneesUser, MYSQLI_ASSOC);
     //var_dump($infoUsers);
 
-    if (!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["id_droits"])) {
+    if (!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["id_droits"]) && !empty($_POST["confirmPassword"])) {
         $login = $_POST["login"];
         $email = $_POST["email"];
         $password = $_POST["password"];
@@ -23,6 +23,7 @@
                 if($password == $confirmPassword) {
                     $hash = password_hash($password, PASSWORD_ARGON2I);
                     $creeUser = mysqli_query($connex, "INSERT into utilisateurs (login, password,  email, id_droits) VALUES ('$login', '$hash', '$email', '$idDroit')");
+                    header("Location: admin.php");
                     //var_dump($creeUser);
                 }
                 else {
@@ -39,6 +40,10 @@
     }
     else if (isset($_POST["login"]) || isset($_POST["email"]) || isset($_POST["password"]) && isset($_POST["id_droits"])) {
         $error = "* oublis de champs";
+    }
+
+    if (isset($_POST["creerCatégorie"])) {
+        header("Location: categorie.php");
     }
 ?>
 
@@ -57,20 +62,28 @@
     <main>
         <form action="admin.php" method="post">
             <input type="submit" name="createUser" value="Créer un utilisateur">
-            <input type="submit" name="AfficheUser" value="Afficher les utilisateurs">
+            <input type="submit" name="afficheUser" value="Afficher les utilisateurs">
+            <input type="submit" name="creerCatégorie" value="categorie">
             <input type="submit" name="X" value="X">
         </form>
-        <form action="admin.php" method="post">
-            <input type="text" name="login" placeholder="login">
-            <input type="email" name="email" placeholder="email" value="defaut@exemple.com">
-            <input type="text" name="id_droits" placeholder="id_droits">
-            <input type="text" name="password" placeholder="password">
-            <input type="text" name="confirmPassword" placeholder="confirPassword">            
-            <input type="submit" name="bouton" value="créer">
-            <?php
+
+        <?php
+            if (isset($_POST["createUser"])) {
+                echo "
+                <form action='admin.php' method='post'>
+                    <input type='text' name='login' placeholder='login'>
+                    <input type='email' name='email' placeholder='email' value='defaut@exemple.com'>
+                    <input type='text' name='id_droits' placeholder='id_droits'>
+                    <input type='text' name='password' placeholder='password'>
+                    <input type='text' name='confirmPassword' placeholder='confirPassword'>            
+                    <input type='submit' name='bouton' value='créer'>
+                </form>";
+            }
                 echo "<p>" . $error . "</p>";
-            ?>
-        </form>
+                if (isset($_POST["afficheUser"])) {
+
+        ?>
+       
 
         <table>
             <thead>
@@ -103,6 +116,7 @@
                                     </form>
                                 </tr> <?php                          
                     }
+                }
                 ?>      
             </tbody>
         </table>
