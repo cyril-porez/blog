@@ -3,6 +3,7 @@
     $bdd=mysqli_connect('localhost','root','','blog');
     mysqli_set_charset($bdd,'utf8');
 
+<<<<<<< HEAD
     if(isset($_POST["submit"])) {
             //$id_admin=1337; faire un inner join pour lier les colones id_droits de utilisateurs et id de la table droit. ?
         if(!empty($_POST["login"]) && !empty($_POST["password"])) {        
@@ -23,10 +24,60 @@
             }
         }
          
+=======
+$bdd=mysqli_connect('localhost','root','root','blog');
+mysqli_set_charset($bdd,'utf8');
+$errorLog = "";
+if(isset($_POST["submit"]))
+{
+
+    //$id_admin=1337; faire un inner join pour lier les colones id_droits de utilisateurs et id de la table droit. ?
+
+   
+
+    if(!empty($_POST["login"]) && !empty($_POST["password"]))
+    {
+        $login = $_POST["login"];
+        $password = $_POST["password"];
+
+        echo " Bob1";
+        $requete=mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login='$login'");
+        // le select all me permet de recup toute les infos  y compris le password qui va me servir pour decrypter le hash
+        //et le where à comparer le login de post et les logins ds ma bdd
+         
+            $result = mysqli_fetch_assoc($requete);
+            var_dump($result);
+            $recupPassword = $result["password"];
+            //je dois recuperer ma le mot de passe crypté en bdd
+            echo "yo1";
+        
+        if(password_verify($password,$recupPassword))
+        {
+
+            
+            $_SESSION["user"]=$result;
+            $_SESSION["user"]['login'];
+        
+            echo "yo";
+            header('location: profil.php');
+        }
+        // elseif($login== && $password==)
+        // {   
+        // $_SESSION["user"]["id_droits"];
+
+
+        // }
+        else
+        {
+          $errorLog = "Le mot de passe est incorrect";
+        }
+        
+        
+>>>>>>> 170d4fc6b17770ed28b8b4039d1ce802be541ae9
     }   
     else
     {
-        echo "tous les champs doivent être remplis";
+        $errorLog = "tous les champs doivent être remplis";
     }
 ?> 
 
@@ -61,11 +112,14 @@
             <tr>
                 
                 <td>
-                    <input type="submit" name="subit" value="Je me connecte" >
+                    <input type="submit" name="submit" value="Je me connecte" >
                 </td>
             </tr>
         </table>
     </form>
+    <?php
+    echo "<p> $errorLog </p>"
+    ?>
     
 </body>
 </html>
