@@ -1,5 +1,6 @@
 <?php
     session_start();
+    var_dump(session["user"]);
     $connex = mysqli_connect("localhost", "root", "", "blog");
     mysqli_set_charset($connex, 'utf8');    
     $recupArticle = $_GET['article'];
