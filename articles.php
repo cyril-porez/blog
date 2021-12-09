@@ -2,7 +2,6 @@
     $connex = mysqli_connect("localhost", "root","", "blog");
     $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories where articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id ORDER BY date DESC");
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-  // var_dump($articles);
 ?>
 
 <!DOCTYPE html>
