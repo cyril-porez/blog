@@ -48,7 +48,6 @@
             <?php
                 $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle';");
                 $comArticles = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
-                //var_dump($comArticles);
             ?>
             <div>
                 <?php
