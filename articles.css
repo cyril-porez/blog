@@ -1,0 +1,12 @@
+#container {
+    border: 1px black solid;
+    margin-top : 20px;
+    width : 400px;
+}
+
+#container2 {
+    display :flex;
+    flex-direction: row;
+    /*justify-content: space-between;
+    padding: 40px;*/
+}
