@@ -2,9 +2,9 @@
     session_start();
     $connex = mysqli_connect("localhost", "root", "", "blog");
     mysqli_set_charset($connex, 'utf8');  
-
-    $user = $_SESSION['user']['id'];
-   
+    
+    $user = $_SESSION['user'][0]['id'];
+ 
     $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id = '$user'");
     $infoUser = mysqli_fetch_all($requete);
     // intval permet de transformer la string comprise dans le tableau de l'index id en entier.

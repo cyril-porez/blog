@@ -2,6 +2,16 @@
     $connex = mysqli_connect("localhost", "root","", "blog");
     $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories where articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id ORDER BY date DESC");
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+
+    //Requete servant à récuperer le nbr d'article
+    $requete2 = mysqli_query($connex, "SELECT count(id) as compteur_article from articles");
+    $nbr_articles_totales = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
+    var_dump($nbr_articles_totales);
+    // création d'une variable pour fixer le nbr d'article par page
+    $nbr_articles_par_pages = 5;
+    // la fonction ceil permet d'arrondir au supérieur
+    $nbr_pages =  ceil($nbr_articles_totales[0]["compteur_article"] / $nbr_articles_par_pages);
+    echo $nbr_pages;
 ?>
 
 <!DOCTYPE html>
@@ -18,32 +28,45 @@
 
     </header>
     <main>
-    <?php 
-        foreach ($articles as $article) { ?>
-            <form action="article.php" method="get">
-                <div id="container">
-                    <div id="container2">
-                        <div>
-                            <p>Posté par:  
-                            <?php echo $article['login']; ?></p>
-                        </div>
-                        <div>
-                            <p>Posté le :
-                            <?php echo $article['date']; ?></p>
-                        </div>
-                    </div>
-                    <div>
-                        <p>Catégorie : <?php echo $article['nom']; ?></p>
-                    </div>
-                    <div>
-                        <?php echo $article['article']; ?></p>
-                    </div>
-                    <button name="article" value=<?php echo $article['id']; ?>>Article</button>
-                </div>
-                
-            </form><?php
-        }
-    ?>     
+        <div>
+            <?php 
+                foreach ($articles as $article) { ?>
+                    <form action="article.php" method="get">
+                        <div id="container">
+                            <div id="container2">
+                                <div>
+                                    <p>Posté par:  
+                                    <?php echo $article['login']; ?></p>
+                                </div>
+                                <div>
+                                    <p>Posté le :
+                                    <?php echo $article['date']; ?></p>
+                                </div>
+                            </div>
+                            <div>
+                                <p>Catégorie : <?php echo $article['nom']; ?></p>
+                            </div>
+                            <div>
+                                <?php echo $article['article']; ?></p>
+                            </div>
+                            <button name="article" value=<?php echo $article['id']; ?>>Article</button>
+                        </div>                
+                    </form><?php
+                }
+            ?>
+        </div>
+        <div id="pagination">
+                <?php
+                    $i = 1;
+
+                    while ($i <= $nbr_pages) {
+                        // le ? permet de placer un parametre afin d'envoyer au server la page souhaité
+                        echo "<a href='?page=$i'>$i</a>&nbsp";
+                        $i++;
+                    }
+                ?>
+            </form>
+        </div>
     </main>
     <footer>
 

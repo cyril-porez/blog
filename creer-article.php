@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $id_user = $_SESSION["user"]["id"];
+    $id_user = $_SESSION["user"][0]["id"];
     $bdd = mysqli_connect('localhost','root','','blog');
     mysqli_set_charset($bdd, 'utf8');
     $request= mysqli_query($bdd, "SELECT * FROM categories");
