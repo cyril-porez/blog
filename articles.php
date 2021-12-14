@@ -1,17 +1,49 @@
 <?php
     $connex = mysqli_connect("localhost", "root","", "blog");
-    $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories where articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id ORDER BY date DESC");
-    $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+    mysqli_set_charset($connex, 'utf8');    
 
     //Requete servant à récuperer le nbr d'article
     $requete2 = mysqli_query($connex, "SELECT count(id) as compteur_article from articles");
     $nbr_articles_totales = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
-    var_dump($nbr_articles_totales);
+    
     // création d'une variable pour fixer le nbr d'article par page
     $nbr_articles_par_pages = 5;
+
     // la fonction ceil permet d'arrondir au supérieur
     $nbr_pages =  ceil($nbr_articles_totales[0]["compteur_article"] / $nbr_articles_par_pages);
-    echo $nbr_pages;
+   
+    if (isset($_GET["start"])) {
+        $page = $_GET["start"];
+    }    
+    else {
+        $page = 1;
+    }
+    $debut = ($page - 1);
+
+   
+    //var_dump($articles);
+    if (ceil($page/ $nbr_articles_par_pages) > $nbr_pages || $page < 1) {
+        header("Location: articles.php");
+    }
+
+    // requete pour récupérer les infos de la categorie
+    $requete3 = mysqli_query($connex, "SELECT * from categories");
+    $categories = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
+    //var_dump($categories);
+    //var_dump($debut);
+
+    if (isset($_GET["categorie"]) && isset($_GET["exe"])) {
+        $id_categorie = $_GET["categorie"];
+        echo $id_categorie;
+        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id  where id_categorie = $id_categorie ORDER BY date desc limit $debut, $nbr_articles_par_pages");
+        $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+        //var_dump($debut);
+    }
+    else {
+        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id ORDER BY date desc limit $debut, $nbr_articles_par_pages");
+        $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+        // var_dump($articles);
+    }
 ?>
 
 <!DOCTYPE html>
@@ -28,6 +60,19 @@
 
     </header>
     <main>
+        <div>
+            <form action="" method="get">
+                <select name="categorie">
+                    <option>Choisir une catégorie d'article</option>
+                        <?php
+                            foreach($categories as $categorie) {
+                                echo "<option value=".$categorie['id'].">" .$categorie['nom']. "</option>";
+                            }
+                        ?>
+                        <input class="input1" type="submit" name="exe" value="executer">
+                </select>
+            </form>
+        </div>
         <div>
             <?php 
                 foreach ($articles as $article) { ?>
@@ -49,23 +94,23 @@
                             <div>
                                 <?php echo $article['article']; ?></p>
                             </div>
-                            <button name="article" value=<?php echo $article['id']; ?>>Article</button>
+                            <button name="article" value='<?php echo $article['id']; ?>'>Article</button>
                         </div>                
                     </form><?php
                 }
             ?>
         </div>
         <div id="pagination">
-                <?php
-                    $i = 1;
-
-                    while ($i <= $nbr_pages) {
-                        // le ? permet de placer un parametre afin d'envoyer au server la page souhaité
-                        echo "<a href='?page=$i'>$i</a>&nbsp";
+            <?php
+                $i = 1;
+                $five = 0;
+                while ($i <= $nbr_pages ) 
+                { 
+                    echo " <a href='?start=$five'>$i</a>";
+                        $five = $five + 5;
                         $i++;
-                    }
-                ?>
-            </form>
+                }
+            ?>
         </div>
     </main>
     <footer>
