@@ -13,10 +13,9 @@
     
     if (!empty($_POST["login"])) {
         $login = $_POST["login"];       
-       // $recupLogin = $verif[0]['login'];
+
         $requete3 = mysqli_query($connex, "SELECT login FROM utilisateurs WHERE login = '$login'");
         $verifLogin = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
-        var_dump($verifLogin);
 
         if (count($verifLogin) == 0) {
             $update = mysqli_query($connex, "UPDATE utilisateurs set login = '$login' WHERE id = '$user'");
@@ -31,8 +30,7 @@
         
         $requete4 = mysqli_query($connex, "SELECT email FROM utilisateurs WHERE email = '$email'");
         $verifEmail = mysqli_fetch_all($requete4, MYSQLI_ASSOC);
-        var_dump($verifEmail);
-
+        
         if (count($verifEmail) == 0) {            
             $update = mysqli_query($connex, "UPDATE utilisateurs set email = '$email' WHERE id = '$user'");
             header("Refresh:0");
@@ -66,14 +64,9 @@
         }
     }
     
-
     if (isset($_POST["back"])) {
         header("Location: admin.php");
-    }
-
-        //, password = '$email', id_droits = '$droits', password = '$hash'
-
-       // 
+    } 
 ?>
 
 
