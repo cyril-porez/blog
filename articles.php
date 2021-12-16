@@ -5,25 +5,27 @@
     //Requete servant à récuperer le nbr d'article
     $requete2 = mysqli_query($connex, "SELECT count(id) as compteur_article from articles");
     $nbr_articles_totales = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
+
     
     // création d'une variable pour fixer le nbr d'article par page
     $nbr_articles_par_pages = 5;
 
     // la fonction ceil permet d'arrondir au supérieur
     $nbr_pages =  ceil($nbr_articles_totales[0]["compteur_article"] / $nbr_articles_par_pages);
-   
+    //$nbr_page_par_categorie_articles = ;
+
     if (isset($_GET["start"])) {
         $page = $_GET["start"];
     }    
     else {
-        $page = 1;
+        $page = 0;
     }
-    $debut = ($page - 1);
+
 
    
     //var_dump($articles);
     if (ceil($page/ $nbr_articles_par_pages) > $nbr_pages || $page < 1) {
-        header("Location: articles.php");
+      //  header("Location: articles.php");
     }
 
     // requete pour récupérer les infos de la categorie
@@ -32,15 +34,17 @@
     //var_dump($categories);
     //var_dump($debut);
 
-    if (isset($_GET["categorie"]) && isset($_GET["exe"])) {
-        $id_categorie = $_GET["categorie"];
-        echo $id_categorie;
-        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id  where id_categorie = $id_categorie ORDER BY date desc limit $debut, $nbr_articles_par_pages");
+    if (isset($_GET["categorie"])) {
+        $id_categorie = $_GET["categorie"];   
+        //requete permettant de récupérer les articles par catégorie par date decroissante limité à 5
+        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id  where id_categorie = $id_categorie ORDER BY date desc limit $nbr_articles_par_pages OFFSET $page");
         $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
         //var_dump($debut);
     }
+   
     else {
-        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id ORDER BY date desc limit $debut, $nbr_articles_par_pages");
+        //requete permettant de récupérer les articles par date decroissante limité à 5
+        $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id ORDER BY date desc limit  $nbr_articles_par_pages OFFSET $page");
         $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
         // var_dump($articles);
     }
@@ -64,13 +68,13 @@
             <form action="" method="get">
                 <select name="categorie">
                     <option>Choisir une catégorie d'article</option>
-                        <?php
-                            foreach($categories as $categorie) {
-                                echo "<option value=".$categorie['id'].">" .$categorie['nom']. "</option>";
-                            }
-                        ?>
-                        <input class="input1" type="submit" name="exe" value="executer">
-                </select>
+                    <?php
+                        foreach($categories as $categorie) {?>
+                           <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
+                       <?php }
+                    ?>
+                     <input class="input1" type="submit"  value="executer">
+                </select>               
             </form>
         </div>
         <div>
@@ -102,14 +106,31 @@
         </div>
         <div id="pagination">
             <?php
-                $i = 1;
-                $five = 0;
-                while ($i <= $nbr_pages ) 
-                { 
-                    echo " <a href='?start=$five'>$i</a>";
+                if (isset($_GET["categorie"])) {
+                    $id_categorie = $_GET["categorie"];
+                    //Requete servant à compter le nbr d'articles par categorie
+                    $requete_count = mysqli_query($connex, "SELECT count(article) as nbr_article_categorie, categories.nom from articles inner join categories on id_categorie = categories.id where id_categorie = $id_categorie LIMIT 5;");
+                    $nbr_article_par_categorie = mysqli_fetch_all($requete_count, MYSQLI_ASSOC);
+                    $nbr_pages =  ceil($nbr_article_par_categorie[0]["nbr_article_categorie"] / $nbr_articles_par_pages);
+
+                    $five = 0;
+                    for ($i = 1; $i <= $nbr_pages; $i++)
+                    {
+                        echo " <a href=articles.php?categorie=".$id_categorie."&start=".$five.">$i</a>&nbsp";
                         $five = $five + 5;
-                        $i++;
+                    }       
                 }
+                else {
+                    $i = 1;
+                    $five = 0;
+                    while ($i <= $nbr_pages ) 
+                    { 
+                        echo " <a href='?start=$five'>$i</a>&nbsp";
+                            $five = $five + 5;
+                            $i++;
+                    }
+                }
+
             ?>
         </div>
     </main>
