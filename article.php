@@ -19,6 +19,17 @@
         $msg = $_POST["message"];
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
     }
+
+    if (isset($_POST["like"])) {
+        $like = $_POST["like"];
+        $requete_like = mysqli_query($connex, "INSERT into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '1', '0')");
+        header("Refresh: 0");
+        var_dump($requete_like);
+    }
+    else if (isset($_POST["dislike"])) {
+        $dislike = $_POST["dislike"];
+        $requete_dislike = mysqli_query($connex, "INSERT into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '0', '1')");
+    }
 ?>
 
 <!DOCTYPE html
@@ -40,7 +51,16 @@
                 echo $articles[0]['date'];
                 echo $articles[0]['nom'];
                 echo $articles[0]['article'];
+
+                $requeteLike = mysqli_query($connex, "SELECT count(etat_like) as nbr_like from intermediaire_article_like where id_article = 14 and etat_like = 1;");
+                $nbr_like = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
+                var_dump($nbr_like);
             ?>
+            <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
+            <form action="" method="post">
+                <button name="like"><img src="images/like.jpg" class="logo" alt="like"></button>
+                <button name="dislike"><img src="images/deslike.png" class="logo" alt="dislike"></button>
+            </form>
         </div>
         <div>
             <h1>Commentaire</h1>
