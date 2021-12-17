@@ -1,5 +1,5 @@
 <?php
-    $connex = mysqli_connect("localhost", "root", "", "blog");   
+    $connex = mysqli_connect("localhost", "root", "root", "blog");   
     $categorie = $_GET["delete"];
     echo $categorie;
     $requete = mysqli_query($connex, "SELECT * FROM categories where id = '$categorie'");

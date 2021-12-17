@@ -1,5 +1,5 @@
 <?php
-    $connex =mysqli_connect("localhost", "root", "", "blog");
+    $connex =mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
     $user = $_GET["read"];
     $data = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id='$user'");

@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connex = mysqli_connect("localhost", "root", "", "blog");
+    $connex = mysqli_connect("localhost", "root", "root", "blog");
 
     $requete = mysqli_query($connex, "SELECT articles.id, article, date, login, nom from articles inner join utilisateurs on id_utilisateur = utilisateurs.id inner join categories on id_categorie = categories.id  order by  articles.id desc limit 3");
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);

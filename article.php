@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connex = mysqli_connect("localhost", "root", "", "blog");
+    $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');  
     
     $user = $_SESSION['user'][0]['id'];

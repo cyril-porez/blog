@@ -1,5 +1,5 @@
 <?php
-    $connex = mysqli_connect("localhost", "root", "", "blog");
+    $connex = mysqli_connect("localhost", "root", "root", "blog");
     $idUser= $_GET["delete"];
     $requete = mysqli_query($connex, "SELECT id, login FROM utilisateurs WHERE id = '$idUser'");
     $user = mysqli_fetch_all($requete, MYSQLI_ASSOC);

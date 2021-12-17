@@ -1,5 +1,5 @@
 <?php
-    $connex = mysqli_connect("localhost", "root", "", "blog");
+    $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
     $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
     $dataCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
