@@ -1,13 +1,16 @@
 <?php
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Admin';
     $error = "";
 
     $donneesUser = mysqli_query($connex, "SELECT * FROM utilisateurs");
     $infoUsers = mysqli_fetch_all($donneesUser, MYSQLI_ASSOC);
     //var_dump($infoUsers);
-
-    if (!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["id_droits"]) && !empty($_POST["confirmPassword"])) {
+    
+    if (!empty($_POST["login"]) && !empty($_POST["email"]) && !empty($_POST["password"]) && !empty($_POST["id_droits"]) && !empty($_POST["confirmPassword"]))
+     {
         $login = $_POST["login"];
         $email = $_POST["email"];
         $password = $_POST["password"];
@@ -46,20 +49,7 @@
         header("Location: categorie.php");
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Admin</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+<main>
         <form action="admin.php" method="post">
             <input type="submit" name="createUser" value="Créer un utilisateur">
             <input type="submit" name="afficheUser" value="Afficher les utilisateurs">
@@ -121,8 +111,5 @@
             </tbody>
         </table>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

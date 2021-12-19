@@ -2,7 +2,9 @@
     session_start();
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');  
-    
+    require ('header.php');
+    $title = 'Article';
+
     $user = $_SESSION['user'][0]['id'];
  
     $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id = '$user'");
@@ -20,20 +22,7 @@
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
     }
 ?>
-
-<!DOCTYPE html
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Article</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+<main>
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -75,8 +64,5 @@
             </form>
         </div>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

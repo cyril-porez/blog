@@ -1,8 +1,13 @@
 <?php
     $connex = mysqli_connect("localhost", "root", "root", "blog");
+    mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Admin Delete';
+
     $idUser= $_GET["delete"];
     $requete = mysqli_query($connex, "SELECT id, login FROM utilisateurs WHERE id = '$idUser'");
     $user = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+
     
     if (isset($_POST["delete"])) {
         $delete = mysqli_query($connex, "DELETE FROM utilisateurs WHERE id = '$idUser'");
@@ -12,20 +17,7 @@
         header("Location: admin.php");
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Delete</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+<main>
         <h1>Supprimer des utilisateurs</h1>
 
         <p>Voulez-vous supprimer l'utilisateur id = <?php echo $user[0]['id']; ?> et login = <?php echo $user[0]['login'] ?> ?</p>
@@ -36,8 +28,5 @@
         </form>
 
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

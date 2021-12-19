@@ -1,6 +1,9 @@
 <?php
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Categorie';
+    
     $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
     $dataCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
    
@@ -10,20 +13,7 @@
         $requete = mysqli_query($connex, "INSERT into categories (nom) VALUES ('$categorie')");
     }
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Categorie</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+<main>
         <form action="categorie.php" method="post">
             <input type="submit" name="affichCategorie" value="afficher les catégories">
             <input type="submit" name="creatCategorie" value="Créer une categorie">
@@ -63,8 +53,5 @@
             </tbody>
         </table>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>

@@ -1,9 +1,8 @@
 <?php
 $bdd=mysqli_connect('localhost','root','root','blog');
 mysqli_set_charset($bdd,'utf8');
-
-
-
+require ('header.php');
+$title = 'Inscription';
 
 $requete= mysqli_query($bdd, "SELECT * FROM utilisateurs");
 
@@ -35,6 +34,7 @@ if(isset($_POST["submit"]))
                     {   
                         echo "yo2";
                         $requete2 = mysqli_query($bdd ,"INSERT INTO utilisateurs (email,login,password,id_droits) Values ('$email','$login','$passwordCrypted','$id_droits')");  
+                        header('location: connexion.php');
                     }
                     else
                     {
@@ -72,16 +72,7 @@ if(isset($_POST["submit"]))
 
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    
+<main>    
 <h2 align="center">INSCRIPTION</h2>
 
 <form action="inscription.php" method="post">
@@ -126,6 +117,6 @@ if(isset($_POST["submit"]))
         </tr>
     </table>
 </form>
-
+</main>
 </body>
 </html>

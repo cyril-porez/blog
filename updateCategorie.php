@@ -1,6 +1,9 @@
 <?php
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Admin Update Categorie';
+
     $categorie = $_GET["update"];
     echo ($categorie);
     $requete = mysqli_query($connex, "SELECT nom FROM categories WHERE id = '$categorie'");
@@ -17,20 +20,7 @@
     }
     
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Modifier Catégorie</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+     <main>
         <form action="" method="post">
             <input type="text" name="categorie"  value=<?php echo $categories[0]['nom']; ?>>
             <input type="submit" name="update" value="modifier">

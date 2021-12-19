@@ -1,24 +1,16 @@
 <?php
     session_start();
     $connex = mysqli_connect("localhost", "root", "root", "blog");
+    mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Accueil';
 
     $requete = mysqli_query($connex, "SELECT articles.id, article, date, login, nom from articles inner join utilisateurs on id_utilisateur = utilisateurs.id inner join categories on id_categorie = categories.id  order by  articles.id desc limit 3");
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 ?>
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Accueil</title>
-</head>
-<body>
-    <header>
-        <a href="deconnexion.php">Deco</a>
-    </header>
-    <main>
+<main>
+   <a href ="deconnexion.php">DECO</a>
+   <?php //header('location: connexion.php')?>
     <?php 
         foreach ($articles as $article) { ?>
             <form action="article.php" method="get">

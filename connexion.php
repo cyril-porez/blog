@@ -2,6 +2,8 @@
     session_start();
     $bdd = mysqli_connect('localhost','root','root','blog');
     mysqli_set_charset($bdd,'utf8');
+    require ('header.php');
+    $title = 'Connexion';
 
     //if(isset($_POST["submit"])) {
        
@@ -35,15 +37,7 @@
     //}
 ?> 
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+<main>
     <h2>CONNEXION</h2>
     <form action="" method="post">
         <table>
@@ -65,12 +59,14 @@
             </tr>
             <tr>
                 
-                <td>
+                <td align="right">
                     <input type="submit" name="subit" value="Je me connecte" >
                 </td>
             </tr>
         </table>
     </form>
-    
+</main>    
 </body>
 </html>
+
+

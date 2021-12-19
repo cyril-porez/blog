@@ -1,8 +1,13 @@
 <?php
     session_start();
-    $id_user = $_SESSION["user"][0]["id"];
+    
+  
     $bdd = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($bdd, 'utf8');
+    require ('header.php');
+    $title = 'Créer article';
+    
+    $id_user = $_SESSION["user"][0]["id"];
     $request= mysqli_query($bdd, "SELECT * FROM categories");
     $fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
     if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {

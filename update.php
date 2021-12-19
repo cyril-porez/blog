@@ -1,6 +1,8 @@
 <?php
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
+    require ('header.php');
+    $title = 'Admin Update';
 
     $user = $_GET["update"];
     $requete = mysqli_query($connex, "SELECT utilisateurs.id, login, email, id_droits, droits.nom as droits from utilisateurs inner join droits on  id_droits = droits.id WHERE utilisateurs.id = '$user'");
@@ -39,7 +41,9 @@
             $errorEmail = "* un compte avec cet email existe déjà";
         }
     }
-    else if (!empty($_POST["id_droits"])) {
+
+    else if (!empty($_POST["id_droits"])) 
+    {
         $droit = $_POST["id_droits"];
         
         if ($droit == "1" || $droit == "42" || $droit == "1337") {
@@ -68,21 +72,7 @@
         header("Location: admin.php");
     } 
 ?>
-
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <header>
-
-    </header>
-    <main>
+        <main>
             <fieldset>
                 <legend>
                     <p>login</p>
