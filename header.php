@@ -1,5 +1,7 @@
 <?php
-  var_dump($_SESSION);
+  // echo '<pre>';
+  // var_dump($_SESSION);
+  // echo '</pre>'
 ?>
 
 <!DOCTYPE html>
@@ -7,6 +9,8 @@
 <head>
   <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="css/header.css">
+  <link rel="stylesheet" href="css/admin.css">
+  
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body class='body_header'>
@@ -57,9 +61,24 @@
                       echo '<a href ="profil.php">Votre Profil</a>';
                     }
                   ?>
-
-                </li>    
+                </li>
                 <li>
+                  <?php
+                  if(isset($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 1337)
+                  {
+                      echo '<a href = "admin.php">Espace Administrateur</a>';
+                  }
+                  ?>
+                </li>
+                <li>
+                  <?php
+                  if(isset($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 1337)
+                  {
+                      echo '<a href = "categorie.php">Les categories</a>';
+                  }
+                  ?>
+                </li>
+               <li>
                   <?php
                     if(!isset($_SESSION['user']))
                     {
@@ -75,7 +94,8 @@
                         echo '<a href="inscription.php">Inscription</a>';
                       }
                   ?>
-                  
+                  <li>
+                   
                 </li>
               </ul>  
             </li>    

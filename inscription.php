@@ -1,4 +1,5 @@
 <?php
+session_start();
 $bdd=mysqli_connect('localhost','root','root','blog');
 mysqli_set_charset($bdd,'utf8');
 require ('header.php');

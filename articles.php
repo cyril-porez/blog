@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $connex = mysqli_connect("localhost", "root","root", "blog");
     mysqli_set_charset($connex, 'utf8');    
     require ('header.php');

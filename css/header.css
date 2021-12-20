@@ -1,19 +1,28 @@
 /* A simple, css only, (some-what) responsive menu */
 
+
+body{
+  
+}
+
 .body_header { 
-    background: #ccc;
+  background-image: url("../images/vaisseau2.jpg");
     font-family: helvetica, arial, serif;
     font-size: 13px;
     text-transform: uppercase;
     text-align: center;
-  }
+    
+  } 
    
   .wrap {
-    display: inline-block;
+    /* display: inline-block; */
     -webkit-box-shadow: 0 0 70px #fff;
     -moz-box-shadow: 0 0 70px #fff;
-    box-shadow: 0 0 70px #fff;
-    margin-top: 40px;
+    box-shadow: 0 0 30px #fff;
+    /* margin-top: 40px; */
+    width: 100%;
+    
+
   }
   
   
@@ -45,8 +54,9 @@
   }
   
   nav {
+    background-image: url("../images/galaxy.jpg");
     position: relative;
-    background: #2B2B2B;
+    /* background: #2B2B2B; */
     text-align: center;
     letter-spacing: 1px;
     text-shadow: 1px 1px 1px #0E0E0E;

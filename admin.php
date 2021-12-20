@@ -1,4 +1,5 @@
 <?php
+    session_start();
     $connex = mysqli_connect("localhost", "root", "root", "blog");
     mysqli_set_charset($connex, 'utf8');
     require ('header.php');
@@ -53,7 +54,6 @@
         <form action="admin.php" method="post">
             <input type="submit" name="createUser" value="Créer un utilisateur">
             <input type="submit" name="afficheUser" value="Afficher les utilisateurs">
-            <input type="submit" name="creerCatégorie" value="categorie">
             <input type="submit" name="X" value="X">
         </form>
 
@@ -74,8 +74,8 @@
 
         ?>
        
-
-        <table>
+    <div class="parent-table">
+        <table class="content-table">
             <thead>
                 <tr>
                     <th>id</th>
@@ -83,20 +83,24 @@
                     <th>email</th>
                     <th>id_droits</th>
                     <th>password</th>
+                    <th>Lire</th>
+                    <th>Modifier</th>
+                    <th>Supprimer</th>
                 </tr>
             </thead>
             <tbody>                
                 <?php
                     foreach($infoUsers as $infoUser) {
+                        $subrstrPass = substr($infoUser['password'],0 ,10); 
                         echo ' <tr>
                                     <td id="idAdmin" class="textAdmin">' . $infoUser["id"] . '</td>
                                     <td class="textAdmin">' . $infoUser["login"] . '</td>
                                     <td class="textAdmin">' . $infoUser["email"] . '</td>
                                     <td class="textAdmin">' . $infoUser["id_droits"] . '</td>
-                                    <td class="textAdmin">' . $infoUser["password"] . '</td>'; ?>                       
+                                    <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; ?>                       
                             
                                     <form action="read.php" method="get">
-                                       <td><button type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
+                                       <td><button class="boutton" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
                                     </form> 
                                     <form action="update.php" method="get">
                                         <td><button type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
@@ -110,6 +114,7 @@
                 ?>      
             </tbody>
         </table>
-    </main>
+    </div>    
+</main>
 </body>
 </html>

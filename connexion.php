@@ -16,11 +16,11 @@
             //et le where à comparer le login de post et les logins ds ma bdd
             $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
             $recupPassword = $result[0]["password"];
-            var_dump($recupPassword);
             //je dois recuperer ma le mot de passe crypté en bdd
             if(password_verify($password,$recupPassword)) {
                 $_SESSION["user"]=$result;
                 header('location: index.php');
+              
             }
             else {
                 echo "Le mot de passe est incorrect";

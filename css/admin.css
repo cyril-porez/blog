@@ -1,0 +1,85 @@
+
+/* 
+html{
+    background-image: url("../images/galaxy.jpg");
+}   
+    */
+.parent-table
+{
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    
+    /* border: solid 2px red; */
+   
+}
+.content-table{
+    border-collapse: collapse;
+   margin-top: 50px;
+    overflow: hidden;
+    border: solid 2px white ;
+   border-radius: 20px/50px;
+   border: 1px solid #999; 
+   box-shadow: 0 0 7px #fff;
+}
+   
+.content-table thead tr th 
+{
+    font-size: 1rem;
+}
+.content-table thead tr
+{
+    background-color: rgb(255, 255, 255);
+    color: rgb(84, 82, 82);
+    text-align: left;
+    font-weight: bold;
+    font-size: 5rem;
+}
+.content-table th,
+.content-table td
+{
+    padding: 20px 20px;
+    font-size: 0.7rem;
+}
+
+.content-table tbody tr
+{
+    /* border-bottom: 1px  solid rgb(254, 254, 255); */
+    background-color: rgba(255, 255, 255, 0.429);
+    color: rgb(255, 255, 255);
+
+}
+.content-table tbody tr:nth-of-type(even)
+{
+   
+    background-color:rgba(255, 255, 255, 0.161);
+}
+ .content-table tbody tr:last-of-type
+{
+    border-bottom: 2px solid rgb(3, 9, 31);
+}
+
+.content-table tbody button
+{
+    /* -webkit-appearance: none; */
+    border-radius: 20px;
+    background-color:  rgba(33, 31, 31, 0.429);
+    color:rgb(255, 255, 255);
+    border: none;
+    padding: 15px;
+    cursor:pointer;
+    transition: all 0.3s ease-out;
+    
+}
+
+.content-table tbody button:hover
+{
+    background: rgb(239, 239, 238);
+    color:rgb(134, 134, 185);
+}
+.content-table tbody tr:hover
+{
+    background:rgba(255, 255, 255, 0.778);
+    color: rgb(96, 89, 125);
+    transition: all 0.3s ease-out;
+}
