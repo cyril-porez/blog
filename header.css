@@ -1,7 +1,6 @@
-/* A simple, css only, (some-what) responsive menu */
 
 .body_header { 
-    background: #ccc;
+   /* background: #ccc; */
     font-family: helvetica, arial, serif;
     font-size: 13px;
     text-transform: uppercase;
@@ -33,7 +32,7 @@
     float: left;
   }
   
-  /* clear'n floats */
+ 
   ul:after {
     clear: both;
   }
@@ -57,7 +56,7 @@
     border-bottom-left-radius: 8px;
   }
   
-  /* prime */
+
   ul.primary li a {
     display: block;
     padding: 20px 30px;
@@ -73,7 +72,7 @@
     color: #000;
   }
   
-  /* subs */
+
   ul.sub {
     position: absolute;
     z-index: 200;
@@ -103,13 +102,13 @@
     background: #eeeeee;
   }
   
-  /* sub display*/
+ 
   ul.primary li:hover ul {
     display: block;
     background: #fff;
   }
   
-  /* keeps the tab background white */
+  
   ul.primary li:hover a {
     background: #fff;
     color: #666;
