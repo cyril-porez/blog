@@ -1,52 +1,27 @@
-<?php 
-?>
 
-<!DOCTYPE html>
-<html>
-
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Untitled</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-</head>
-
-<body>
-    <div class="footer-dark">
-        <footer>
-            <div class="container">
-                <div class="row">
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>Services</h3>
-                        <ul>
-                            <li><a href="#">Web design</a></li>
-                            <li><a href="#">Development</a></li>
-                            <li><a href="#">Hosting</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-sm-6 col-md-3 item">
-                        <h3>About</h3>
-                        <ul>
-                            <li><a href="#">Company</a></li>
-                            <li><a href="#">Team</a></li>
-                            <li><a href="#">Careers</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6 item text">
-                        <h3>Le NCC </h3>
-                        <p>Nous vous présentons dans notre blog pleins d'articles dans le thème de L'aérospatiale</p>
-                        
-                    </div>
-                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
-                </div>
-                <p class="copyright">NCC © 2021</p>
-            </div>
-        </footer>
+<link href="css/footer.css" rel="stylesheet">
+<footer>
+    <div class="footer">
+        <div class="footer1">
+        Accueil<a href="<?php if($nomFichier != 'index.php'){ echo '../';}?>index.php"><img class="socialMedia" alt="Accueil" src="https://cdn-icons-png.flaticon.com/512/1239/1239292.png"></a>
+        Articles<a href="<?php if($nomFichier == 'index.php'){ echo 'php/';}?>articles.php"><img class="socialMedia" alt="Articles" src="http://cdn.onlinewebfonts.com/svg/img_351420.png"></a>
+        <?php if(empty($_SESSION['user'])){ echo 'Connexion<a href="'; if($nomFichier == "index.php"){ echo "php/";}; echo 'connexion.php"><img class="socialMedia" alt="Connexion" src="http://cdn.onlinewebfonts.com/svg/img_201469.png"></a>';}?>
+        <?php if(empty($_SESSION['user'])){ echo 'Inscription<a href="'; if($nomFichier == "index.php"){ echo "php/";} echo 'inscription.php"><img class="socialMedia" alt="Inscription" src="https://www.vbvb.fr/wp-content/uploads/2016/04/icone_sinscrire.png"></a>';}?>
+        <?php if(!empty($_SESSION['user'])){ echo 'Profil<a href="'; if($nomFichier == "index.php"){ echo "php/";} echo 'profil.php"><img class="socialMedia" alt="Profil" src="http://cdn.onlinewebfonts.com/svg/img_311846.png"></a>';}?>
+        </div>
+        <div class="footer2">
+            <h2>Copyright © 2021 Naomi, Cyril & Carla. All Rights Reserved</h2>
+        </div>
+        <div class="footer3">
+            <a href="https://twitter.com/"><img class="socialMedia" alt="Twitter" src="https://bassin-arcachon.com/wp-content/uploads/2017/02/logo-twitter-bleu.png"></a>
+            <a href="https://facebook.com/"><img class="socialMedia" alt="Facebook" src="https://cdn.pixabay.com/photo/2015/05/17/10/51/facebook-770688_1280.png"></a>
+            <a href="https://instagram.com/"><img class="socialMedia" alt="Instagram" src="https://pic.clubic.com/v1/images/1182568/raw"></a>
+            <a href="https://youtube.com/"><img class="socialMedia" alt="Youtube" src="http://assets.stickpng.com/images/580b57fcd9996e24bc43c545.png"></a>
+            <a href="https://github.com/hugo-chabert/blog"><img class="socialMedia2" alt="GitHub" src="https://upload.wikimedia.org/wikipedia/commons/9/91/Octicons-mark-github.svg"></a>
+        </div>
     </div>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-</body>
-
-</html>
+</footer>
+© 2021 GitHub, Inc.
+Terms
+Privacy
+Security
