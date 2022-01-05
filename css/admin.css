@@ -17,9 +17,9 @@ html{
     border-collapse: collapse;
    margin-top: 50px;
     overflow: hidden;
-    border: solid 2px white ;
-   border-radius: 20px/50px;
-   border: 1px solid #999; 
+    /* border: solid 2px white ; */
+   border-radius: 20px;
+   /* border: 1px solid #999;  */
    box-shadow: 0 0 7px #fff;
 }
    

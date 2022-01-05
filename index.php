@@ -9,7 +9,7 @@
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 ?>
 <main>
-   <a href ="deconnexion.php">DECO</a>
+   <!-- <a href ="deconnexion.php">DECO</a> -->
    <?php //header('location: connexion.php')?>
     <?php 
         foreach ($articles as $article) { ?>

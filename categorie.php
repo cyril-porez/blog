@@ -31,23 +31,26 @@
             else if (isset($_POST["back"])) {
                 header("Location: admin.php");
             }
-            else if (isset($_POST["affichCategorie"])) {?>
+            else if (isset($_POST["affichCategorie"])) 
+            {?>
                 <table>
                     <thead>
-                        <th>id</th>
-                        <th>nom</th>
+                        <th>ID</th>
+                        <th>NOM</th>
                     </thead>
                     <tbody>
                     <?php                    
-                        foreach($dataCategories as $dataCategorie) {
+                        foreach($dataCategories as $dataCategorie) 
+                        {
                             echo "<tr><td>" . $dataCategorie['id'] . "</td>";
                             echo "<td>" . $dataCategorie['nom'] . "</td>";?>
                             <form action="updateCategorie.php" method="get">
                                     <td><button name='update'  value=<?php echo $dataCategorie["id"]; ?>>Modifier</button></td>
                             </form>
                             <form action="deleteCategorie.php" method="get">
-                                    <td><button name="delete" value=<?php echo $dataCategorie["id"]; ?> >supprimer</button></td></tr>
-                            </form><?php
+                                    <td><button name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button></td></tr>
+                            </form>
+                            <?php
                         }                        
             }        
                 ?>

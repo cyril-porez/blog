@@ -36,35 +36,36 @@
         }
     //}
 ?> 
+<style>
 
+</style>
 <main>
-    <h2>CONNEXION</h2>
-    <form action="" method="post">
-        <table>
-            <tr>
-                <td align="right">
-                    <label for="login">Login:</label>
-                </td>
-                <td>
-                    <input type="text" name="login" placeholder="Votre login">
-                </td>
-            </tr>
-            <tr>
-                <td align="right"> 
-                    <label for="password">Password:</label>
-                </td>
-                <td>
-                    <input type="text" name="password" placeholder="Votre password">
-                </td>
-            </tr>
-            <tr>
-                
-                <td align="right">
-                    <input type="submit" name="subit" value="Je me connecte" >
-                </td>
-            </tr>
-        </table>
-    </form>
+    <div class=page>
+        <div class="form-in-co">
+            <div class="champs-form">
+                <form action="connexion.php" method="post">
+                    <div class="titre-form">
+                        <h2>LOG IN</h2>
+                    </div>    
+                        <div class="separation"></div>
+                            <div class="allBoites">
+                                <div class="boite">
+                                   <input class="input-in-co" type="text" name="login" placeholder="Votre login">
+                                   <i class="fas fa-user"></i>
+                                </div>
+                                <div class="boite">
+                                    <input class="input-in-co" type="text" name="password" placeholder="Votre password">
+                                    <i class="fas fa-key"></i>   
+                                </div>
+                            </div>    
+                        <div class="separation"></div> 
+
+                                    <input class="butt-co"  type="submit" name="submit" value="SUBMIT" >
+                           
+                    </form>
+            </div>
+        </div>
+    </div>
 </main>    
 </body>
 </html>

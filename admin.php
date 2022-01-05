@@ -51,21 +51,30 @@
     }
 ?>
 <main>
+    <style>
+     
+body
+/* {
+    background:linear-gradient(0deg, rgb(29, 37, 37), rgb(169, 169, 169), rgb(209, 236, 236));
+    
+} */
+</style>
+   
         <form action="admin.php" method="post">
-            <input type="submit" name="createUser" value="Créer un utilisateur">
-            <input type="submit" name="afficheUser" value="Afficher les utilisateurs">
-            <input type="submit" name="X" value="X">
+            <input type="submit" name="createUser" value="Créer un utilisateur"></br>
+            <input type="submit" name="afficheUser" value="Afficher les utilisateurs"></br>
+            <input type="submit" name="X" value="X"></br>
         </form>
 
         <?php
             if (isset($_POST["createUser"])) {
                 echo "
                 <form action='admin.php' method='post'>
-                    <input type='text' name='login' placeholder='login'>
-                    <input type='email' name='email' placeholder='email' value='defaut@exemple.com'>
-                    <input type='text' name='id_droits' placeholder='id_droits'>
-                    <input type='text' name='password' placeholder='password'>
-                    <input type='text' name='confirmPassword' placeholder='confirPassword'>            
+                    <input type='text' name='login' placeholder='login'></br>
+                    <input type='email' name='email' placeholder='email' value='defaut@exemple.com'></br>
+                    <input type='text' name='id_droits' placeholder='id_droits'></br>
+                    <input type='text' name='password' placeholder='password'></br>
+                    <input type='text' name='confirmPassword' placeholder='confirPassword'></br>            
                     <input type='submit' name='bouton' value='créer'>
                 </form>";
             }
