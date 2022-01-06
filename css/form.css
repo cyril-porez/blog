@@ -1,0 +1,398 @@
+body
+{
+    margin:0.5rem;
+    padding:0;
+    background:linear-gradient(0deg, rgb(29, 37, 37), rgb(169, 169, 169), rgb(209, 236, 236));
+}
+.page
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+
+    
+}
+
+/* INSCRIPTION-CONNEXION*/
+.form-in-co
+{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 70px;
+    background-image: url('../images/jupiter.jpg');
+    background-position : 50% 50%;
+    background-size : 190% 110%;
+    background-repeat: no-repeat;
+    object-position: 50% 50%;
+    height: 400px;
+    width: 400px;
+    border-radius: 50rem;
+    -webkit-box-shadow: 2px 2px 3px #888;
+    -moz-box-shadow: 2px 2px 3px #888;
+    box-shadow: 50px 30px 80px #888;
+}
+
+.titre-form
+{
+    display:flex;
+    justify-content: space-around;
+}
+
+.champs-form
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-content: center;
+}
+
+.form-in-co .champs-form .allBoites
+{
+    margin-bottom: 20px;
+}
+
+.form-in-co .champs-form .boite
+{
+   
+    /* display: flex;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius:2px;
+    padding: 3%;
+    width: 50%; */
+    display:flex;
+    justify-content: flex-end;  
+    position:relative;
+}
+
+.form-in-co .champs-form .boite .input-in-co
+{
+   
+    /* background-image: url('../images/vaisseau2.jpg'); */
+
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    cursor:pointer;
+    border-bottom: solid 2px rgb(255, 255, 255);
+    border-radius:2px;
+    padding: 3px;
+    margin:10px;
+    height: 50%;
+    width: 70%;
+    box-shadow: rgb(0, 0, 0)10px 80px 70px;
+    outline:solid white 1px;
+    transition: all 0.3s ease-out; 
+}
+
+.form-in-co .champs-form .boite .input-in-co:hover
+{
+   /* box-shadow: rgb(255, 255, 255)0px 0px 10px; */
+    transform: scale(1.1);
+}
+
+.form-in-co .champs-form .boite .input-in-co::placeholder
+{
+font-size: 0.7rem;
+}
+
+/* Insérer des icones dans des champs de form.
+   Mettre en position asbsolute le selecteur i 
+   par rapport à la div boite qui se trouve en position relative 
+   et qui contient l'input et l'icone */
+
+.form-in-co .champs-form .boite  i 
+{ 
+    position: absolute;
+    right: 10px; 
+    top:18px;
+    padding:0px 5px;
+    color:rgb(86, 80, 70);
+}
+
+.form-in-co .champs-form .boite  .boiteKey i 
+{ 
+    position: absolute;
+    right: 25px; 
+    top:20px;
+    padding:0px 5px;
+    color:rgb(86, 80, 70);
+}
+
+.titre-form h2
+{
+    
+    color: rgb(255, 255, 255);
+    font-size: 2rem;
+    font-style: bold;
+    /* -webkit-text-stroke: 0.5px rgba(138, 112, 76, 0.531); */
+    text-shadow: rgb(255, 255, 255)0px 0px 20px;
+    margin:10px 0 20px 0;
+}
+
+
+.butt
+{
+    border: none;
+    margin:10px;
+    margin-top: 0px;
+    border-radius: 5px;
+    padding:7px;
+    color:white;
+    background-color: rgba(255, 255, 255, 0.394);
+    border: 1px solid rgba(255, 255, 255, 0.531);
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+.butt:hover
+{
+   color: white;
+   background-color:rgb(144, 112, 79);
+   box-shadow: rgba(255, 255, 255, 0.552)1px 0 20px;
+   border:none;
+
+}
+input .butt
+{
+    size: 200px;
+}
+
+.separation
+{   width: 80%;
+    height: 3px;
+    border-radius: 5px;
+    margin-left: 30px;
+    background-color:white;
+    box-shadow: rgb(255, 255, 255)1px 0 20px;
+    margin-bottom: 20px;
+}
+
+/*----------------------SPECIFICITES SUR LE FORMULAURE DE CONNEXION------------------*/
+
+.butt-co
+{
+    border: none;
+    margin:10px;
+    margin-top: 20px;
+    border-radius: 5px;
+    padding:7px;
+    color:white;
+    background-color: rgba(255, 255, 255, 0.394);
+    border: 1px solid rgba(255, 255, 255, 0.531);
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+}
+
+.butt-co:hover
+{
+   color: white;
+   background-color:rgb(144, 112, 79);
+   box-shadow: rgba(255, 255, 255, 0.552)10px 10px 30px;
+   border:none;
+}
+
+/*-------------------FORMULAIRE PROFIL--------------------------*/
+
+
+
+.page-profil
+{   display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.conteneur1
+{
+    background-image: url('../images/Sattelite.jpg');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
+    background-color: rgb(255, 255, 255, 0.3);
+    width: 70%;
+    /* height: 70vh; */
+    margin: 30px;
+    border-radius: 25px;
+    /* border: 0.5px white solid;  */
+    box-shadow: white 0 0 7px;
+    
+
+
+}
+
+.titre-profil
+{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    margin-top: 10px;
+    color: rgba(255, 255, 255, 0.658);
+    text-shadow: rgba(95, 92, 92, 0.699) 0 0 7px;
+    /* -webkit-text-stroke: 0.5px rgba(138, 112, 300, 0.531); */
+    
+}
+
+.info-profil
+{
+    display: flex;
+    /* flex-direction: column; */
+    /* justify-content: space-between; */
+    text-align: left;
+    margin:30px;
+    
+
+}
+.info-user
+{
+    font-size: 2rem;
+    color: rgba(224, 211, 211, 0.842);
+    text-shadow:  rgba(0, 0, 0, 0.856) 0px 0px 20px;
+    
+    /* background-image: url('../images/galaxy.jpg'); */
+}
+
+.conteneur2 
+{   display: flex;
+   justify-content: space-around;
+    flex-direction: row-reverse;
+
+    background-image: url('../images/Sattelite.jpg');
+    background-position: 0px -240px;
+    background-repeat: no-repeat;
+    width: 70%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.281);
+    border-radius: 25px;  
+    box-shadow: rgb(100, 100, 100)0px 0px 20px;
+}
+
+.titre-profil-form
+{
+    display: flex;
+    justify-content: flex-end;
+    padding: 20px;
+    margin-top: 20px;
+    color: rgba(255, 255, 255, 0.658);
+    text-shadow: rgba(95, 92, 92, 0.699) 0 0 7px;
+}  
+
+.conteneur2 .allBoites-profil
+{
+    display: flex;
+    flex-direction: column;
+    justify-content:space-between;
+    align-items: center;
+    width: 200%;
+    height: 100%;
+   
+    border: royalblue 2px solid;
+
+}
+.conteneur2 .allBoites-profil .boite .input-profil
+{
+    border-radius:5px;
+    outline:solid white 1px;
+    border:none;
+    height: 60%;
+    margin: 10px;
+    transition: all 0.3s ease-out;
+
+}
+
+.conteneur2 .allBoites-profil .boite label
+{
+    color: white;
+   font-size: 0.8rem;
+   
+
+    
+
+}
+
+/* .butt-profil
+
+{
+    border: none;
+    margin:10px;
+    margin-top: 0px;
+    border-radius: 5px;
+    padding:7px;
+    color:white;
+    background-color: rgba(255, 255, 255, 0.394);
+    width: 40%;
+    
+    border: 1px solid rgba(255, 255, 255, 0.531);
+    cursor: pointer;
+    transition: all 0.1s ease-out;
+} */
+
+.butt-profil:hover
+{
+   color: white;
+   background-color:rgb(0, 0, 0,0.394);
+   
+   box-shadow: rgba(255, 255, 255, 0.552)1px 0 20px;
+   border:none;
+
+}
+/*-------------------------------form Admin--------------------------------*/
+.{
+
+}
+.conteneur-form-admin
+{
+        
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        height: 400px;
+        width: 400px;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 20px rgba(248, 248, 248, 0.61);
+        background-color:rgba(224, 211, 211, 0.242);
+        border: rgba(224, 211, 211, 0.842) solid 1px;
+}
+.conteneur-form-admin input
+{
+   
+    border: none;
+    cursor:pointer;
+    
+    border-radius:2px;
+    padding:3px;
+    margin:10px;
+    height: 50%;
+    width: 70%;
+    /* box-shadow: rgba(0, 0, 0, 0.247)0px 0px 30px; */
+    /* outline:solid rgb(113, 128, 139) 1px; */
+}
+
+/*------------------------------- button-----------------------------------*/
+.butt-site
+{
+      border: none;
+        margin:10px;
+     
+        border-radius: 5px;
+        padding:10px;
+        color:rgba(48, 61, 70, 0.671);
+        background-color: rgba(255, 255, 255, 0.394);
+        border: 1px solid rgba(255, 255, 255, 0.531);
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+
+}
+.butt-site:hover
+{
+    color: white;
+    background-color:rgba(48, 61, 70, 0.315);
+    box-shadow: rgba(255, 255, 255, 0.849)1px 0 20px;
+    border:none;
+}
+

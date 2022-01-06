@@ -72,52 +72,56 @@ if(isset($_POST["submit"]))
 
 
 ?>
+<style>
 
-<main>    
-<h2 align="center">INSCRIPTION</h2>
+</style>
+<main>
+<div class="page">
+    <div class="form-in-co">
+        <div class="champs-form">
+                <form action="inscription.php" method="post">
+                    <div class="titre-form">
+                        <h2>SIGN IN</h2>
+                    </div>    
+                        <div class="separation"></div>
+                        <div class="allBoites">
+                            <div class="boite">
+                               
+                             
+                                <input class ="input-in-co" type="email" name="email" placeholder="Email" required>
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                         
+                            <div class="boite">
+                                
+                                <input class ="input-in-co" type="text" name="login" placeholder="Login"> 
+                                <i class="fas fa-user"></i>
+                            </div>
+                        
+                            <div class="boite">
+                                
+                                <input class ="input-in-co" type="text" name="password" placeholder="Password">
+                                <i class="fas fa-key"></i>   
+                            </div>
 
-<form action="inscription.php" method="post">
-    <table>
-        <tr>
-            <td align="right">
-                <label for="email">Email:</label>
-            </td>
-            <td>
-                <input type="email" name="email" placeholder="kevin-mitnick@protonmail.com" required>
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <label for="login">Pseudo:</label>
-            </td>
-            <td>
-                <input type="text" name="login" placeholder="Kev-bg-max">
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <label for="password">Mot de passe:</label>
-            </td>
-            <td>
-                <input type="text" name="password" placeholder="********">   
-            </td>
-        </tr>
-        <tr>
-            <td align="right">
-                <label for="confirmPassword">Confirmation de mot de passe:</label>
-            </td>
-            <td>
-                <input type="text" name="confirmPassword" placeholder="********">
-            </td>
-        </tr>
-      
-        <tr>
-            <td align="right">
-                <input type="submit" name="submit" value="je m'inscris">
-            </td>
-        </tr>
-    </table>
-</form>
+                            <div class="boite">
+                                <input class ="input-in-co" type="text" name="confirmPassword" placeholder="Confirm password">
+                                
+                                <i class="fas fa-key"></i>
+                                <div class="boiteKey">
+                                <i class="fas fa-check"></i>
+                                </div>
+                               
+                            </div>
+                        </div>    
+                            <div class="separation"></div>
+
+                      
+                            <input class ="butt" type="submit" name="submit" value="SUBMIT">         
+                </form>
+        </div>    
+    </div>
+</div>    
 </main>
 </body>
 </html>
