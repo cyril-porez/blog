@@ -211,6 +211,9 @@ input .butt
 
 .conteneur1
 {
+    background-image: url('../images/Sattelite.jpg');
+    background-position: 0px 0px;
+    background-repeat: no-repeat;
     background-color: rgb(255, 255, 255, 0.3);
     width: 70%;
     /* height: 70vh; */
@@ -219,10 +222,6 @@ input .butt
     /* border: 0.5px white solid;  */
     box-shadow: white 0 0 7px;
     
-    background-repeat: no-repeat;
-    background-position:0px -160px;
-    /* background-image: url('../images/galaxy.jpg'); */
-    /* background-opacity 0.8; */
 
 
 }
@@ -231,8 +230,8 @@ input .butt
 {
     display: flex;
     justify-content: flex-end;
-    padding: 20px;
-    margin-top: 20px;
+    padding-right: 20px;
+    margin-top: 10px;
     color: rgba(255, 255, 255, 0.658);
     text-shadow: rgba(95, 92, 92, 0.699) 0 0 7px;
     /* -webkit-text-stroke: 0.5px rgba(138, 112, 300, 0.531); */
@@ -263,15 +262,16 @@ input .butt
    justify-content: space-around;
     flex-direction: row-reverse;
 
-    /* background-image: url('../images/vaisseau2.jpg'); */
-    /* background-position: 0px -400px;
-    background-repeat: no-repeat; */
+    background-image: url('../images/Sattelite.jpg');
+    background-position: 0px -240px;
+    background-repeat: no-repeat;
     width: 70%;
-    /* height: 100vh; */
+    height: 100vh;
     background-color: rgba(255, 255, 255, 0.281);
     border-radius: 25px;  
     box-shadow: rgb(100, 100, 100)0px 0px 20px;
 }
+
 .titre-profil-form
 {
     display: flex;
@@ -288,7 +288,7 @@ input .butt
     flex-direction: column;
     justify-content:space-between;
     align-items: center;
-    width: 100%;
+    width: 150%;
     height: 100%;
    
     border: royalblue 2px solid;
@@ -313,78 +313,77 @@ input .butt
     color: white;
 
 }
-/* .conteneur2 input
+
+/* .butt-profil
+
 {
-    display: flex;
-    align-items: center;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor:pointer;
-    border-bottom: solid 2px rgb(255, 255, 255);
-    border-radius:2px;
-    padding: 3px;
+    border: none;
     margin:10px;
-    height: 50%;
-    width: 30%;
-    box-shadow: rgb(0, 0, 0)10px 80px 70px;
-    outline:solid white 1px;
-    transition: all 0.3s ease-out;
-} */
-/* .conteneur2 .allBoites .boite input .input
-{
-    display: flex;
-    align-items: center;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor:pointer;
-    border-bottom: solid 2px rgb(255, 255, 255);
-    border-radius:2px;
-    padding: 3px;
-    margin:10px;
-    height: 50%;
-    width: 70%;
-    box-shadow: rgb(0, 0, 0)10px 80px 70px;
-    outline:solid white 1px;
-    transition: all 0.3s ease-out; 
-   
-}     */
-   
-/* .conteneur2 .allBoites .boite-gauche
-{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    
-    justify-content: center;
-    border: royalblue solid 2px;
+    margin-top: 0px;
+    border-radius: 5px;
+    padding:7px;
+    color:white;
+    background-color: rgba(255, 255, 255, 0.394);
     width: 40%;
-}   
-.conteneur2 .allBoites .boite-gauche input
-{
-   
     
-}
-.conteneur2 .allBoites .boite-gauche label
-{
-    display: flex;
-    justify-content: flex-start;
+    border: 1px solid rgba(255, 255, 255, 0.531);
+    cursor: pointer;
+    transition: all 0.1s ease-out;
 } */
 
-/* .form-profil .champs-form .allBoites .boite .input-profil
+.butt-profil:hover
 {
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    cursor:pointer;
-    border-bottom: solid 2px rgb(255, 255, 255);
-    border-radius:2px;
-    padding: 3px;
-    margin:10px;
-    height: 50%;
-    width: 70%;
-    box-shadow: rgb(0, 0, 0)10px 80px 70px;
-    outline:solid white 1px;
-    /* transition: all 0.3s ease-out;
-}  */
+   color: white;
+   background-color:rgb(0, 0, 0,0.394);
+   
+   box-shadow: rgba(255, 255, 255, 0.552)1px 0 20px;
+   border:none;
+
+}
+/*-------------------------------form Admin--------------------------------*/
+
+.conteneur-form-admin
+{
+    
+        /* display:flex;
+        justify-content: center;
+        align-items: center;
+        margin-top: 70px;
+        background-image: url('../images/jupiter.jpg');
+        background-position : 50% 50%;
+        background-size : 190% 110%;
+        background-repeat: no-repeat;
+        object-position: 50% 50%;
+        height: 400px;
+        width: 400px;
+        border-radius: 50rem;
+        -webkit-box-shadow: 2px 2px 3px #888;
+        -moz-box-shadow: 2px 2px 3px #888;
+        box-shadow: 50px 30px 80px #888;
+     */
+    border:crimson solid 2px;
+}
+
+/*------------------------------- button-----------------------------------*/
+.butt-site
+{
+      border: none;
+        margin:10px;
+        margin-top: 0px;
+        border-radius: 5px;
+        padding:7px;
+        color:rgba(48, 61, 70, 0.671);
+        background-color: rgba(255, 255, 255, 0.394);
+        border: 1px solid rgba(255, 255, 255, 0.531);
+        cursor: pointer;
+        transition: all 0.1s ease-out;
+
+}
+.butt-site:hover
+{
+    color: white;
+    background-color:rgba(48, 61, 70, 0.315);
+    box-shadow: rgba(255, 255, 255, 0.849)1px 0 20px;
+    border:none;
+}
+

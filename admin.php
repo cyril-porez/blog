@@ -51,79 +51,82 @@
     }
 ?>
 <main>
-    <style>
-     
-body
-/* {
-    background:linear-gradient(0deg, rgb(29, 37, 37), rgb(169, 169, 169), rgb(209, 236, 236));
-    
-} */
-</style>
-   
-        <form action="admin.php" method="post">
-            <input type="submit" name="createUser" value="Créer un utilisateur"></br>
-            <input type="submit" name="afficheUser" value="Afficher les utilisateurs"></br>
-            <input type="submit" name="X" value="X"></br>
-        </form>
+   <div class="page-admin">
 
-        <?php
-            if (isset($_POST["createUser"])) {
-                echo "
-                <form action='admin.php' method='post'>
-                    <input type='text' name='login' placeholder='login'></br>
-                    <input type='email' name='email' placeholder='email' value='defaut@exemple.com'></br>
-                    <input type='text' name='id_droits' placeholder='id_droits'></br>
-                    <input type='text' name='password' placeholder='password'></br>
-                    <input type='text' name='confirmPassword' placeholder='confirPassword'></br>            
-                    <input type='submit' name='bouton' value='créer'>
-                </form>";
-            }
-                echo "<p>" . $error . "</p>";
-                if (isset($_POST["afficheUser"])) {
-
-        ?>
-       
-    <div class="parent-table">
-        <table class="content-table">
-            <thead>
-                <tr>
-                    <th>id</th>
-                    <th>login</th>
-                    <th>email</th>
-                    <th>id_droits</th>
-                    <th>password</th>
-                    <th>Lire</th>
-                    <th>Modifier</th>
-                    <th>Supprimer</th>
-                </tr>
-            </thead>
-            <tbody>                
-                <?php
-                    foreach($infoUsers as $infoUser) {
-                        $subrstrPass = substr($infoUser['password'],0 ,10); 
-                        echo ' <tr>
-                                    <td id="idAdmin" class="textAdmin">' . $infoUser["id"] . '</td>
-                                    <td class="textAdmin">' . $infoUser["login"] . '</td>
-                                    <td class="textAdmin">' . $infoUser["email"] . '</td>
-                                    <td class="textAdmin">' . $infoUser["id_droits"] . '</td>
-                                    <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; ?>                       
-                            
-                                    <form action="read.php" method="get">
-                                       <td><button class="boutton" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
-                                    </form> 
-                                    <form action="update.php" method="get">
-                                        <td><button type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
-                                    </form>
-                                    <form action="delete.php" method="get">
-                                        <td><button type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button></td>
-                                    </form>
-                                </tr> <?php                          
-                    }
+    <div class="conteneur-admin">
+       <div class ="conteneur-buttons-admin">
+            <form action="admin.php" method="post">
+                <input class="butt-site" type="submit" name="createUser" value="Créer un utilisateur">
+                <input class="butt-site"  type="submit" name="afficheUser" value="Afficher les utilisateurs">
+                <input class="butt-site" type="submit" name="X" value="X">
+            </form>
+        </div>
+<!-- 
+    </div class="conteneur-form-admin">     -->
+            <?php
+            
+                if (isset($_POST["createUser"])) {
+                    echo "
+                    <form action='admin.php' method='post'>
+                        <input type='text' name='login' placeholder='login'></br>
+                        <input type='email' name='email' placeholder='email' value='defaut@exemple.com'></br>
+                        <input type='text' name='id_droits' placeholder='id_droits'></br>
+                        <input type='text' name='password' placeholder='password'></br>
+                        <input type='text' name='confirmPassword' placeholder='confirPassword'></br>            
+                        <input class='butt-site' type='submit' name='bouton' value='créer'>
+                    </form>";
                 }
-                ?>      
-            </tbody>
-        </table>
-    </div>    
+                    echo "<p>" . $error . "</p>";
+                    if (isset($_POST["afficheUser"]))
+                    {
+
+                            ?>
+    <!-- </div>                         -->
+                        
+                        <div class="parent-table">
+                            <table class="content-table">
+                                <thead>
+                                    <tr>
+                                        <th>id</th>
+                                        <th>login</th>
+                                        <th>email</th>
+                                        <th>id_droits</th>
+                                        <th>password</th>
+                                        <th>Lire</th>
+                                        <th>Modifier</th>
+                                        <th>Supprimer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>                
+                                    <?php
+                                        foreach($infoUsers as $infoUser)
+                                        {
+                                            $subrstrPass = substr($infoUser['password'],0 ,10); 
+                                            echo ' <tr>
+                                                        <td id="idAdmin" class="textAdmin">' . $infoUser["id"] . '</td>
+                                                        <td class="textAdmin">' . $infoUser["login"] . '</td>
+                                                        <td class="textAdmin">' . $infoUser["email"] . '</td>
+                                                        <td class="textAdmin">' . $infoUser["id_droits"] . '</td>
+                                                        <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; ?>                       
+                                                
+                                                        <form action="read.php" method="get">
+                                                        <td><button class="boutton" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
+                                                        </form> 
+                                                        <form action="update.php" method="get">
+                                                            <td><button type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
+                                                        </form>
+                                                        <form action="delete.php" method="get">
+                                                            <td><button type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button></td>
+                                                        </form>
+                                                    </tr> <?php                          
+                                        }
+                        }
+                    ?>      
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>        
 </main>
 </body>
 </html>
