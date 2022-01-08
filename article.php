@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connex = mysqli_connect("localhost", "root", "root", "blog");
+    $connex = mysqli_connect("localhost", "root", "", "blog");
     mysqli_set_charset($connex, 'utf8');  
     require ('header.php');
     $title = 'Article';
@@ -16,7 +16,7 @@
     
     $requete2 = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories on articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id where articles.id = '$recupArticle'");
     $articles = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
-
+    var_dump($articles);
     if (isset($_POST["message"])) {
         $msg = $_POST["message"];
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
@@ -41,7 +41,9 @@
                 echo $articles[0]['nom'];
                 echo $articles[0]['article'];
 
-                $requeteLike = mysqli_query($connex, "SELECT count(etat_like) as nbr_like from intermediaire_article_like where id_article = 14 and etat_like = 1;");
+                $id_article = $articles[0]["id"];
+
+                $requeteLike = mysqli_query($connex, "SELECT count(etat_like) as nbr_like from intermediaire_article_like where id_article = '$id_article' and etat_like = 1");
                 $nbr_like = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
                 var_dump($nbr_like);
             ?>
