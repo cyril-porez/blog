@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $connex = mysqli_connect("localhost", "root", "", "blog");
-    mysqli_set_charset($connex, 'utf8');  
+    require ('bdd.php');
     require ('header.php');
     $title = 'Article';
 
@@ -30,7 +29,7 @@
     }
     else if (isset($_POST["dislike"])) {
         $dislike = $_POST["dislike"];
-        $requete_dislike = mysqli_query($connex, "INSERT into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '0', '1')");
+        $requete_dislike = mysqli_query($connex, "UPDATE into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '0', '1')");
     }
 ?>
 <main>

@@ -1,11 +1,10 @@
 <?php
 session_start();
-$bdd=mysqli_connect('localhost','root','','blog');
-mysqli_set_charset($bdd,'utf8');
+require ('bdd.php');
 require ('header.php');
 $title = 'Inscription';
 
-$requete= mysqli_query($bdd, "SELECT * FROM utilisateurs");
+$requete= mysqli_query($connex, "SELECT * FROM utilisateurs");
 
 if(isset($_POST["submit"]))
 {
@@ -18,7 +17,7 @@ if(isset($_POST["submit"]))
             $confirmPassword=$_POST["confirmPassword"];
             $id_droits= 1;
 
-            $requete3=mysqli_query($bdd,"SELECT email FROM utilisateurs WHERE email='$email'");
+            $requete3=mysqli_query($connex,"SELECT email FROM utilisateurs WHERE email='$email'");
             $result3=mysqli_fetch_all($requete3);
                              
             if($password==$confirmPassword)
@@ -28,13 +27,13 @@ if(isset($_POST["submit"]))
                 if(count($result3)==0)
                 {
                     echo "yo";
-                    $requete4=mysqli_query($bdd,"SELECT login FROM utilisateurs WHERE login='$login'");
+                    $requete4=mysqli_query($connex,"SELECT login FROM utilisateurs WHERE login='$login'");
                     $result4=mysqli_fetch_all($requete4);
 
                     if(count($result4)==0)
                     {   
                         echo "yo2";
-                        $requete2 = mysqli_query($bdd ,"INSERT INTO utilisateurs (email,login,password,id_droits) Values ('$email','$login','$passwordCrypted','$id_droits')");  
+                        $requete2 = mysqli_query($connex ,"INSERT INTO utilisateurs (email,login,password,id_droits) Values ('$email','$login','$passwordCrypted','$id_droits')");  
                         header('location: connexion.php');
                     }
                     else

@@ -1,10 +1,9 @@
 <?php
     session_start();
-    $bdd=mysqli_connect('localhost','root','','blog');
-    mysqli_set_charset($bdd,'utf8');
+    require ('bdd.php');
     require ('header.php');
     $title = 'Profil';
-
+    var_dump($_SESSION["user"]);
 // if (isset($_POST['logout']))
 // {
 //     session_destroy();
@@ -17,31 +16,42 @@
 // echo ('</pre>');
 
 
-if(isset($_POST["editer"]))
-{   
+    $userConnect = $_SESSION["user"][0]["login"];
+    //echo $userConnect;
+    $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login = '$userConnect'");
+    $infoUser = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+    $error_log = "";
+    $error = "";
     
-        $id=$_SESSION["user"]["id"];
-        $email = $_POST["email"];
+    if (!empty($_POST["login"])) {
         $login = $_POST["login"];
-        $password= $_POST["password"];
-        $confirmPassword =$_POST["confirmPassword"];
-       
-       
-        
-        
-        if(!empty($_POST["email"]) && !empty($_POST["login"]) && !empty($_POST["password"]) && !empty($_POST["confirmPassword"]))
-        {     
-            $passwordCrypted = password_hash($password,PASSWORD_BCRYPT);
-            $requete1=mysqli_query($bdd,"UPDATE utilisateurs SET  login='$login', password='$passwordCrypted', email='$email' WHERE id='$id'");
-
-            $requete2=mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE id='$id'");
-         
-                $result = mysqli_fetch_assoc($requete2);
-                $recupPassword = $result["password"];
-                
-                $_SESSION["user"]=$result;
+        $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login = '$login'");
+        $verifLogin = mysqli_fetch_all($requete);
+        if (count($verifLogin) == 0) {
+                $update = mysqli_query($connex, "UPDATE utilisateurs SET login = '$login' WHERE login ='$userConnect'");
+                $_SESSION["user"] = $infoUser;
+                header("refresh: 0");
         }
-}
+        else {
+            $error_log = "* Ce login existe déjà";
+        }
+    }
+    else if (!empty($_POST["password"])) {
+        $password = $_POST["password"];
+        $confirmPassword = $_POST["confirmPassword"];
+        if ($password == $confirmPassword) {
+            $passHash = password_hash($password, PASSWORD_ARGON2ID);
+            $update = mysqli_query($connex, "UPDATE utilisateurs SET password = '$passHash' WHERE login ='$userConnect'");
+            header("refresh: 0");
+        }
+
+    }
+    else if (isset($_POST["login"])) {
+        $error_log = "* oublis dans les champs";
+    }
+    else if (isset($_POST["password"])) {
+        $error = "* oublis dans les champs";
+    }
 
 ?>
 <main>

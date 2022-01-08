@@ -1,7 +1,6 @@
 <?php
     session_start();
-    $bdd = mysqli_connect('localhost','root','','blog');
-    mysqli_set_charset($bdd,'utf8');
+    require ('bdd.php');
     require ('header.php');
     $title = 'Connexion';
 
@@ -11,7 +10,7 @@
         if(!empty($_POST["login"]) && !empty($_POST["password"])) {        
             $login = $_POST["login"];
             $password = $_POST["password"];            
-            $requete = mysqli_query($bdd, "SELECT * FROM utilisateurs WHERE login='$login'");
+            $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login='$login'");
             // le select all me permet de recup toute les infos  y compris le password qui va me servir pour decrypter le hash
             //et le where à comparer le login de post et les logins ds ma bdd
             $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
