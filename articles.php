@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $connex = mysqli_connect("localhost", "root","root", "blog");
+    $connex = mysqli_connect("localhost", "root","", "blog");
     mysqli_set_charset($connex, 'utf8');    
     require ('header.php');
     $title = 'Articles';
@@ -46,7 +46,7 @@
     }
    
     else {
-        //requete permettant de récupérer les articles par date decroissante limité à 5
+        //requete permettant de récupérer tous les articles par date decroissante limité à 5
         $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id ORDER BY date desc limit  $nbr_articles_par_pages OFFSET $page");
         $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
         // var_dump($articles);
