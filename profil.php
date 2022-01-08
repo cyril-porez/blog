@@ -79,23 +79,23 @@ if(isset($_POST["editer"]))
                                     <div class="boite">
 
                                         <label for="email">Email:</label></br>
-                                        <input class="input" class="input-profil" type="text" id="email" name="email" value=<?php echo $_SESSION['user'][0]['email'];?>>
+                                        <input  class="input-profil" type="text" id="email" name="email" value=<?php echo $_SESSION['user'][0]['email'];?>>
                                 </div>
                                 <div class="boite">
                                 
                                         <label for="login">Login:</label></br>
-                                        <input class="input" class="input-profil" type="text" id="login" name="login" value=<?php echo $_SESSION['user'][0]['login'];?>>
+                                        <input  class="input-profil" type="text" id="login" name="login" value=<?php echo $_SESSION['user'][0]['login'];?>>
                                 </div>
                        
                                  
                                 <div class="boite">
                                         <label for="password">Password:</label></br>
-                                        <input class="input" class="input-profil" type="password" id="password" name="password" placeholder="*********">
+                                        <input  class="input-profil" type="password" id="password" name="password" placeholder="*********">
                                 </div>
                                 <div class="boite">      
                                 
                                         <label for="confirmPassword">Confirmer password:</label></br>
-                                        <input class="input" class="input-profil" type="password" name="confirmPassword" placeholder="********">
+                                        <input class="input-profil" type="password" name="confirmPassword" placeholder="********">
                                 </div>          
                             
                                         <input class="butt-profil" type="submit" name="editer" value="Editer">

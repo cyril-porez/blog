@@ -288,29 +288,30 @@ input .butt
     flex-direction: column;
     justify-content:space-between;
     align-items: center;
-    width: 150%;
+    width: 200%;
     height: 100%;
    
     border: royalblue 2px solid;
 
 }
-.conteneur2 .allBoites-profil input
+.conteneur2 .allBoites-profil .boite .input-profil
 {
     border-radius:5px;
     outline:solid white 1px;
     border:none;
     height: 60%;
-    margin: 20px;
+    margin: 10px;
     transition: all 0.3s ease-out;
 
 }
-.conteneur2 .allBoites-profil input:hover
-{   
-    
-}
-.conteneur2 .allBoites-profil label
+
+.conteneur2 .allBoites-profil .boite label
 {
     color: white;
+   font-size: 0.8rem;
+   
+
+    
 
 }
 
@@ -341,27 +342,35 @@ input .butt
 
 }
 /*-------------------------------form Admin--------------------------------*/
+.{
 
+}
 .conteneur-form-admin
 {
-    
-        /* display:flex;
+        
+        display:flex;
         justify-content: center;
         align-items: center;
-        margin-top: 70px;
-        background-image: url('../images/jupiter.jpg');
-        background-position : 50% 50%;
-        background-size : 190% 110%;
-        background-repeat: no-repeat;
-        object-position: 50% 50%;
         height: 400px;
         width: 400px;
-        border-radius: 50rem;
-        -webkit-box-shadow: 2px 2px 3px #888;
-        -moz-box-shadow: 2px 2px 3px #888;
-        box-shadow: 50px 30px 80px #888;
-     */
-    border:crimson solid 2px;
+        border-radius: 1rem;
+        box-shadow: 0px 0px 20px rgba(248, 248, 248, 0.61);
+        background-color:rgba(224, 211, 211, 0.242);
+        border: rgba(224, 211, 211, 0.842) solid 1px;
+}
+.conteneur-form-admin input
+{
+   
+    border: none;
+    cursor:pointer;
+    
+    border-radius:2px;
+    padding:3px;
+    margin:10px;
+    height: 50%;
+    width: 70%;
+    /* box-shadow: rgba(0, 0, 0, 0.247)0px 0px 30px; */
+    /* outline:solid rgb(113, 128, 139) 1px; */
 }
 
 /*------------------------------- button-----------------------------------*/
@@ -369,9 +378,9 @@ input .butt
 {
       border: none;
         margin:10px;
-        margin-top: 0px;
+     
         border-radius: 5px;
-        padding:7px;
+        padding:10px;
         color:rgba(48, 61, 70, 0.671);
         background-color: rgba(255, 255, 255, 0.394);
         border: 1px solid rgba(255, 255, 255, 0.531);
