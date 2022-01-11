@@ -63,20 +63,11 @@ if(isset($_POST["submit"]))
 
 
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form2.css">
-    <title>Document</title>
-</head>
 <body>
-    <main>
+    <main id="main2">
         <?php require ('navbar.php') ?>
-    <div class="centre">
-            <div class = "form">
+    <div id="centre2">
+            <div id = "form2">
                 <form action="connexion.php" method="post">
                     <input class="connect" type="text" id="email" name="email" placeholder="email">
 
@@ -88,7 +79,7 @@ if(isset($_POST["submit"]))
 
                     <input type="submit" value="connexion">
                 </form>
-                <p>Si vous êtes déja inscrit <a href="connexion1.php">connecter-vous !</a></p>
+                <p id="p2">Si vous êtes déja inscrit <a href="connexion1.php">connecter-vous !</a></p>
             </div>
         </div>
     </main>

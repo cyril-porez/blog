@@ -7,15 +7,6 @@
     $requete = mysqli_query($connex, "SELECT articles.id, article, date, login, nom from articles inner join utilisateurs on id_utilisateur = utilisateurs.id inner join categories on id_categorie = categories.id  order by  articles.id desc limit 3");
     $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 ?>
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <title>Document</title>
-</head>
 <body>
     <main>
         <?php require ('navbar.php')?>
@@ -23,9 +14,10 @@
         <?php //header('location: connexion.php')?>
         <?php
             foreach ($articles as $article) { ?>
+            <div class="article">
                 <form action="article.php" method="get">
                     <div id="container">
-                        <div id="container2">
+                        <div class="container2">
                             <div>
                                 <p>Posté par:
                                 <?php echo $article['login']; ?></p>
@@ -43,11 +35,13 @@
                         </div>
                         <button name="article" value=<?php echo $article['id']; ?>>Article</button>
                     </div>
-                </form><?php
+                </form>
+            </div>
+                <?php
             }
         ?>
 
-        <div class="presentation">
+        <!-- <div class="presentation">
            <div>
                <p>
                 Bienvenue sur SPACENET ! Le blog qui parle d'aerospatiale, d'aeronautique et d'astronomie.
@@ -56,7 +50,7 @@
                 "Aeronautique" et "Astronomie".
                 </p>
             </div>
-        </div>
+        </div> -->
     </main>
         <?php require('footer.php') ?>
 </body>

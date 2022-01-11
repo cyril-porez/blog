@@ -1,3 +1,6 @@
+<?php 
+
+?>
 <link rel="stylesheet" href="css/navbar.css">
 <div class="slidecontainer">
         <input type="checkbox" id="check">
@@ -8,12 +11,16 @@
     </label>
     <div class="sidebar">
         <ul>
-            <li><a href="">Home</a></li>
+            <li><a href="index.php">Accueil</a></li>
+            <li><a href="connexion.php">Connexion</a></li>
             <li><a href="">home</a></li>
             <li><a href="">home</a></li>
             <li><a href="">home</a></li>
-            <li><a href="">home</a></li>
-            <li><a href="">home</a></li>
+           <?php
+            if(!empty($_SESSION)){
+                    echo '<li><a href="deconnexion.php">deconnexion</a></li>';
+
+            } ?>
         </ul>
     </div>
 </div>

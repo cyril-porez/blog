@@ -11,6 +11,8 @@ main{
     width: 50%;
     display: flex;
 }
-#container{
+.article{
 display: flex;
+/* flex-direction: column; */
+border: solid;
 }
