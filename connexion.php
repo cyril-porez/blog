@@ -1,7 +1,6 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
     $title = 'Connexion';
 
     //if(isset($_POST["submit"])) {

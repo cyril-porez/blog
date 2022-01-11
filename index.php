@@ -18,6 +18,7 @@
 </head>
 <body>
     <main>
+        <?php require ('navbar.php')?>
         <!-- <a href ="deconnexion.php">DECO</a> -->
         <?php //header('location: connexion.php')?>
         <?php
