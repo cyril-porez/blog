@@ -32,8 +32,7 @@
     $select_etat_dislike = mysqli_fetch_all($requete4, MYSQLI_ASSOC);    
     $etat_dislike = $select_etat_dislike[0]["dislike"];
     
-    if (isset($_POST["like"])) {
-        echo "bob";        
+    if (isset($_POST["like"])) {       
         if ($etat_like == "0" && $etat_dislike == "1") {            
             $requete_update_like = mysqli_query($connex, "UPDATE intermediaire_article_like SET id_article = '$recupArticle' , id_utilisateur = '$user', etat_like =  '1', dislike = '0' where id_article = '$recupArticle' and id_utilisateur = '$user'");
         }
