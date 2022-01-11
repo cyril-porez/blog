@@ -56,71 +56,42 @@ if(isset($_POST["submit"]))
     {
         echo "tout les champs doivent être remplis";
     }
-}  
-
-
-
-
-                
-         
-
-
+}
 // $requete=mysqli_query($bdd,"SELECT login FROM utilisateurs WHERE login='$login'");
 // $result=mysqli_fetch_all($requete);
 // var_dump($result);
 
 
 ?>
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form2.css">
+    <title>Document</title>
+</head>
+<body>
+    <main>
+        <?php require ('navbar.php') ?>
+    <div class="centre">
+            <div class = "form">
+                <form action="connexion.php" method="post">
+                    <input class="connect" type="text" id="email" name="email" placeholder="email">
 
-</style>
-<main>
-<div class="page">
-    <div class="form-in-co">
-        <div class="champs-form">
-                <form action="inscription.php" method="post">
-                    <div class="titre-form">
-                        <h2>SIGN IN</h2>
-                    </div>    
-                        <div class="separation"></div>
-                        <div class="allBoites">
-                            <div class="boite">
-                               
-                             
-                                <input class ="input-in-co" type="email" name="email" placeholder="Email" required>
-                                <i class="fas fa-envelope"></i>
-                            </div>
-                         
-                            <div class="boite">
-                                
-                                <input class ="input-in-co" type="text" name="login" placeholder="Login"> 
-                                <i class="fas fa-user"></i>
-                            </div>
-                        
-                            <div class="boite">
-                                
-                                <input class ="input-in-co" type="text" name="password" placeholder="Password">
-                                <i class="fas fa-key"></i>   
-                            </div>
+                    <input class="connect" type="text" id="login" name="login" placeholder="Login">
 
-                            <div class="boite">
-                                <input class ="input-in-co" type="text" name="confirmPassword" placeholder="Confirm password">
-                                
-                                <i class="fas fa-key"></i>
-                                <div class="boiteKey">
-                                <i class="fas fa-check"></i>
-                                </div>
-                               
-                            </div>
-                        </div>    
-                            <div class="separation"></div>
+                    <input class="connect" type="password" id="password" name="password" placeholder="password">
 
-                      
-                            <input class ="butt" type="submit" name="submit" value="SUBMIT">         
+                    <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
+
+                    <input type="submit" value="connexion">
                 </form>
-        </div>    
-    </div>
-</div>    
-</main>
+                <p>Si vous êtes déja inscrit <a href="connexion1.php">connecter-vous !</a></p>
+            </div>
+        </div>
+    </main>
+    <?php require ('footer.php')?>
 </body>
 </html>

@@ -35,38 +35,34 @@
         }
     //}
 ?> 
-<style>
-
-</style>
-<main>
-    <div class=page>
-        <div class="form-in-co">
-            <div class="champs-form">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/form1.css">
+    <title>Document</title>
+</head>
+<body>
+    <?php require ('header.php')?>
+    <main>
+    <?php require ('navbar.php')?>
+        <div class="centre">
+            <div class = "form">
                 <form action="connexion.php" method="post">
-                    <div class="titre-form">
-                        <h2>LOG IN</h2>
-                    </div>    
-                        <div class="separation"></div>
-                            <div class="allBoites">
-                                <div class="boite">
-                                   <input class="input-in-co" type="text" name="login" placeholder="Votre login">
-                                   <i class="fas fa-user"></i>
-                                </div>
-                                <div class="boite">
-                                    <input class="input-in-co" type="text" name="password" placeholder="Votre password">
-                                    <i class="fas fa-key"></i>   
-                                </div>
-                            </div>    
-                        <div class="separation"></div> 
+                    <input class="connect" type="text" id="login" name="login" placeholder="Login">
 
-                                    <input class="butt-co"  type="submit" name="submit" value="SUBMIT" >
-                           
-                    </form>
+                    <input class="connect" type="password" id="password" name="password" placeholder="password">
+
+                    <input type="submit" value="connexion">
+                </form>
+                <p>Si vous n'êtes pas inscrit <a href="inscription.php">inscrivez-vous !</a></p>
             </div>
         </div>
-    </div>
-</main>    
+    </main>
+        <?php
+        require ('footer.php');
+         ?>
 </body>
 </html>
-
-

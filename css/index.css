@@ -1,0 +1,16 @@
+body{
+    overflow-x: hidden;
+    margin: 0;
+}
+main{
+    width: 100vw;
+    height: 100vh;
+}
+.presentation{
+    background-color: #FFD473 ;
+    width: 50%;
+    display: flex;
+}
+#container{
+display: flex;
+}

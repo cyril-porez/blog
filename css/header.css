@@ -1,184 +1,32 @@
-/* A simple, css only, (some-what) responsive menu */
-
-.body_header { 
-  /* background-image: url("../images/vaisseau2.jpg"); */
-    font-family: helvetica, arial, serif;
-    font-size: 20px;
-    text-transform: uppercase;
-    text-align: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: cover;    
-  } 
-   
-  .wrap {
-    /* display: inline-block; */
-    -webkit-box-shadow: 0 0 70px rgb(255, 255, 255);
-    -moz-box-shadow: 0 0 70px rgb(255, 255, 255);
-    box-shadow: 0 0 30px rgb(255, 255, 255);
-    /* margin-top: 40px; */
-    width: 100%;
-    border-radius: 20px;
-    
-
-  }
-  
-  
-   a {
-    text-decoration: none;
-    color: #fff;
-    display: block;
-  } 
-  
-  ul {
-    list-style: none;
-    position: relative;
-    text-align: left;
-  }
-  
-  li {
-    float: left;
-  }
-  
-  /* clear'n floats */
-  ul:after {
-    clear: both;
-  }
-  
-  ul:before,
-  ul:after {
-      content: " ";
-      display: table;
-  }
-  
-  nav {
-    display: flex;
-    justify-content: center;
-      
-    background-image: url("../images/vaisseau2.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    position: relative;
-    letter-spacing: 1px;
-    text-shadow: 1px 1px 1px #0E0E0E;
-    -webkit-box-shadow: 2px 2px 3px #888;
-    -moz-box-shadow: 2px 2px 3px #888;
-    box-shadow: 2px 2px 10px #888;
-    border-radius: 20px;
-   }
-
-
-  
-  /* prime */
-
-  ul.primary li a {
-    display: block;
-    padding: 20px 30px;
-    
-    /* border-right: 1px solid #3D3D3D; */
-  }
-  
-  ul.primary li:last-child a {
-    border-right: none;
-  }
-  
-  ul.primary li a:hover {
-    
-    color: rgb(8, 7, 7);
-    background-color:rgba(251, 251, 251, 0.74);
-    border-radius: 1rem;
-  }
-  
-  /* subs */
-  ul.sub {
-    position: absolute;
-    z-index: 200;
-    /* box-shadow: 2px 2px 0 #BEBEBE; */
-    width: 35%;
-    display:none;
-  }
-  
-  ul.sub li {
-    float: none;
-    margin: 0;
-  }
-  
-  ul.sub li a {
-    border-bottom: 1px dotted #ccc;
-    border-right: none;
-    color: rgb(0, 0, 0);
-    padding: 15px 30px;
-  }
-  
-  ul.sub li:last-child a {
-    border-bottom: none;
-  }
-  
-  ul.sub li a:hover {
-    color: #000;
-    background: #eeeeeed2;
-    border-top-right-radius: 1rem;
-  }
-  
-  /* sub display*/
-  ul.primary li:hover ul {
-    display: block;
-    background: rgba(251, 251, 251);
-    width: 50%;
-    border-top-right-radius:  1rem;
-  }
-  
-  /* keeps the tab background white */
-  ul.primary li:hover a {
-     color: #666;
-    text-shadow: none;
-  }
-  
-  ul.primary li:hover > a{
-    color: #000;
-  } 
-  
-  @media only screen and (max-width: 600px) {
-    .decor {
-      padding: 3px;
-    }
-    
-    .wrap {
-      width: 100%;
-      margin-top: 0px;
-    }
-    
-     li {
-      float: none;
-    }
-    
-    ul.primary li:hover a {
-      background: none;
-      color: #8B8B8B;
-      text-shadow: 1px 1px #000;
-    }
-  
-    ul.primary li:hover ul {
-      display: block;
-      background: #272727;
-      color: #fff;
-    }
-    
-    ul.sub {
-      display: block;  
-      position: static;
-      box-shadow: none;
-      width: 100%;
-    }
-    
-    ul.sub li a {
-      background: #272727;
-        border: none;
-      color: #8B8B8B;
-    }
-    
-    ul.sub li a:hover {
-      color: #ccc;
-      background: none;
-    }
-  }
+header{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: #02011E;
+  width: 100vw;
+  color: white;
+}
+img{
+  height: 40px;
+  width: 40px;
+  margin-left: 10px;
+  margin-top: 20px;
+}
+h1{
+  text-align: center;
+  margin-left: -43%;
+}
+#h3{
+  height: 5vh;
+}
+p{
+  margin-left: 14%;
+  margin-top: -3%;
+}
+#header{
+  display: flex;
+  flex-direction: column;
+  width: 100vh;
+}
+.burger{
+  float: left;
+  margin-left: 5%;
+}
