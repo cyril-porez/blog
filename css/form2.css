@@ -2,7 +2,7 @@ body{
     margin: 0;
     overflow-x: hidden;
 }
-main{
+#main2{
     background-image: url('https://www.lalibre.be/resizer/WF615KUSqoNnx1lrgByLOzwuS8s=/640x0:2560x1280/768x512/filters:quality(70):format(jpg)/cloudfront-eu-central-1.images.arcpublishing.com/ipmgroup/T24ECASTIVBRZLNTJYKUNKMCAM.jpg');
     background-repeat: no-repeat;
     background-position-y: center;
@@ -21,13 +21,13 @@ main{
     box-sizing: border-box;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
-.centre{
+#centre2{
     display: flex;
     justify-content: center;
     /* margin-top: 5%; */
     margin-bottom: 10%;
 }
-.form{
+#form2{
     justify-content: center;
     border: solid;
     border-radius: 30px;
@@ -39,7 +39,7 @@ main{
     background: rgba(255, 255, 255, 0.4);
     margin-top: 10%;
 }
-p{
+#p2{
     font-size: 15px;
 }
 input[type=submit] {

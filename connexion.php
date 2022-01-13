@@ -26,29 +26,20 @@
         }
         /*else if($login== && $password==) {   
           $_SESSION["user"]["id_droits"];
-        } */   
-   
+        } */
+
         else if (isset($_POST["login"]) || isset($_POST["password"]))
         {
             echo "tous les champs doivent être remplis";
         }
     //}
-?> 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/form1.css">
-    <title>Document</title>
-</head>
+?>
 <body>
     <?php require ('header.php')?>
-    <main>
+    <main id="main1">
     <?php require ('navbar.php')?>
-        <div class="centre">
-            <div class = "form">
+        <div id="centre1">
+            <div id="form1">
                 <form action="connexion.php" method="post">
                     <input class="connect" type="text" id="login" name="login" placeholder="Login">
 
@@ -56,7 +47,7 @@
 
                     <input type="submit" value="connexion">
                 </form>
-                <p>Si vous n'êtes pas inscrit <a href="inscription.php">inscrivez-vous !</a></p>
+                <p id="p1">Si vous n'êtes pas inscrit <a href="inscription.php">inscrivez-vous !</a></p>
             </div>
         </div>
     </main>
