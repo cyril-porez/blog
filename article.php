@@ -33,7 +33,7 @@
     $etat_dislike = $select_etat_dislike[0]["dislike"];
     
     if (isset($_POST["like"])) {
-        echo "bob";        
+                
         if ($etat_like == "0" && $etat_dislike == "1") {            
             $requete_update_like = mysqli_query($connex, "UPDATE intermediaire_article_like SET id_article = '$recupArticle' , id_utilisateur = '$user', etat_like =  '1', dislike = '0' where id_article = '$recupArticle' and id_utilisateur = '$user'");
         }
@@ -57,7 +57,9 @@
         }
     }
 ?>
+
 <main>
+    
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -69,15 +71,26 @@
 
                 $requeteLike = mysqli_query($connex, "SELECT count(etat_like) as nbr_like from intermediaire_article_like where id_article = '$id_article' and etat_like = 1");
                 $nbr_like = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
-                var_dump($nbr_like);
                 $requeteLike = mysqli_query($connex, "SELECT count(dislike) as nbr_dislike from intermediaire_article_like where id_article = '$id_article' and dislike = 1");
                 $nbr_dislike = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
+
+                //requete favories
+                if (isset($_POST["favoris"])) {
+                    $requete_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,favoris) values ('$user','$recupArticle','1')");
+                    var_dump($requete_favoris); 
+                }
+                
+                
+
             ?>
             <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
-            <form action="" method="post">
-                <button name="like"><img src="images/like.jpg" class="logo" alt="like"></button>
-                <button name="dislike"><img src="images/deslike.png" class="logo" alt="dislike"></button>
-            </form>
+            <div id="form_fld">
+                <form action="" method="post">
+                    <button name="favoris"><img src="images/coeur.png" class="logo" alt="favoris"></button>
+                    <button name="like"><img src="images/like.jpg" class="logo" alt="like"></button>
+                    <button name="dislike"><img src="images/deslike.png" class="logo" alt="dislike"></button>
+                </form>
+            </div>
             <p><?php echo $nbr_dislike[0]["nbr_dislike"] ?></p>
         </div>
         <div>
