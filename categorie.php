@@ -13,48 +13,53 @@
         $requete = mysqli_query($connex, "INSERT into categories (nom) VALUES ('$categorie')");
     }
 ?>
-<main>
-        <form action="categorie.php" method="post">
-            <input type="submit" name="affichCategorie" value="afficher les catégories">
-            <input type="submit" name="creatCategorie" value="Créer une categorie">
-            <input type="submit" name="X" value="X">
-            <input type="submit" name="back" value="Retour">
-        </form>
-        <?php
-            if (isset($_POST["creatCategorie"])) {?>
-                        <form action="categorie.php" method="post">
-                            <input type="text" name="categorie" placeholder="categorie">
-                            <input type="submit" name="creerCategorie" value="creer">
-                        </form> <?php
-            }
-            else if (isset($_POST["back"])) {
-                header("Location: admin.php");
-            }
-            else if (isset($_POST["affichCategorie"])) 
-            {?>
-                <table>
-                    <thead>
-                        <th>ID</th>
-                        <th>NOM</th>
-                    </thead>
-                    <tbody>
-                    <?php                    
-                        foreach($dataCategories as $dataCategorie) 
-                        {
-                            echo "<tr><td>" . $dataCategorie['id'] . "</td>";
-                            echo "<td>" . $dataCategorie['nom'] . "</td>";?>
-                            <form action="updateCategorie.php" method="get">
-                                    <td><button name='update'  value=<?php echo $dataCategorie["id"]; ?>>Modifier</button></td>
+<body class="page_cat">
+    
+    <main>
+        <div class="form_cat">
+            <form action="categorie.php" method="post">
+                <input class="input_cat" type="submit" name="affichCategorie" value="afficher les catégories">
+                <input class="input_cat" type="submit" name="creatCategorie" value="Créer une categorie">
+                <input class="input_cat" type="submit" name="X" value="X">
+                <input class="input_cat" type="submit" name="back" value="Retour">
+            </form>
+        </div>
+            <?php
+                if (isset($_POST["creatCategorie"])) { ?>
+                        <div id="containeur_cat">
+                            <form class="form_creat_cat" action="categorie.php" method="post">
+                                <input class="input_categorie" type="text" name="categorie" placeholder="categorie">
+                                <input class="input_creer" type="submit" name="creerCategorie" value="creer">
                             </form>
-                            <form action="deleteCategorie.php" method="get">
-                                    <td><button name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button></td></tr>
-                            </form>
-                            <?php
-                        }                        
-            }        
-                ?>
-            </tbody>
-        </table>
+                        </div>
+                <?php
+            }
+                else if (isset($_POST["back"])) {
+                    header("Location: admin.php");
+                }
+                else if (isset($_POST["affichCategorie"])) 
+                {?>
+                    <table class="table_cat">
+                        <thead>
+                            <th>ID</th>
+                            <th>NOM</th>
+                        </thead>
+                        <tbody class="td_cat">
+                            <?php                    
+                                foreach($dataCategories as $dataCategorie) 
+                                {
+                                    echo "<tr><td>" . $dataCategorie['id'] . "</td>";
+                                    echo "<td>" . $dataCategorie['nom'] . "</td>";?>
+                                    <td><form action="updateCategorie.php" method="get"><button class="input_bnt" name='update'  value=<?php echo $dataCategorie["id"]; ?>>Modifier</button></td>
+                                    </form>
+                                    <td><form action="deleteCategorie.php" method="get"><button class="input_bnt2" name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button></td></tr>
+                                    </form>
+                                    <?php
+                                }                        
+                }        
+                            ?>
+                        </tbody>
+                    </table>
     </main>
 </body>
 </html>
