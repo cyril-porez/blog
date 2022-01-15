@@ -3,7 +3,7 @@
     require ('bdd.php');
     require ('header.php');
     $title = 'Profil';
-    var_dump($_SESSION["user"]);
+    // var_dump($_SESSION["user"]);
 // if (isset($_POST['logout']))
 // {
 //     session_destroy();
@@ -22,7 +22,7 @@
     $infoUser = mysqli_fetch_all($requete, MYSQLI_ASSOC);
     $error_log = "";
     $error = "";
-    
+
     if (!empty($_POST["login"])) {
         $login = $_POST["login"];
         $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login = '$login'");
@@ -52,18 +52,17 @@
     else if (isset($_POST["password"])) {
         $error = "* oublis dans les champs";
     }
-
 ?>
-<main>
-    
+<body>
+<main id="main3">
+<?php require ('navbar.php');?>
     <div class="page-profil">
-        <div class="conteneur1">    
-            <div class="titre-profil">
+        <div class="conteneur1">
+            <!-- <div class="titre-profil">
                 <h1> MON PROFIL</h1>
-            </div>   
+            </div> -->
         <div class="info-profil">
             <?php
-
                 if(isset($_SESSION['user']))
             {
                 echo '<div class="info-user">'. $_SESSION ['user'][0]['login'] . ',</br> bienvenue dans votre espace personnel.'. '</br></div>';
@@ -76,46 +75,26 @@
     </div>
 
         <!-- <div class="form-profil">     -->
-            <div class="conteneur2">
-            <div class="titre-profil-form">
+                <!-- <div class="titre-profil-form">
                         <h1>MES INFORMATIONS</h1>
-                    </div>
-                <form action="profil.php" method="post" enctype="multipart/form-data">
-                    
-                    
-                        <div class="allBoites-profil"> 
-                        
-                        
-                                    <div class="boite">
+                </div> -->
+            <div id="centre3">
+                <div id = "form3">
+                    <form action="connexion.php" method="post">
+                        <input class="connect" type="text" id="email" name="email" value="<?php echo $_SESSION['user'][0]['email'];?>">
 
-                                        <label for="email">Email:</label></br>
-                                        <input  class="input-profil" type="text" id="email" name="email" value=<?php echo $_SESSION['user'][0]['email'];?>>
-                                </div>
-                                <div class="boite">
-                                
-                                        <label for="login">Login:</label></br>
-                                        <input  class="input-profil" type="text" id="login" name="login" value=<?php echo $_SESSION['user'][0]['login'];?>>
-                                </div>
-                       
-                                 
-                                <div class="boite">
-                                        <label for="password">Password:</label></br>
-                                        <input  class="input-profil" type="password" id="password" name="password" placeholder="*********">
-                                </div>
-                                <div class="boite">      
-                                
-                                        <label for="confirmPassword">Confirmer password:</label></br>
-                                        <input class="input-profil" type="password" name="confirmPassword" placeholder="********">
-                                </div>          
-                            
-                                        <input class="butt-profil" type="submit" name="editer" value="Editer">
-                                    
-                                </div>
-                               
-                </form>
+                        <input class="connect" type="text" id="login" name="login" value="<?php echo $_SESSION['user'][0]['login'];?>">
+
+                        <input class="connect" type="password" id="password" name="password" placeholder="*********">
+
+                        <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="**********">
+
+                        <input type="submit" value="update">
+                    </form>
+                </div>
             </div>
-        </div>        
-    </div>    
+
 </main>
+<?php require ('footer.php');?>
 </body>
 </html>
