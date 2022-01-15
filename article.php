@@ -5,14 +5,14 @@
     $title = 'Article';
 
     $user = $_SESSION['user'][0]['id'];
- 
+
     $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id = '$user'");
     $infoUser = mysqli_fetch_all($requete);
     // intval permet de transformer la string comprise dans le tableau de l'index id en entier.
     $idUser = intval($infoUser[0][0], $base = 10);
-   
+
     $recupArticle = $_GET['article'];
-    
+
     $requete2 = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories on articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id where articles.id = '$recupArticle'");
     $articles = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
     //var_dump($articles);
@@ -27,17 +27,15 @@
     $etat_like = $select_etat_like[0]["etat_like"];
 
     $requete4 = mysqli_query($connex, "SELECT count(dislike) as dislike from intermediaire_article_like where id_utilisateur = '$user' and id_article = '$recupArticle' and dislike ='1'");
-    $select_etat_dislike = mysqli_fetch_all($requete4, MYSQLI_ASSOC);    
+    $select_etat_dislike = mysqli_fetch_all($requete4, MYSQLI_ASSOC);
     $etat_dislike = $select_etat_dislike[0]["dislike"];
-    
+
     if (isset($_POST["like"])) {
-                
-        if ($etat_like == "0" && $etat_dislike == "1") {            
+        if ($etat_like == "0" && $etat_dislike == "1") {
             $requete_update_like = mysqli_query($connex, "UPDATE intermediaire_article_like SET id_article = '$recupArticle' , id_utilisateur = '$user', etat_like =  '1', dislike = '0' where id_article = '$recupArticle' and id_utilisateur = '$user'");
         }
         else if ($etat_like == "1" && $etat_dislike == "0") {
             $requete_delete_like = mysqli_query($connex, "DELETE from intermediaire_article_like where id_article ='$recupArticle' and id_utilisateur = '$user'");
-
         }
         else {
             $requete_like = mysqli_query($connex, "INSERT into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '1', '0')");
@@ -100,21 +98,21 @@
             ?>
             <div>
                 <?php
-                    foreach ($comArticles as $comArticle) {?>    
+                    foreach ($comArticles as $comArticle) {?>
                         <div id="container">
                             <div id="entête">
                                 <fieldset id="bordure">
                                     <legend id="contour">
-                                         <?php echo "Login:" . " " . $comArticle['login'] . " " . "Posté le :" . " " . $comArticle['date']; ?>
-                                        
+                                         <?php echo "Login:"." ".$comArticle['login']." "."Posté le :"." ".$comArticle['date'];?>
+
                                     </legend>
-                                    <?php echo $comArticle['commentaire'] ?>
+                                    <?php echo $comArticle['commentaire']?>
                                 </fieldset>
                             </div>
-                                                
-                        </div><?php 
-                    } 
-                ?>      
+
+                        </div><?php
+                    }
+                ?>
             </div>
         </div>
         <div>

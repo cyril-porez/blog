@@ -77,9 +77,9 @@ if(isset($_POST["submit"]))
 
                     <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
 
-                    <input type="submit" value="connexion">
+                    <input type="submit" value="inscription">
                 </form>
-                <p id="p2">Si vous êtes déja inscrit <a href="connexion1.php">connecter-vous !</a></p>
+                <p id="p2">Si vous êtes déja inscrit <a href="connexion.php">connecter-vous !</a></p>
             </div>
         </div>
     </main>
