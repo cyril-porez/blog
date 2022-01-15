@@ -1,18 +1,58 @@
+
 body{
     overflow-x: hidden;
+    /* background-size: cover; */
     margin: 0;
 }
 main{
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+    /* background-color: #000845; */
+    /* background-size: cover; */
 }
+/* .grandeimg{ */
+    /* width: 70vw;
+    height: 100vh; */
+    /* background-image: url('https://media.lesechos.com/api/v1/images/view/5bd2eea13e4546551c3f01fe/1280x720/2203796-arianespace-decroche-un-premier-contrat-commercial-pour-ariane-6-web-tete-0302232712290.jpg'); */
+/* } */
 .presentation{
-    background-color: #FFD473 ;
+    background-color: #FFD473;
     width: 50%;
     display: flex;
 }
 .article{
 display: flex;
-/* flex-direction: column; */
-border: solid;
+margin:auto;
+justify-content: center;
+border: none;
+border-radius: 8px;
+margin-bottom: 10%;
+width: 30vw;
+height: 40vh;
+margin-top: 3%;
+place-items: center;
+box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px,
+rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+background-color: blanchedalmond;
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.flex{
+    display: flex;
+    margin: auto;
+}
+#bloc{
+margin-right: 0;
+}
+video{
+width: 100%;
+/* height: 100vh; */
+}
+#titre{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* text-align: left; */
+color: #F8C107;
+}
+#h1{
+    align-items: center;
 }

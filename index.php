@@ -12,34 +12,48 @@
         <?php require ('navbar.php')?>
         <!-- <a href ="deconnexion.php">DECO</a> -->
         <?php //header('location: connexion.php')?>
+        <div id="bloc">
+            <video autoplay muted loop>
+                <source src="images/fusee.mp4" type="video/mp4" width="1920px">
+            </video>
+        </div>
+        <div id="h1">
+            <div>
+                <h1 id="titre">Nos derniers articles</h1>
+            </div>
+        </div>
+        <div class="flex">
         <?php
             foreach ($articles as $article) { ?>
-            <div class="article">
-                <form action="article.php" method="get">
-                    <div id="container">
-                        <div class="container2">
-                            <div>
-                                <p>Posté par:
-                                <?php echo $article['login']; ?></p>
+                <div class="article">
+                    <form action="article.php" method="get">
+                        <div id="container">
+                            <div class="container2">
+                                <div>
+                                    <p>Posté par:
+                                    <?php echo $article['login']; ?></p>
+                                </div>
+                                <div>
+                                    <p>Posté le :
+                                    <?php echo $article['date']; ?></p>
+                                </div>
                             </div>
                             <div>
-                                <p>Posté le :
-                                <?php echo $article['date']; ?></p>
+                                <p>Catégorie : <?php echo $article['nom']; ?></p>
                             </div>
+                            <div>
+                                <?php echo $article['article']; ?></p>
+                            </div>
+                            <?php if(!empty($_SESSION)){
+                           echo '<button name="article".$article[id]>Article</button>';
+                            }?>
                         </div>
-                        <div>
-                            <p>Catégorie : <?php echo $article['nom']; ?></p>
-                        </div>
-                        <div>
-                            <?php echo $article['article']; ?></p>
-                        </div>
-                        <button name="article" value=<?php echo $article['id']; ?>>Article</button>
-                    </div>
-                </form>
-            </div>
+                    </form>
+                </div>
                 <?php
-            }
-        ?>
+            } ?>
+            </div>
+
 
         <!-- <div class="presentation">
            <div>
