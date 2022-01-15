@@ -21,9 +21,7 @@
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
     }
 
-    //Requete permettant de récupérer l'id d'un like dislike 
-    
-
+    //Requete permettant de récupérer l'id d'un like dislike
     $requete4 = mysqli_query($connex, "SELECT count(etat_like) as etat_like from intermediaire_article_like where id_utilisateur = '$user' and id_article = '$recupArticle' and etat_like = '1'");
     $select_etat_like = mysqli_fetch_all($requete4, MYSQLI_ASSOC);
     $etat_like = $select_etat_like[0]["etat_like"];
@@ -76,7 +74,7 @@
 
                 //requete favories
                 if (isset($_POST["favoris"])) {
-                    $requete_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,favoris) values ('$user','$recupArticle','1')");
+                    $requete_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,etat_favoris) values ('$user','$recupArticle','1')");
                     var_dump($requete_favoris); 
                 }
                 

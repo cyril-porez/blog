@@ -3,9 +3,8 @@
     require ('bdd.php');
     require ('header.php');
 
-    $requete = mysqli_query($connex, "SELECT id_utilisateur, id_categorie, date, article, categorie FROM article INNER JOIN favoris ON favoris" );
-    $infofavoris = mysqli_fetch_all($requete);
-    $requete_favoris = mysqli_query($connex, "SELECT article, date, login, nom FROM `articles` INNER JOIN utilisateurs ON articles.id_utilisateur = utilisateurs.id INNER JOIN categories ON articles.id_categorie = categories.id INNER JOIN favoris ON articles.id_categorie = favoris.id");
-
-
+   
+    $requete_favoris = mysqli_query($connex, "SELECT articles.id, article, login, nom, date from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id inner join favoris on favoris.id_article = articles.id where favoris.id_utilisateur = 14 ");
+    $favoris = mysqli_fetch_all($requete_favoris);
+    var_dump($favoris);
 ?>
