@@ -53,9 +53,9 @@
         }
     }
 ?>
-
+<body>
+<?php require('navbar.php') ?>
 <main>
-    
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -73,10 +73,8 @@
                 //requete favories
                 if (isset($_POST["favoris"])) {
                     $requete_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,etat_favoris) values ('$user','$recupArticle','1')");
-                    var_dump($requete_favoris); 
+                    var_dump($requete_favoris);
                 }
-                
-                
 
             ?>
             <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
@@ -96,18 +94,18 @@
                 $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle';");
                 $comArticles = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
             ?>
-            <div>
+            <div id="grandcontainer">
                 <?php
                     foreach ($comArticles as $comArticle) {?>
-                        <div id="container">
+                        <div id="containercomment">
                             <div id="entête">
-                                <fieldset id="bordure">
-                                    <legend id="contour">
-                                         <?php echo "Login:"." ".$comArticle['login']." "."Posté le :"." ".$comArticle['date'];?>
+                                    <div class="login">
+                                         <?php echo "Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'par'.' '.$comArticle['login'];?>
+                                    </div>
 
-                                    </legend>
-                                    <?php echo $comArticle['commentaire']?>
-                                </fieldset>
+                                    <div class="comment">
+                                        <?php echo $comArticle['commentaire']?>
+                                    </div>
                             </div>
 
                         </div><?php
@@ -122,5 +120,6 @@
             </form>
         </div>
     </main>
+    <?php require('footer.php') ?>
 </body>
 </html>

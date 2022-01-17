@@ -4,3 +4,23 @@
     margin-bottom: 30px;
     background-color: aqua;
 }
+#grandcontainer{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+#containercomment{
+    text-align: center;
+    width: 40vw;
+    margin-top: 5%;
+}
+.login{
+    margin-bottom: 2%;
+}
+.comment{
+    min-height: 10vh;
+}
+.comment, .login{
+    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color: white;
+}
