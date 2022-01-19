@@ -9,6 +9,8 @@
   <link rel="stylesheet" href="css/form1.css">
   <link rel="stylesheet" href="css/form2.css">
   <link rel="stylesheet" href="css/categorie.css">
+  <link rel="stylesheet" href="css/article.css">
+  <link rel="stylesheet" href="css/articles.css">
   <title>SPACENET</title>
 </head>
 <header>
