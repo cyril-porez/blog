@@ -56,6 +56,7 @@
 <body>
 <?php require('navbar.php') ?>
 <main id="mainarticle">
+<?php require ('navbar.php') ?>
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -109,9 +110,10 @@
                                          <?php echo "Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'par'.' '.$comArticle['login'];?>
                                     </div>
 
-                                        <textarea readonly="readonly" name="" id="commentaire" rows="5"><?php echo $comArticle['commentaire']?></textarea>
-                            </div>
-
+                                    </legend>
+                                    <?php echo $comArticle['commentaire']?>
+                                </fieldset>
+                            </div>                                
                         </div><?php
                     }
                 ?>

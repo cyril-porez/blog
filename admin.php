@@ -49,10 +49,9 @@
         header("Location: categorie.php");
     }
 ?>
-<body>
-    <?php require('navbar.php'); ?>
-    <main>
-    <div class="page-admin">
+<main>
+<?php require ('navbar.php') ?>
+   <div class="page-admin">
 
         <div class="conteneur-admin">
 

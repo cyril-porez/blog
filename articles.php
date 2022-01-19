@@ -51,78 +51,81 @@
         // var_dump($articles);
     }
 ?>
-<body>
-<?php require('navbar.php') ?>
-<main>
-        <div>
-            <form action="" method="get">
-                <select name="categorie">
-                    <option>Choisir une catégorie d'article</option>
-                    <?php
-                        foreach($categories as $categorie) {?>
-                           <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
-                       <?php }
-                    ?>
-                     <input class="input1" type="submit"  value="executer">
-                </select>
-            </form>
-        </div>
-        <div>
-            <?php
-                foreach ($articles as $article) { ?>
-                    <form action="article.php" method="get">
-                        <div id="container">
-                            <div id="container2">
-                                <div>
-                                    <p>Posté par:
-                                    <?php echo $article['login']; ?></p>
+<body class="body--articles">
+<?php require ('navbar.php');?>
+    <main>
+    
+            <div class="choix--cat">
+                <form action="" method="get">
+                    <select name="categorie">
+                        <option>Choisir une catégorie d'article</option>
+                        <?php
+                            foreach($categories as $categorie) {?>
+                            <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
+                        <?php }
+                        ?>
+                        <input class="input1" type="submit"  value="executer">
+                    </select>
+                </form>
+            </div>
+            <div id="grande_div">
+                <?php
+                    foreach ($articles as $article) { ?>
+                        <form action="article.php" method="get">
+                            <div id="container">
+                                <div id="container2">
+                                    <div class="postepar">
+                                        <p>Posté par:
+                                        <?php echo $article['login']; ?></p>
+                                    </div>
+                                    <div class="postele">
+                                        <p>Posté le :
+                                        <?php echo $article['date']; ?></p>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Posté le :
-                                    <?php echo $article['date']; ?></p>
+                                <div class="cat_art">
+                                    <p>Catégorie : <?php echo $article['nom']; ?></p>
+                                </div>
+                                <div class="art_bnt">
+                                    <?php echo $article['article']; ?></p>
+                                </div>
+                                <div class="position--bnt">
+                                    <button class="bnt_a" name="article" value='<?php echo $article['id']; ?>'>Article</button>
                                 </div>
                             </div>
-                            <div>
-                                <p>Catégorie : <?php echo $article['nom']; ?></p>
-                            </div>
-                            <div>
-                                <?php echo $article['article']; ?></p>
-                            </div>
-                            <button name="article" value='<?php echo $article['id']; ?>'>Article</button>
-                        </div>
-                    </form><?php
-                }
-            ?>
-        </div>
-        <div id="pagination">
-            <?php
-                if (isset($_GET["categorie"])) {
-                    $id_categorie = $_GET["categorie"];
-                    //Requete servant à compter le nbr d'articles par categorie
-                    $requete_count = mysqli_query($connex, "SELECT count(article) as nbr_article_categorie, categories.nom from articles inner join categories on id_categorie = categories.id where id_categorie = $id_categorie LIMIT 5;");
-                    $nbr_article_par_categorie = mysqli_fetch_all($requete_count, MYSQLI_ASSOC);
-                    $nbr_pages =  ceil($nbr_article_par_categorie[0]["nbr_article_categorie"] / $nbr_articles_par_pages);
-
-                    $five = 0;
-                    for ($i = 1; $i <= $nbr_pages; $i++)
-                    {
-                        echo " <a href=articles.php?categorie=".$id_categorie."&start=".$five.">$i</a>&nbsp";
-                        $five = $five + 5;
+                        </form><?php
                     }
-                }
-                else {
-                    $i = 1;
-                    $five = 0;
-                    while ($i <= $nbr_pages )
-                    {
-                        echo " <a href='?start=$five'>$i</a>&nbsp";
+                ?>
+            </div>
+            <div id="pagination">
+                <?php
+                    if (isset($_GET["categorie"])) {
+                        $id_categorie = $_GET["categorie"];
+                        //Requete servant à compter le nbr d'articles par categorie
+                        $requete_count = mysqli_query($connex, "SELECT count(article) as nbr_article_categorie, categories.nom from articles inner join categories on id_categorie = categories.id where id_categorie = $id_categorie LIMIT 5;");
+                        $nbr_article_par_categorie = mysqli_fetch_all($requete_count, MYSQLI_ASSOC);
+                        $nbr_pages =  ceil($nbr_article_par_categorie[0]["nbr_article_categorie"] / $nbr_articles_par_pages);
+
+                        $five = 0;
+                        for ($i = 1; $i <= $nbr_pages; $i++)
+                        {
+                            echo " <a href=articles.php?categorie=".$id_categorie."&start=".$five.">$i</a>&nbsp";
                             $five = $five + 5;
-                            $i++;
+                        }       
                     }
-                }
+                    else {
+                        $i = 1;
+                        $five = 0;
+                        while ($i <= $nbr_pages ) 
+                        { 
+                            echo " <a href='?start=$five'>$i</a>&nbsp";
+                                $five = $five + 5;
+                                $i++;
+                        }
+                    }
 
-            ?>
-        </div>
+                ?>
+            </div>
     </main>
     <?php require('footer.php') ?>
 </body>
