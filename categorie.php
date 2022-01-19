@@ -4,6 +4,7 @@
     require ('header.php');
     $title = 'Categorie';
     
+    
     $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
     $dataCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
    
@@ -16,6 +17,7 @@
 <body class="page_cat">
     
     <main>
+        <?php require ('navbar.php') ?>
         <div class="form_cat">
             <form action="categorie.php" method="post">
                 <input class="input_cat" type="submit" name="affichCategorie" value="afficher les catégories">
@@ -28,8 +30,10 @@
                 if (isset($_POST["creatCategorie"])) { ?>
                         <div id="containeur_cat">
                             <form class="form_creat_cat" action="categorie.php" method="post">
+                                <div class="divp">
                                 <input class="input_categorie" type="text" name="categorie" placeholder="categorie">
                                 <input class="input_creer" type="submit" name="creerCategorie" value="creer">
+                                </div>
                             </form>
                         </div>
                 <?php

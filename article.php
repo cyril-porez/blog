@@ -56,6 +56,7 @@
 <body>
 <?php require('navbar.php') ?>
 <main id="mainarticle">
+<?php require ('navbar.php') ?>
         <div>
             <?php
                 echo $articles[0]['login'];
