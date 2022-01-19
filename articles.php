@@ -51,6 +51,8 @@
         // var_dump($articles);
     }
 ?>
+<body>
+<?php require('navbar.php') ?>
 <main>
         <div>
             <form action="" method="get">
@@ -62,17 +64,17 @@
                        <?php }
                     ?>
                      <input class="input1" type="submit"  value="executer">
-                </select>               
+                </select>
             </form>
         </div>
         <div>
-            <?php 
+            <?php
                 foreach ($articles as $article) { ?>
                     <form action="article.php" method="get">
                         <div id="container">
                             <div id="container2">
                                 <div>
-                                    <p>Posté par:  
+                                    <p>Posté par:
                                     <?php echo $article['login']; ?></p>
                                 </div>
                                 <div>
@@ -87,7 +89,7 @@
                                 <?php echo $article['article']; ?></p>
                             </div>
                             <button name="article" value='<?php echo $article['id']; ?>'>Article</button>
-                        </div>                
+                        </div>
                     </form><?php
                 }
             ?>
@@ -106,13 +108,13 @@
                     {
                         echo " <a href=articles.php?categorie=".$id_categorie."&start=".$five.">$i</a>&nbsp";
                         $five = $five + 5;
-                    }       
+                    }
                 }
                 else {
                     $i = 1;
                     $five = 0;
-                    while ($i <= $nbr_pages ) 
-                    { 
+                    while ($i <= $nbr_pages )
+                    {
                         echo " <a href='?start=$five'>$i</a>&nbsp";
                             $five = $five + 5;
                             $i++;
@@ -122,5 +124,6 @@
             ?>
         </div>
     </main>
+    <?php require('footer.php') ?>
 </body>
 </html>

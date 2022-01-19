@@ -3,10 +3,10 @@
     require ('bdd.php');
     require ('header.php');
     $title = 'Categorie';
-    
+
     $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
     $dataCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
-   
+
     if(isset($_POST["categorie"])) {
         $categorie = $_POST["categorie"];
 
@@ -14,7 +14,7 @@
     }
 ?>
 <body class="page_cat">
-    
+    <?php require('navbar.php'); ?>
     <main>
         <div class="form_cat">
             <form action="categorie.php" method="post">
@@ -37,7 +37,7 @@
                 else if (isset($_POST["back"])) {
                     header("Location: admin.php");
                 }
-                else if (isset($_POST["affichCategorie"])) 
+                else if (isset($_POST["affichCategorie"]))
                 {?>
                     <table class="table_cat">
                         <thead>
@@ -45,8 +45,8 @@
                             <th>NOM</th>
                         </thead>
                         <tbody class="td_cat">
-                            <?php                    
-                                foreach($dataCategories as $dataCategorie) 
+                            <?php
+                                foreach($dataCategories as $dataCategorie)
                                 {
                                     echo "<tr><td>" . $dataCategorie['id'] . "</td>";
                                     echo "<td>" . $dataCategorie['nom'] . "</td>";?>
@@ -55,11 +55,12 @@
                                     <td><form action="deleteCategorie.php" method="get"><button class="input_bnt2" name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button></td></tr>
                                     </form>
                                     <?php
-                                }                        
-                }        
+                                }
+                }
                             ?>
                         </tbody>
                     </table>
     </main>
+    <?php require('footer.php'); ?>
 </body>
 </html>
