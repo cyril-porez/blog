@@ -4,9 +4,12 @@
     margin-bottom: 30px;
     background-color: aqua;
 }
+#mainarticle{
+  min-height: 100vh;
+}
 #grandcontainer{
     display: flex;
-    justify-content: center;
+    align-items: center;
     flex-direction: column;
 }
 #containercomment{
@@ -16,11 +19,40 @@
 }
 .login{
     margin-bottom: 2%;
+    display: flex;
+    justify-content: space-evenly;
 }
-.comment{
+#commentaire{
     min-height: 10vh;
+    width: 99%;
+    border: none;
 }
-.comment, .login{
-    box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+#commentaire, .login{
+    box-shadow: rgba(1, 108, 201, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
     background-color: white;
 }
+#grandcontainer{
+    animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+textarea{
+    width: 50%;
+    height: 60%;
+}
+.avis{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.submitavis{
+    width: 10%;
+}
+

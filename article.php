@@ -55,7 +55,7 @@
 ?>
 <body>
 <?php require('navbar.php') ?>
-<main>
+<main id="mainarticle">
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -90,6 +90,12 @@
         <div>
             <h1>Commentaire</h1>
             <h3>Donner votre avis</h3>
+            <div>
+            <form class="avis" action="" method='post'>
+                <textarea name="message" id="msg" cols="1g0" rows="10" placeholder="Donner votre avis ici"></textarea>
+                <input class="submitavis" type="submit" id="buton" value="envoyer">
+            </form>
+        </div>
             <?php
                 $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle';");
                 $comArticles = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
@@ -103,21 +109,13 @@
                                          <?php echo "Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'par'.' '.$comArticle['login'];?>
                                     </div>
 
-                                    <div class="comment">
-                                        <?php echo $comArticle['commentaire']?>
-                                    </div>
+                                        <textarea readonly="readonly" name="" id="commentaire" rows="5"><?php echo $comArticle['commentaire']?></textarea>
                             </div>
 
                         </div><?php
                     }
                 ?>
             </div>
-        </div>
-        <div>
-            <form action="" method='post'>
-                <textarea name="message" id="msg" cols="30" rows="10"></textarea>
-                <input type="submit" id="buton" value="envoyer">
-            </form>
         </div>
     </main>
     <?php require('footer.php') ?>
