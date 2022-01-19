@@ -17,12 +17,18 @@
             <li><a href="inscription.php">Inscription</a></li>';}?>
             <?php if(!empty($_SESSION)){
             echo '<li><a href="profil.php">Modifier mon Profil</a></li>';}?>
-            <li><a href="">home</a></li>
-            <li><a href="">home</a></li>
+            <div class="dropdown">
+                <li><a href="">Categorie</a></li>
+                <div class="dropdown-content">
+                <a href="#">Link 1</a>
+                <a href="#">Link 2</a>
+                <a href="#">Link 3</a>
+                </div>
+            </div>
+            <li><a href="articles.php">Articles</a></li>
            <?php
             if(!empty($_SESSION)){
                     echo '<li><a href="deconnexion.php">deconnexion</a></li>';
-
             } ?>
         </ul>
     </div>
