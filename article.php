@@ -108,8 +108,7 @@
                                     </legend>
                                     <?php echo $comArticle['commentaire']?>
                                 </fieldset>
-                            </div>
-
+                            </div>                                
                         </div><?php
                     }
                 ?>
