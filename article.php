@@ -89,12 +89,16 @@
         </div>
         <div>
             <h1>Commentaire</h1>
-            <h3>Donner votre avis</h3>
-            <div>
-            <form class="avis" action="" method='post'>
-                <textarea name="message" id="msg" cols="1g0" rows="10" placeholder="Donner votre avis ici"></textarea>
-                <input class="submitavis" type="submit" id="buton" value="envoyer">
-            </form>
+            <?php
+                if (!empty($_SESSION)){
+                    echo "<h3>Donner votre avis</h3>
+                    <div>
+                    <form class='avis' action='' method='post'>
+                        <textarea name='message' id='msg' cols='1g0' rows='10' placeholder='Donner votre avis ici'></textarea>
+                        <input class='submitavis' type='submit' id='buton' value='envoyer'>
+                    </form>";
+                }
+            ?>
         </div>
             <?php
                 $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle';");

@@ -23,36 +23,34 @@
             </div>
         </div>
         <div class="flex">
-        <?php
-            foreach ($articles as $article) { ?>
-                <div class="article">
-                    <form action="article.php" method="get">
-                        <div id="container">
-                            <div class="container2">
-                                <div>
-                                    <p>Posté par:
-                                    <?php echo $article['login']; ?></p>
+            <?php
+                foreach ($articles as $article) { ?>
+                    <form id="index" action="article.php" method="get">
+                                <div id="container-articles">
+                                    <div id="container-articles2">
+                                        <div class="postepar">
+                                            <p>Posté par:
+                                            <?php echo $article['login']; ?></p>
+                                        </div>
+                                        <div class="postele">
+                                            <p>Posté le :
+                                            <?php echo $article['date']; ?></p>
+                                        </div>
+                                    </div>
+                                    <div class="cat_art">
+                                        <p>Catégorie : <?php echo $article['nom']; ?></p>
+                                    </div>
+                                    <div class="art_bnt">
+                                        <?php echo $article['article']; ?></p>
+                                    </div>
+                                    <div class="position--bnt">
+                                        <button class="bnt_a" name="article" value='<?php echo $article['id']; ?>'>Article</button>
+                                    </div>
                                 </div>
-                                <div>
-                                    <p>Posté le :
-                                    <?php echo $article['date']; ?></p>
-                                </div>
-                            </div>
-                            <div>
-                                <p>Catégorie : <?php echo $article['nom']; ?></p>
-                            </div>
-                            <div>
-                                <?php echo $article['article']; ?></p>
-                            </div>
-                            <?php if(!empty($_SESSION)){
-                           echo '<button name="article".$article[id]>Article</button>';
-                            }?>
-                        </div>
-                    </form>
-                </div>
-                <?php
-            } ?>
-            </div>
+                            </form>
+                    <?php
+                } ?>
+        </div>
 
 
         <!-- <div class="presentation">
