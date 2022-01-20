@@ -110,7 +110,7 @@
                                     </div>
 
                                     </legend>
-                                    <textarea name="" id="commentaire" cols="30" rows="10"><?php echo $comArticle['commentaire']?></textarea>
+                                    <textarea name="" id="commentaire" cols="30" rows="10" readonly><?php echo $comArticle['commentaire']?></textarea>
                                 </fieldset>
                             </div>
                         </div><?php
