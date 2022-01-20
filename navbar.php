@@ -1,4 +1,10 @@
 <?php
+require('bdd.php');
+$requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
+$navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
+// var_dump($navbarCategories);
+
+
 
 ?>
 <link rel="stylesheet" href="css/navbar.css">
@@ -12,17 +18,24 @@
         <ul>
             <li><a href="index.php">Accueil</a></li>
             <?php
-            if(empty($_SESSION)){
-            echo '<li><a href="connexion.php">Connexion</a></li>
-            <li><a href="inscription.php">Inscription</a></li>';}?>
-            <?php if(!empty($_SESSION)){
-            echo '<li><a href="profil.php">Modifier mon Profil</a></li>';}?>
+                if(empty($_SESSION)){
+                    echo '<li><a href="connexion.php">Connexion</a></li>
+                    <li><a href="inscription.php">Inscription</a></li>';}
+            ?>
+            <?php
+                if(!empty($_SESSION)){
+                    echo '<li><a href="profil.php">Modifier mon Profil</a></li>';
+                }
+            ?>
             <div class="dropdown">
-                <li><a href="">Categorie</a></li>
+                <li><a href="categorie.php">Categorie</a></li>
                 <div class="dropdown-content">
-                <a href="#">Link 1</a>
-                <a href="#">Link 2</a>
-                <a href="#">Link 3</a>
+                <?php
+                    foreach($navbarCategories as $navbarCategorie => $value){?>
+                        <a href="#"><p><?= $value['nom']; ?></p></a>
+                    <?php
+                    }
+                ?>
                 </div>
             </div>
             <li><a href="articles.php">Articles</a></li>
