@@ -72,8 +72,8 @@
                 <?php
                     foreach ($articles as $article) { ?>
                         <form action="article.php" method="get">
-                            <div id="container">
-                                <div id="container2">
+                            <div id="container-articles">
+                                <div id="container-articles2">
                                     <div class="postepar">
                                         <p>Posté par:
                                         <?php echo $article['login']; ?></p>

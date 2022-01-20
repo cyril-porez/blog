@@ -56,7 +56,6 @@
 <body>
 <?php require('navbar.php') ?>
 <main id="mainarticle">
-<?php require ('navbar.php') ?>
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -111,9 +110,9 @@
                                     </div>
 
                                     </legend>
-                                    <?php echo $comArticle['commentaire']?>
+                                    <textarea name="" id="commentaire" cols="30" rows="10"><?php echo $comArticle['commentaire']?></textarea>
                                 </fieldset>
-                            </div>                                
+                            </div>
                         </div><?php
                     }
                 ?>
