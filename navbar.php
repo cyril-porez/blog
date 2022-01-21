@@ -28,7 +28,7 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
                 }
             ?>
             <div class="dropdown">
-                <li><a href="categorie.php">Categorie</a></li>
+                <li><a href="">Categorie</a></li>
                 <div class="dropdown-content">
                 <?php
                     foreach($navbarCategories as $navbarCategorie => $value){?>
