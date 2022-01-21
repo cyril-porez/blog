@@ -4,7 +4,7 @@
     require ('header.php');
     $title = 'Article';
 
-    $user = $_SESSION['user'][0]['id'];
+    $user = $_SESSION['user'][0]['id'];    
     
     $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id = '$user'");
     $infoUser = mysqli_fetch_all($requete);
@@ -16,7 +16,7 @@
     $requete2 = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories on articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id where articles.id = '$recupArticle'");
     $articles = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
     //var_dump($articles);
-    if (isset($_POST["message"])) {
+    if (!empty($_POST["message"])) {
         $msg = $_POST["message"];
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
     }
@@ -77,15 +77,17 @@
                 }
 
             ?>
-            <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
+            
             <div id="form_fld">
                 <form action="" method="post">
                     <button name="favoris"><img src="images/coeur.png" class="logo" alt="favoris"></button>
                     <button name="like"><img src="images/like.jpg" class="logo" alt="like"></button>
+                    <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
                     <button name="dislike"><img src="images/deslike.png" class="logo" alt="dislike"></button>
+                    <p><?php echo $nbr_dislike[0]["nbr_dislike"] ?></p>
                 </form>
             </div>
-            <p><?php echo $nbr_dislike[0]["nbr_dislike"] ?></p>
+           
         </div>
         <div>
             <h1>Commentaire</h1>
@@ -102,7 +104,7 @@
             ?>
         </div>
             <?php
-                $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle';");
+                $requete3 = mysqli_query($connex, "SELECT commentaire, commentaires.date, login, articles.id from articles inner join commentaires on articles.id = commentaires.id_article  inner join utilisateurs on utilisateurs.id = commentaires.id_utilisateur where articles.id = '$recupArticle' ORDER by date DESC");
                 $comArticles = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
             ?>
             <div id="grandcontainer">
