@@ -93,10 +93,11 @@
                 if (!empty($_SESSION)){
                     echo "<h3>Donner votre avis</h3>
                     <div>
-                    <form class='avis' action='' method='post'>
-                        <textarea name='message' id='msg' cols='1g0' rows='10' placeholder='Donner votre avis ici'></textarea>
-                        <input class='submitavis' type='submit' id='buton' value='envoyer'>
-                    </form>";
+                        <form class='avis' action='' method='post'>
+                            <textarea name='message' id='msg' cols='1g0' rows='10' placeholder='Donner votre avis ici'></textarea>
+                            <input class='submitavis' type='submit' id='buton' value='envoyer'>
+                        </form>
+                    </div>";
                 }
             ?>
         </div>
