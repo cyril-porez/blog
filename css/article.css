@@ -65,4 +65,10 @@ body{
 .submitavis{
     width: 10%;
 }
+#poster{
+    margin-left: -30%;
+}
+#par{
+    margin-right: -25%;
+}
 

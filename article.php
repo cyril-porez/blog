@@ -113,7 +113,7 @@
                         <div id="containercomment">
                             <div id="entête">
                                     <div class="login">
-                                         <?php echo "Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'par'.' '.$comArticle['login'];?>
+                                         <?php echo "<div id ='poster'>Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'</div><div id="par">Posté par :'.' '.$comArticle['login'].'</div>';?>
                                     </div>
 
                                     </legend>
