@@ -1,0 +1,9 @@
+#flex_favoris{
+    width: 40vw;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 10%;
+}
+.favoris{
+    width: 40vw;
+}
