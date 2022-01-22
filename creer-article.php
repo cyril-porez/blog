@@ -5,7 +5,7 @@
     $title = 'Créer article';
     
     $id_user = $_SESSION["user"][0]["id"];
-    $request= mysqli_query($bdd, "SELECT * FROM categories");
+    $request= mysqli_query($connex, "SELECT * FROM categories");
     $fetch = mysqli_fetch_all($request, MYSQLI_ASSOC);
     if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
         $txt_article = $_POST["text_article"];        
