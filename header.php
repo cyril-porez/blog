@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="css/categorie.css">
   <link rel="stylesheet" href="css/article.css">
   <link rel="stylesheet" href="css/articles.css">
+  <link rel="stylesheet" href="css/favoris.css">
   <title>SPACENET</title>
 </head>
 <header>
