@@ -3,9 +3,6 @@ require('bdd.php');
 $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
 $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
 // var_dump($navbarCategories);
-
-
-
 ?>
 <link rel="stylesheet" href="css/navbar.css">
 <div class="slidecontainer">
@@ -24,7 +21,8 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
             ?>
             <?php
                 if(!empty($_SESSION)){
-                    echo '<li><a href="profil.php">Modifier mon Profil</a></li>';
+                    echo '<li><a href="profil.php">Modifier mon Profil</a></li>
+                    <li><a href="favoris.php">Mes Favoris</a></li>';
                 }
             ?>
             <div class="dropdown">
