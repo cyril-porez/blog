@@ -7,11 +7,12 @@
     if (!empty($_POST["login"]) && !empty($_POST["password"])) {
         $login = $_POST["login"];
         $password = $_POST["password"];
-        $requete = mysqli_query($connex, "SELECT login, password FROM utilisateurs WHERE login = '$login'");
+        $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login = '$login'");
         $users = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+        var_dump($users);
         if (count($users) != 0) {
             if (password_verify($password, $users[0]["password"])) {
-                $_SESSION["users"] = $login;
+                $_SESSION["user"] = $users;
                 header("Location: index.php");
             }
             else {

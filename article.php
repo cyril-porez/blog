@@ -3,8 +3,9 @@
     require ('bdd.php');
     require ('header.php');
     $title = 'Article';
-
-    $user = $_SESSION['user'][0]['id'];    
+    //var_dump($_SESSION["user"]);
+    $user = $_SESSION["user"][0]['id'];
+    //echo $user;  
     
     $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE id = '$user'");
     $infoUser = mysqli_fetch_all($requete);
