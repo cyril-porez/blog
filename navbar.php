@@ -14,6 +14,8 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
     <div class="sidebar">
         <ul>
             <li><a href="index.php">Accueil</a></li>
+            <li><a href="admin.php">Admin</a></li>
+            <li><a href="creer-article.php">Creer un article</a></li>
             <?php
                 if(empty($_SESSION)){
                     echo '<li><a href="connexion.php">Connexion</a></li>
@@ -21,8 +23,8 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
             ?>
             <?php
                 if(!empty($_SESSION)){
-                    echo '<li><a href="profil.php">Modifier mon Profil</a></li>
-                    <li><a href="favoris.php">Mes Favoris</a></li>';
+                    echo '<li><a href="favoris.php">Mes articles Favoris</a></li>
+                   <li><a href="profil.php">Modifier mon Profil</a></li>';
                 }
             ?>
             <div class="dropdown">
