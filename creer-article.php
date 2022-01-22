@@ -14,19 +14,8 @@
     }
 ?>
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="creer-article.css">
-    <title>Creer Article</title>
-</head>
 <body class="body_ca">
-    <header>
-
-    </header>
+<?php require('navbar.php') ?>
     <main>
         <form class="form" action="creer-article.php" method="POST">
             <div class="webflow-style-input">
@@ -42,9 +31,7 @@
                 </select>
             </div>
         </form>
-        <footer>
-
-        </footer>   
     </main>
+    <?php require('footer.php') ?>
 </body>
 </html>
