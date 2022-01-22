@@ -2,36 +2,29 @@
     session_start();
     require ('bdd.php');
     $title = 'Connexion';
+    $msgError = "";
 
-    //if(isset($_POST["submit"])) {
-            //$id_admin=1337; faire un inner join pour lier les colones id_droits de utilisateurs et id de la table droit. ?
-        if(!empty($_POST["login"]) && !empty($_POST["password"])) {
-            $login = $_POST["login"];
-            $password = $_POST["password"];
-            $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login='$login'");
-            // le select all me permet de recup toute les infos  y compris le password qui va me servir pour decrypter le hash
-            //et le where à comparer le login de post et les logins ds ma bdd
-            $result = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-            $recupPassword = $result[0]["password"];
-            var_dump($requete);
-            //je dois recuperer ma le mot de passe crypté en bdd
-            if(password_verify($password,$recupPassword)) {
-                $_SESSION["user"]=$result;
-                header('location: index.php');
+    if (!empty($_POST["login"]) && !empty($_POST["password"])) {
+        $login = $_POST["login"];
+        $password = $_POST["password"];
+        $requete = mysqli_query($connex, "SELECT login, password FROM utilisateurs WHERE login = '$login'");
+        $users = mysqli_fetch_all($requete, MYSQLI_ASSOC);
+        if (count($users) != 0) {
+            if (password_verify($password, $users[0]["password"])) {
+                $_SESSION["users"] = $login;
+                header("Location: index.php");
             }
             else {
-                echo "Le mot de passe est incorrect";
+                $msgError = "* Problem de mot de passe";
             }
         }
-        /*else if($login== && $password==) {
-          $_SESSION["user"]["id_droits"];
-        } */
-
-        else if (isset($_POST["login"]) || isset($_POST["password"]))
-        {
-            echo "tous les champs doivent être remplis";
+        else {
+            $msgError = "* Ce login n'existe pas";
         }
-    //}
+    }
+    else if (isset($_POST["login"]) && isset($_POST["password"])) {
+        $msgError = "* Vous n'avez pas remplis tous les champs";
+    }
 ?>
 <body>
     <?php require ('header.php')?>
@@ -47,6 +40,9 @@
                     <input type="submit" value="connexion">
                 </form>
                 <p id="p1">Si vous n'êtes pas inscrit <a href="inscription.php">inscrivez-vous !</a></p>
+                <?php
+                    echo $msgError;
+                ?>
             </div>
         </div>
     </main>
