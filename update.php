@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Admin Update';
 
     $user = $_GET["update"];
@@ -72,6 +72,13 @@
         header("Location: admin.php");
     } 
 ?>
+
+<body>
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
         <main>
             <fieldset>
                 <legend>
@@ -128,7 +135,9 @@
         </form>
     </main>
     <footer>
-
+        <?php
+            require ('footer.php');
+        ?>
     </footer>
 </body>
 </html>

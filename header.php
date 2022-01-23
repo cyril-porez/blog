@@ -11,18 +11,27 @@
   <link rel="stylesheet" href="css/categorie.css">
   <link rel="stylesheet" href="css/article.css">
   <link rel="stylesheet" href="css/articles.css">
-  <link rel="stylesheet" href="css/favoris.css">
+  <!--<link rel="stylesheet" href="css/favoris.css">-->
+  <link rel="stylesheet" href="css/delete.css">
+
   <title>SPACENET</title>
 </head>
-<header>
-  <div id="header">
-      <div>
-        <h1>SPACENET</h1>
-      </div>
-      <div id="h3">
-        <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
-      </div>
-  </div>
-</header>
-</header>
-
+<html>
+<body>
+  <header>
+    <div id="header">
+        <div>
+          <h1>SPACENET</h1>
+        </div>
+        <div id="h3">
+          <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
+        </div>
+    </div>
+    
+  </header>
+  <main>
+  <?php
+      require('navbar.php');
+  ?>
+    
+  

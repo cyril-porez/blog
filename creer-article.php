@@ -1,7 +1,7 @@
 <?php
     session_start();  
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Créer article';
     
     $id_user = $_SESSION["user"][0]["id"];
@@ -14,8 +14,13 @@
     }
 ?>
 
+<html>
 <body class="body_ca">
-<?php require('navbar.php') ?>
+    <header>
+        <?php
+            require ('header.php');            
+        ?>
+    </header>
     <main>
         <form class="form" action="creer-article.php" method="POST">
             <div class="webflow-style-input">
@@ -32,6 +37,10 @@
             </div>
         </form>
     </main>
-    <?php require('footer.php') ?>
+    <footer>
+        <?php
+            require('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

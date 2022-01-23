@@ -27,10 +27,15 @@
         $msgError = "* Vous n'avez pas remplis tous les champs";
     }
 ?>
+
+<html>
 <body>
-    <?php require ('header.php')?>
+    <header>
+        <?php 
+            require ('header.php');           
+        ?>
+    </header>
     <main id="main1">
-    <?php require ('navbar.php')?>
         <div id="centre1">
             <div id="form1">
                 <form action="connexion.php" method="post">
@@ -47,8 +52,10 @@
             </div>
         </div>
     </main>
+    <footer>
         <?php
-        require ('footer.php');
-         ?>
+            require ('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

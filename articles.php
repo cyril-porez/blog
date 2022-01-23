@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Articles';
 
     //Requete servant à récuperer le nbr d'article
@@ -51,18 +51,22 @@
         // var_dump($articles);
     }
 ?>
+<html>
 <body class="body--articles">
-<?php require ('navbar.php');?>
-    <main>
-    
-            <div class="choix--cat">
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
+    <main> 
+        <div class="choix--cat">
                 <form action="" method="get">
                     <select name="categorie">
                         <option>Choisir une catégorie d'article</option>
                         <?php
-                            foreach($categories as $categorie) {?>
+                            foreach($categories as $categorie) { ?>
                             <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
-                        <?php }
+                        <?php }                        
                         ?>
                         <input class="input1" type="submit"  value="executer">
                     </select>
@@ -123,10 +127,11 @@
                                 $i++;
                         }
                     }
-
                 ?>
             </div>
     </main>
-    <?php require('footer.php') ?>
+    <footer>
+        <?php require('footer.php') ?>
+    </footer>
 </body>
 </html>

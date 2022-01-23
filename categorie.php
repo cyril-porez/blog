@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Categorie';
 
     $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
@@ -13,9 +13,15 @@
         $requete = mysqli_query($connex, "INSERT into categories (nom) VALUES ('$categorie')");
     }
 ?>
+
+<html>
 <body class="page_cat">
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
     <main>
-        <?php require ('navbar.php') ?>
         <div class="form_cat">
             <form action="categorie.php" method="post">
                 <input class="input_cat" type="submit" name="affichCategorie" value="afficher les catégories">
@@ -63,6 +69,10 @@
                         </tbody>
                     </table>
     </main>
-    <?php require('footer.php'); ?>
+    <footer>
+        <?php
+            require('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

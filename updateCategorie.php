@@ -1,11 +1,11 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Admin Update Categorie';
 
     $categorie = $_GET["update"];
-    echo ($categorie);
+    
     $requete = mysqli_query($connex, "SELECT nom FROM categories WHERE id = '$categorie'");
     $categories = mysqli_fetch_all($requete, MYSQLI_ASSOC);
 
@@ -15,11 +15,17 @@
     else if (isset($_POST["categorie"])) {
         $nom = $_POST["categorie"];
         $update = mysqli_query($connex, "UPDATE categories SET nom = '$nom' WHERE id = '$categorie'");
-        header("Refresh:0");
-        var_dump($update); 
+        header("Refresh:0"); 
     }
     
 ?>
+
+<body>
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
      <main>
         <form action="" method="post">
             <input type="text" name="categorie"  value=<?php echo $categories[0]['nom']; ?>>
@@ -28,7 +34,9 @@
         </form>
     </main>
     <footer>
-
+        <?php
+            require ('footer.php');
+        ?>
     </footer>
 </body>
 </html>

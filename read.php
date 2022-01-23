@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+   
     $title = 'Admin Read';
 
     $user = $_GET["read"];
@@ -12,6 +12,14 @@
         header("Location: admin.php");
     }
 ?>
+
+<html>
+<body>
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
     <main>
         <form action="" method="post">
             <input type="text" name="id" placeholder="id" value=<?php echo $info[0]['id']; ?>>
@@ -22,5 +30,10 @@
             <input type="submit" name="back" value="retour">
         </form>
     </main>
+    <footer>
+        <?php
+            require ('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

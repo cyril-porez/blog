@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Admin Delete';
 
     $idUser= $_GET["delete"];
@@ -17,16 +17,27 @@
         header("Location: admin.php");
     }
 ?>
-<main>
+
+<body>
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
+    <main>
         <h1>Supprimer des utilisateurs</h1>
 
         <p>Voulez-vous supprimer l'utilisateur id = <?php echo $user[0]['id']; ?> et login = <?php echo $user[0]['login'] ?> ?</p>
 
         <form action="" method="post">
-            <input type="submit" name="delete" value="Supprimer">
-            <input type="submit" name="back" value="Retour">
+            <input type="submit" name="delete" id="oui" value="oui">
+            <input type="submit" name="back" id="non" value="non">
         </form>
-
     </main>
+    <footer>
+        <?php
+            require('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

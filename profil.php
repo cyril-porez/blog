@@ -72,11 +72,14 @@
         $errorEmail = "* oublis dans l'un champs";
     }
 ?>
+
+<html>
 <body>
-<?php require ('header.php'); ?>
-<main id="main3">
-    <?php require ('navbar.php');?>
-        <div class="page-profil">
+    </header>
+        <?php require ('header.php'); ?>
+    <header>
+        <main id="main3">
+            <div class="page-profil">
             <?php
                 if(isset($_SESSION['user']))
                 {
@@ -153,6 +156,10 @@
     </main>
 
 </main>
-<?php require ('footer.php');?>
+<footer>
+    <?php
+        require ('footer.php');
+    ?>
+</footer>
 </body>
 </html>

@@ -1,7 +1,7 @@
 <?php
 session_start();
 require ('bdd.php');
-require ('header.php');
+
 $title = 'Inscription';
 $msg = "";
 
@@ -51,36 +51,40 @@ $requete= mysqli_query($connex, "SELECT * FROM utilisateurs");
     {
         $msg = "* tout les champs doivent être remplis";
     }
-
-// $requete=mysqli_query($bdd,"SELECT login FROM utilisateurs WHERE login='$login'");
-// $result=mysqli_fetch_all($requete);
-// var_dump($result);
-
-
 ?>
-<body>
-    <main id="main2">
-        <?php require ('navbar.php') ?>
-    <div id="centre2">
-            <div id = "form2">
-                <form action="" method="post">
-                    <input class="connect" type="text" id="email" name="email" placeholder="email">
 
-                    <input class="connect" type="text" id="login" name="login" placeholder="Login">
+<html>
+    <body>
+        <header>
+            <?php
+                require ('header.php');
+            ?>
+        </header>
+        <main id="main2">
+            <div id="centre2">
+                <div id = "form2">
+                    <form action="" method="post">
+                        <input class="connect" type="text" id="email" name="email" placeholder="email">
 
-                    <input class="connect" type="password" id="password" name="password" placeholder="password">
+                        <input class="connect" type="text" id="login" name="login" placeholder="Login">
 
-                    <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
+                        <input class="connect" type="password" id="password" name="password" placeholder="password">
 
-                    <input type="submit" value="inscription">
-                </form>
-                <p id="p2">Si vous êtes déja inscrit <a href="connexion.php">connecter-vous !</a></p>
-                <?php
-                    echo $msg;
-                ?> 
+                        <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="confirm password">
+
+                        <input type="submit" value="inscription">
+                    </form>
+                    <p id="p2">Si vous êtes déja inscrit <a href="connexion.php">connecter-vous !</a></p>
+                    <?php
+                        echo $msg;
+                    ?> 
+                </div>
             </div>
-        </div>
-    </main>
-    <?php require ('footer.php')?>
-</body>
+        </main>
+        <footer>
+            <?php
+                require ('footer.php');
+            ?>
+        </footer>    
+    </body>
 </html>

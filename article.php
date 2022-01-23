@@ -1,7 +1,7 @@
 <?php
     session_start();
     require ('bdd.php');
-    require ('header.php');
+    
     $title = 'Article';
     //var_dump($_SESSION["user"]);
     $recupArticle = $_GET['article'];
@@ -58,9 +58,15 @@
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
     }   
 ?>
+
+<html>
 <body>
-<?php require('navbar.php') ?>
-<main id="mainarticle">
+    <header>
+        <?php
+            require ('header.php');
+        ?>
+    </header>
+    <main id="mainarticle">
         <div>
             <?php
                 echo $articles[0]['login'];
@@ -131,6 +137,10 @@
             </div>
         </div>
     </main>
-    <?php require('footer.php') ?>
+    <footer>
+        <?php 
+            require('footer.php'); 
+        ?>
+    </footer>
 </body>
 </html>
