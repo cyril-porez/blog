@@ -90,13 +90,14 @@
             ?>
             
             <div id="form_fld">
-                <form action="" method="post">
-                    <button name="favoris"><img src="images/coeur.png" class="logo" alt="favoris"></button>
-                    <button name="like"><img src="images/like.jpg" class="logo" alt="like"></button>
-                    <p><?php echo $nbr_like[0]["nbr_like"] ?></p>
-                    <button name="dislike"><img src="images/deslike.png" class="logo" alt="dislike"></button>
-                    <p><?php echo $nbr_dislike[0]["nbr_dislike"] ?></p>
+                
+                <form class="form--fld" action="" method="post">
+                    <button name="favoris"><img src="images/enregistrer.jpeg"  alt="favoris"></button>
+                    <button name="like"><img src="images/like.jpeg"  alt="like"></button><input type="text" readonly value="<?php echo $nbr_like[0]["nbr_like"] ?>">
+                    <button name="dislike"><img src="images/dislike.jpeg"  alt="dislike"></button><input readonly type="text" value="<?php echo $nbr_dislike[0]["nbr_dislike"] ?>">
+                    
                 </form>
+        
             </div>
            
         </div>
