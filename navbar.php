@@ -2,7 +2,6 @@
 require('bdd.php');
 $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
 $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
-// var_dump($navbarCategories);
 ?>
 
 <link rel="stylesheet" href="css/navbar.css">
@@ -19,9 +18,13 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
         <div class="sidebar">
         <ul>
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="admin.php">Admin</a></li>
-            <li><a href="creer-article.php">Creer un article</a></li>
-            <?php
+               <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 1337 ){
+                    echo '<li><a href="admin.php">Admin</a></li>';
+                   }
+                ?>
+            <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 42 ){
+                echo '<li><a href="creer-article.php">Creer un article</a></li>';
+                }
                 if(empty($_SESSION)){
                     echo '<li><a href="connexion.php">Connexion</a></li>
                     <li><a href="inscription.php">Inscription</a></li>';}
@@ -52,4 +55,3 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
         </ul>
     </div>
 </div>
-    
