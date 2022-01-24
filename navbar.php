@@ -36,11 +36,12 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
                 <li><a href="">Categorie</a></li>
                 <div class="dropdown-content">
                 <?php
-                    foreach($navbarCategories as $navbarCategorie => $value){?>
-                        <a href="#"><p><?= $value['nom']; ?></p></a>
-                    <?php
+                    foreach($navbarCategories as $navbarCategorie => $value){
+                      echo "<a href= articles.php?categorie=". $value['id']."><p>".$value['nom']."</p></a>";
                     }
+                   
                 ?>
+                
                 </div>
             </div>
             <li><a href="articles.php">Articles</a></li>
