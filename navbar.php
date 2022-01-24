@@ -21,7 +21,7 @@ $navbaradmin = mysqli_fetch_all($requete_admin, MYSQLI_ASSOC);
             <li><a href="index.php">Accueil</a></li>
              <!-- if ($_SESSION['user'][0] == 'administrateur'){ -->
                 <li><a href="admin.php">Admin</a></li>
-            
+
             <li><a href="creer-article.php">Creer un article</a></li>
             <?php
                 if(empty($_SESSION)){
