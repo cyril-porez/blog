@@ -1,0 +1,31 @@
+#yes {
+    background-color: red;
+    color: white;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+    margin-left: 170px;
+}
+
+#no {
+    background-color: rgb(14, 212, 14);
+    color: white;
+    height: 30px;
+    width: 50px;
+    border-radius: 5px;
+
+}
+
+h1 {
+    text-align: center;
+}
+
+#textDelete {
+    margin-left: 100px;
+    font-size: 20px;
+}
+
+#deleteUser {
+    margin-left: 15px;
+    font-family: 'Times New Roman', Times, serif;
+}
