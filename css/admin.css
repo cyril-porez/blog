@@ -1,115 +1,19 @@
 
-/* 
-html{
-    background-image: url("../images/galaxy.jpg");
-}   
-    */
-/*--------------------------------------------Tableau --------------------------------------*/    
-.page-admin
-{
-    display:flex;
-    flex-direction: column;
-    width: 100%;
-    height: 200vh;
-    border: solid 5px rgb(0, 255, 98);
-}
-/* .conteneur-admin
-{
- display:flex;
- flex-direction: column;
- justify-content: space-around;
- 
- width: 100%;
- height: 100vh;
- border: solid 2px red;
-} */
-.parent-table
-{
+#centre_admin{
     display: flex;
-    align-content: center;
     justify-content: center;
-    
-    border: blueviolet 2px solid;
-    
-    /* border: solid 2px red; */
-   
+    /* margin-top: 5%; */
+    margin-bottom: 10%;
 }
-.content-table{
-    border-collapse: collapse;
-   margin-top: 50px;
-    overflow: hidden;
-    /* border: solid 2px white ; */
-   border-radius: 20px;
-   /* border: 1px solid #999;  */
-   box-shadow: 0 0 7px #fff;
+#form_admin{
+    justify-content: center;
+    border: solid;
+    border-radius: 30px;
+    padding: 20px;
+    width: 15%;
+    height: 45vh;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 30px 60px -12px inset, rgba(0, 0, 0, 0.3) 0px 18px 36px -18px inset;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    background: rgba(255, 255, 255, 0.4);
+    margin-top: 15%;
 }
-   
-.content-table thead tr th 
-{
-    font-size: 1rem;
-}
-.content-table thead tr
-{
-    background-color: rgb(255, 255, 255);
-    color: rgb(84, 82, 82);
-    text-align: left;
-    font-weight: bold;
-    font-size: 5rem;
-}
-.content-table th,
-.content-table td
-{
-    padding: 20px 20px;
-    font-size: 0.7rem;
-}
-
-.content-table tbody tr
-{
-    /* border-bottom: 1px  solid rgb(254, 254, 255); */
-    background-color: rgba(255, 255, 255, 0.429);
-    color: rgb(255, 255, 255);
-
-}
-.content-table tbody tr:nth-of-type(even)
-{
-   
-    background-color:rgba(255, 255, 255, 0.161);
-}
- 
-
-.content-table tbody button
-{
-    /* -webkit-appearance: none; */
-    border-radius: 20px;
-    background-color:  rgba(33, 31, 31, 0.429);
-    color:rgb(255, 255, 255);
-    border: none;
-    padding: 15px;
-    cursor:pointer;
-    transition: all 0.3s ease-out;
-    
-}
-
-.content-table tbody button:hover
-{
-    background: rgb(239, 239, 238);
-    color:rgb(134, 134, 185);
-}
-.content-table tbody tr:hover
-{
-    background:rgba(255, 255, 255, 0.778);
-    color: rgb(96, 89, 125);
-    transition: all 0.3s ease-out;
-}
-/*---------------------------------------LE REST----------------------------------*/
-
-.conteneur-buttons-admin
-{
-  display:flex ;
-  align-items: center; 
-  justify-content:center;
-  height: 5vh;
-  width: 100%;
-  padding: 3rem;
-}
-

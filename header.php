@@ -12,6 +12,7 @@
   <link rel="stylesheet" href="css/article.css">
   <link rel="stylesheet" href="css/articles.css">
   <link rel="stylesheet" href="css/favoris.css">
+  <link rel="stylesheet" href="css/admin.css">
   <title>SPACENET</title>
 </head>
 <header>

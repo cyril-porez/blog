@@ -81,8 +81,6 @@ tr:hover {
     position:relative;
     padding:6px 10px;
     
-<<<<<<< HEAD
-=======
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     text-shadow: 0px 1px 0px #000;
     filter: dropshadow(color=#000, offx=0px, offy=1px);
@@ -94,7 +92,6 @@ tr:hover {
     -webkit-border-radius: 5px;
     -moz-border-radius: 5px;
     border-radius: 5px;
->>>>>>> 0e822f5917e5a55838c5c825214175a4fec29c2f
   }
   
 .input_bnt:active{
@@ -180,7 +177,7 @@ tr:hover {
 }
 
 .input_categorie{
-    
+    height: 10%;
 }
 
 .input_creer{

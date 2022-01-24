@@ -29,7 +29,7 @@
                         <div id="containeur_cat">
                             <form class="form_creat_cat" action="categorie.php" method="post">
                                 <div class="divp">
-                                <input class="input_categorie" type="text" name="categorie" placeholder="categorie">
+                                <input class="connect" type="text" name="categorie" placeholder="categorie">
                                 <input class="input_creer" type="submit" name="creerCategorie" value="creer">
                                 </div>
                             </form>

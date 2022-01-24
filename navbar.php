@@ -1,8 +1,13 @@
 <?php
+// session_start();
 require('bdd.php');
 $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
+$requete_admin = mysqli_query($connex, "SELECT * FROM droits INNER JOIN utilisateurs WHERE droits.id = utilisateurs.id_droits");
+
+
 $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
-// var_dump($navbarCategories);
+$navbaradmin = mysqli_fetch_all($requete_admin, MYSQLI_ASSOC);
+// var_dump($navbaradmin);
 ?>
 <link rel="stylesheet" href="css/navbar.css">
 <div class="slidecontainer">
@@ -14,7 +19,9 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
     <div class="sidebar">
         <ul>
             <li><a href="index.php">Accueil</a></li>
-            <li><a href="admin.php">Admin</a></li>
+             <!-- if ($_SESSION['user'][0] == 'administrateur'){ -->
+                <li><a href="admin.php">Admin</a></li>
+            
             <li><a href="creer-article.php">Creer un article</a></li>
             <?php
                 if(empty($_SESSION)){
