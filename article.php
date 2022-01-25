@@ -23,6 +23,11 @@
         $select_etat_dislike = mysqli_fetch_all($requete4, MYSQLI_ASSOC);
         $etat_dislike = $select_etat_dislike[0]["dislike"];
 
+        // requete permettant de compter un article si il est present ou pas dans la table favoris
+        $requete_favoris = mysqli_query($connex, "SELECT count(etat_favoris) as nbr_favoris from favoris where id_article = '$recupArticle' and id_utilisateur = '$user' and etat_favoris = '1'");
+        $nbr_favoris = mysqli_fetch_all($requete_favoris, MYSQLI_ASSOC);
+        $etat_favoris = $nbr_favoris[0]['nbr_favoris'];
+
         if (isset($_POST["like"])) {
             if ($etat_like == "0" && $etat_dislike == "1") {
                 $requete_update_like = mysqli_query($connex, "UPDATE intermediaire_article_like SET id_article = '$recupArticle' , id_utilisateur = '$user', etat_like =  '1', dislike = '0' where id_article = '$recupArticle' and id_utilisateur = '$user'");
@@ -44,15 +49,23 @@
             else {
                 $requete_dislike = mysqli_query($connex, "INSERT into intermediaire_article_like (id_article, id_utilisateur, etat_like, dislike) values ('$recupArticle', '$user', '0', '1')");
             }
+        }     
+        else if (isset($_POST["favoris"])) {
+            if ($etat_favoris == '0') {
+                //requete permettant d'inserer un article dans la table favoris
+                $requete_insert_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,etat_favoris) values ('$user','$recupArticle','1')");
+                header("refresh: 0");
+            }
+            else if ($etat_favoris == '1') {
+                $requete_delete_favoris = mysqli_query($connex, "DELETE from favoris where id_article = '$recupArticle' and id_utilisateur = '$user' and etat_favoris = '1'");
+                header("refresh: 0");
+            }
         }
-    }
-    //echo $user;    
-
-    
+    }  
 
     $requete2 = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs inner join categories on articles.id_utilisateur = utilisateurs.id and articles.id_categorie = categories.id where articles.id = '$recupArticle'");
     $articles = mysqli_fetch_all($requete2, MYSQLI_ASSOC);
-    //var_dump($articles);
+
     if (!empty($_POST["message"])) {
         $msg = $_POST["message"];
         $requete = mysqli_query($connex, "INSERT into commentaires (commentaire, id_article, id_utilisateur) values ('$msg', '$recupArticle', '$idUser')");
@@ -80,13 +93,6 @@
                 $nbr_like = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
                 $requeteLike = mysqli_query($connex, "SELECT count(dislike) as nbr_dislike from intermediaire_article_like where id_article = '$id_article' and dislike = 1");
                 $nbr_dislike = mysqli_fetch_all($requeteLike, MYSQLI_ASSOC);
-
-                //requete favories
-                if (isset($_POST["favoris"])) {
-                    $requete_favoris = mysqli_query($connex, "INSERT INTO favoris (id_utilisateur,id_article,etat_favoris) values ('$user','$recupArticle','1')");
-                    var_dump($requete_favoris);
-                }
-
             ?>
             
             <div id="form_fld">

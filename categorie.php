@@ -21,7 +21,7 @@
             require ('header.php');
         ?>
     </header>
-    <main>
+    <main class="categorie">
         <div class="form_cat">
             <form action="categorie.php" method="post">
                 <input class="input_cat" type="submit" name="affichCategorie" value="afficher les catégories">
@@ -35,8 +35,8 @@
                         <div id="containeur_cat">
                             <form class="form_creat_cat" action="categorie.php" method="post">
                                 <div class="divp">
-                                <input class="input_categorie" type="text" name="categorie" placeholder="categorie">
-                                <input class="input_creer" type="submit" name="creerCategorie" value="creer">
+                                <input class="connect" type="text" name="categorie" placeholder="categorie">
+                                <input type="submit" name="creerCategorie" value="creer">
                                 </div>
                             </form>
                         </div>

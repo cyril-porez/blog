@@ -70,16 +70,19 @@
             </div>
             <?php
                 if (isset($_POST["createUser"])) {?>
-                    <div class='conteneur-form-admin'>
-                        <form action='admin.php' method='post'>        
-                            <input type='text' name='login' placeholder='login'></br>
-                            <input type='email' name='email' placeholder='email' value='defaut@exemple.com'></br>
-                            <input type='text' name='id_droits' placeholder='id_droits'></br>
-                            <input type='text' name='password' placeholder='password'></br>
-                            <input type='text' name='confirmPassword' placeholder='confirPassword'></br>
-                            <input class='butt-site' type='submit' name='bouton' value='créer'>
-                        </form>
-                    </div>
+                    <div id='centre_admin'>
+                        <div id='form_admin'>
+                            <form action='admin.php' method='post'>
+
+                                <input class='connect' type='text' name='login' placeholder='login'></br>
+                                <input class='connect' type='email' name='email' placeholder='defaut@exemple.com'></br>
+                                <input class='connect' type='text' name='id_droits' placeholder='id_droits'></br>
+                                <input class='connect' type='text' name='password' placeholder='password'></br>
+                                <input class='connect' type='text' name='confirmPassword' placeholder='confirPassword'></br>
+                                <input type='submit' name='bouton' value='créer'>
+                            </form>
+                        </div>
+                    </div>";
                     <?php
                 }
                 echo "<p>" . $error . "</p>";
@@ -87,7 +90,7 @@
                 {
             ?>
                     <div class="parent-table">
-                        <table class="content-table">
+                        <table class="table_cat">
                             <thead>
                                 <tr>
                                     <th>id</th>
@@ -100,7 +103,7 @@
                                     <th>Supprimer</th>
                                 </tr>
                             </thead>
-                            <tbody>
+                            <tbody class="td_cat">
                             <?php
                                 foreach($infoUsers as $infoUser)
                                 {
@@ -113,13 +116,13 @@
                                                 <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; 
                             ?>
                                                 <form action="read.php" method="get">
-                                                    <td><button class="boutton" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
+                                                    <td><button class="input_bnt" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
                                                 </form>
                                                 <form action="update.php" method="get">
-                                                    <td><button type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
+                                                    <td><button class="input_bnt" type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
                                                 </form>
                                                 <form action="delete.php" method="get">
-                                                    <td><button type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button></td>
+                                                    <td><button class="input_bnt2" type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button></td>
                                                 </form>
                                             </tr> 
                                 <?php

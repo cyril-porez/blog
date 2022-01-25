@@ -61,12 +61,12 @@
     <main> 
         <div class="choix--cat">
                 <form action="" method="get">
-                    <select name="categorie">
+                    <select class="connect" name="categorie">
                         <option>Choisir une catégorie d'article</option>
                         <?php
                             foreach($categories as $categorie) { ?>
                             <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
-                        <?php }                        
+                        <?php }
                         ?>
                         <input type="submit"  value="executer">
                     </select>

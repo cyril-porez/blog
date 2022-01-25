@@ -29,7 +29,7 @@
     <main>
         <form class="form" action="creer-article.php" method="POST">
             <div class="webflow-style-input">
-                <input type="text" name="text_article" placeholder="Créer un Article">
+                <input class="connect" type="text" name="text_article" placeholder="Créer un Article">
                 <select name="categorie">
                     <option value="choose" name="choose">Choisir une catégorie d'article</option>
                     <?php

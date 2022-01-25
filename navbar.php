@@ -5,10 +5,6 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
 ?>
 
 <link rel="stylesheet" href="css/navbar.css">
-
-<html>
-<body>    
-    <main>
         <div class="slidecontainer">
             <input type="checkbox" id="check">
             <label for="check">
@@ -19,7 +15,8 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
         <ul>
             <li><a href="index.php">Accueil</a></li>
                <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 1337 ){
-                    echo '<li><a href="admin.php">Admin</a></li>';
+                    echo '<li><a href="admin.php">Admin</a></li>
+                    <li><a href="creer-article.php">Creer un article</a></li>';
                    }
                 ?>
             <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 42 ){
