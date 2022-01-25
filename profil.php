@@ -79,7 +79,7 @@
         <?php require ('header.php'); ?>
     <header>
         <main id="main3">
-            <div class="page-profil">
+            <div id="page-profil">
             <?php
                 if(isset($_SESSION['user']))
                 {
@@ -115,43 +115,32 @@
         </div>
     </div>-->
 
-    <h2>Modifier son profil:</h2>
-        <div id="formu_login">
-            <fieldset class="entete">
-                <legend><p class="titre"><b>LOGIN</b></p></legend>
-                <form action="profil.php" method="post" id="formLogin">
-                    <input type="text" name="login" placeholder="login" class="champs" value=<?php echo $_SESSION["user"][0]["login"]; ?>>
-                    <input type="submit" name="update_login" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorLog</p>";
-                    ?>
-                </form>
-            </fieldset>
-        </div>
-        <div id="formu_login">
-            <fieldset class="entete">
-                <legend><p class="titre"><b>Email</b></p></legend>
-                <form action="profil.php" method="post" id="formEmail">
-                    <input type="text" name="email" placeholder="email" class="champs" value=<?php echo $_SESSION["user"][0]["email"]; ?>>
-                    <input type="submit" name="update_email" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorEmail</p>";
-                    ?>
-                </form>
-            </fieldset>
-        </div>
-        <div id="formu_password">
-            <fieldset class="entete"> 
-                <legend><p class="titre"><b>PASSWORD</b></p></legend>
-                <form action="profil.php" method="post" id="formPassword">            
-                    <input type="text" name="password" placeholder="password" class="champs">
-                    <input type="text" name="confirmPassword" placeholder="confirmPassword" id="confirmPass" class="champs">
-                    <input type="submit" name="update" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorPass</p>";
-                    ?>
-                </form>
-            </fieldset>
+        <h2 id="h2">Modifier son profil:</h2>
+        <div id="centre3">
+                <div id="form3">
+                    <form action="profil.php" method="post" id="formLogin">
+                        <input class="connect" type="text" name="login" placeholder="login" class="champs" value=<?php echo $_SESSION["user"][0]["login"]; ?>>
+                        <input class="submit" type="submit" name="update_login" value="editer" class="bouton">
+                        <?php
+                            echo "<p>$errorLog</p>";
+                        ?>
+                    </form>
+                    <form action="profil.php" method="post" id="formEmail">
+                        <input class="connect" type="text" name="email" placeholder="email" class="champs" value=<?php echo $_SESSION["user"][0]["email"]; ?>>
+                        <input class="submit" type="submit" name="update_email" value="editer" class="bouton">
+                        <?php
+                            echo "<p>$errorEmail</p>";
+                        ?>
+                    </form>
+                    <form action="profil.php" method="post" id="formPassword">            
+                        <input class="connect" type="text" name="password" placeholder="password" class="champs">
+                        <input class="connect" type="text" name="confirmPassword" placeholder="confirmPassword" id="confirmPass" class="champs">
+                        <input class="submit" type="submit" name="update" value="editer" class="bouton">
+                        <?php
+                            echo "<p>$errorPass</p>";
+                        ?>
+                    </form>
+                </div>
         </div>
     </main>
 
