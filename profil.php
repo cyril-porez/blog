@@ -75,91 +75,49 @@
 
 <html>
 <body>
-    </header>
-        <?php require ('header.php'); ?>
     <header>
+        <?php require ('header.php'); ?>
+    </header>
         <main id="main3">
-            <div class="page-profil">
+            <div id="page-profil">
             <?php
                 if(isset($_SESSION['user']))
                 {
                     echo '<div class="info-user">'. $_SESSION ['user'][0]['login'] . ',</br> bienvenue dans votre espace personnel.'. '</br></div>';
                 }
             ?>
-        </div>
-    <!--
-    <div id="centre3">
-        <div id = "form3">
-            <form action="profil.php" method="post">
-                <fieldset>
-                    <legend>Modifer votre Email</legend>
-                        <input class="connect" type="text" id="email" name="email" value="<?php echo $_SESSION['user'][0]['email'];?>">
-                        <input type="submit" name="modifEmail" value="Modifer">                   
-                </fieldset>
-            </form>
-            <form action="profil.php" method="post">
-                <fieldset>
-                    <legend>Modifier votre Pseudos</legend>
-                    <input class="connect" type="text" id="login" name="login" value="<?php echo $_SESSION['user'][0]['login'];?>">
-                    <input type="submit" name="modifLogin" value="Modifier">
-                </fieldset>
-            </form> 
-            <form action="profil.php" method="post">    
-                <fieldset>
-                    <legend>modifier votre mot de passe</legend>
-                    <input class="connect" type="password" id="password" name="password" placeholder="*********">
-                    <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="**********">
-                    <input type="submit" name="modifierPassword" value="Modifer">
-                </fieldset>
-            </form>
-        </div>
-    </div>-->
-
-    <h2>Modifier son profil:</h2>
-        <div id="formu_login">
-            <fieldset class="entete">
-                <legend><p class="titre"><b>LOGIN</b></p></legend>
-                <form action="profil.php" method="post" id="formLogin">
-                    <input type="text" name="login" placeholder="login" class="champs" value=<?php echo $_SESSION["user"][0]["login"]; ?>>
-                    <input type="submit" name="update_login" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorLog</p>";
-                    ?>
+            </div>
+            <div id="centre3">
+            <div id = "form3">
+                <form action="profil.php" method="post">
+                    <fieldset>
+                        <legend>Modifer votre Email</legend>
+                            <input class="connect" type="text" id="email" name="email" value="<?php echo $_SESSION['user'][0]['email'];?>">
+                            <input type="submit" name="modifEmail" value="Modifer">                   
+                        </fieldset>
                 </form>
-            </fieldset>
-        </div>
-        <div id="formu_login">
-            <fieldset class="entete">
-                <legend><p class="titre"><b>Email</b></p></legend>
-                <form action="profil.php" method="post" id="formEmail">
-                    <input type="text" name="email" placeholder="email" class="champs" value=<?php echo $_SESSION["user"][0]["email"]; ?>>
-                    <input type="submit" name="update_email" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorEmail</p>";
-                    ?>
+                <form action="profil.php" method="post">
+                    <fieldset>
+                        <legend>Modifier votre Pseudos</legend>
+                            <input class="connect" type="text" id="login" name="login" value="<?php echo $_SESSION['user'][0]['login'];?>">
+                            <input type="submit" name="modifLogin" value="Modifier">
+                    </fieldset>
+                </form> 
+                <form action="profil.php" method="post">    
+                    <fieldset>
+                        <legend>modifier votre mot de passe</legend>
+                        <input class="connect" type="password" id="password" name="password" placeholder="*********">
+                        <input class="connect" type="password" id="confirmPassword" name="confirmPassword" placeholder="**********">
+                        <input type="submit" name="modifierPassword" value="Modifer">
+                    </fieldset>
                 </form>
-            </fieldset>
-        </div>
-        <div id="formu_password">
-            <fieldset class="entete"> 
-                <legend><p class="titre"><b>PASSWORD</b></p></legend>
-                <form action="profil.php" method="post" id="formPassword">            
-                    <input type="text" name="password" placeholder="password" class="champs">
-                    <input type="text" name="confirmPassword" placeholder="confirmPassword" id="confirmPass" class="champs">
-                    <input type="submit" name="update" value="editer" class="bouton">
-                    <?php
-                        echo "<p>$errorPass</p>";
-                    ?>
-                </form>
-            </fieldset>
-        </div>
+            </div>
+        </div>   
     </main>
-
-</main>
-<footer>
-    <?php
-        require ('footer.php');
-    ?>
-</footer>
+    <footer>
+        <?php
+           require ('footer.php');
+        ?>
+    </footer>
 </body>
 </html>

@@ -29,13 +29,13 @@
         <?php
             require('navbar.php');
         ?>
-        <h1>Supprimer une categorie</h1>
-        
-        <p>Voulez vous supprimer la catégorie <?php echo $categories[0]['nom']; ?> ?</p>   
-           
+        <h1 id="supp">Supprimer une categorie</h1>
+
+        <p id="voulez-vous">Voulez vous supprimer la catégorie <?php echo $categories[0]['nom']; ?> ?</p>   
+
         <form action="" method="post">
-            <input type="submit" name="delete" value="supprimer">
-            <input type="submit"  name="back" value="retour">
+            <input id="oui" type="submit" name="delete" value="oui">
+            <input id="non" type="submit"  name="back" value="retour">
         </form>
     </main>
     <footer>

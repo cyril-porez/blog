@@ -102,4 +102,84 @@
       font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
       font-size: x-large;
   }
+  min-height: 100vh;
+}
+#grandcontainer{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#containercomment{
+    text-align: center;
+    width: 40vw;
+    margin-top: 5%;
+}
+.login{
+    margin-bottom: 2%;
+    display: flex;
+    justify-content: space-evenly;
+}
+#commentaire{
+    min-height: 10vh;
+    width: 99%;
+    border: none;
+}
+#commentaire, .login{
+    box-shadow: rgba(1, 108, 201, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+    background-color: white;
+}
+#grandcontainer{
+    animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+#msg{
+  width: 50vw;
+  height: 30vh;
+  padding: 12px 20px;
+  box-sizing: border-box;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  resize: none;
+  box-shadow: red 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  background-color: white;
+}
+.avis{
+    display: flex;
+    justify-content: center;
+    height: 30vh;
+}
+.submitavis{
+    width: 10vw;
+
+}
+#poster{
+    margin-left: -30%;
+}
+#par{
+    margin-right: -25%;
+}
+.avis, #msg{
+    animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+#titre_comment{
+    text-align: center;
+}
 
