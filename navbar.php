@@ -40,8 +40,7 @@ $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
                       echo "<a href= articles.php?categorie=". $value['id']."><p>".$value['nom']."</p></a>";
                     }
                    
-                ?>
-                
+                ?>                
                 </div>
             </div>
             <li><a href="articles.php">Articles</a></li>

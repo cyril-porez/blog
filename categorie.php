@@ -59,15 +59,15 @@
                                     echo "<tr><td>" . $dataCategorie['id'] . "</td>";
                                     echo "<td>" . $dataCategorie['nom'] . "</td>";?>
                                           <td>
-                                                <form action="updateCategorie.php" method="get">
+                                            <form action="updateCategorie.php" method="get">
                                                     <button class="input_bnt" name='update'  value=<?php echo $dataCategorie["id"]; ?>>Modifier</button>
                                                 </form>
-                                            </td>
-                                            <td>
-                                                <form action="deleteCategorie.php" method="get">
-                                                    <button class="input_bnt2" name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button>
-                                                </form>
-                                            </td></tr>
+                                          </td>
+                                          <td>
+                                            <form action="deleteCategorie.php" method="get">
+                                                <button class="input_bnt2" name="delete" value=<?php echo $dataCategorie["id"]; ?> >Supprimer</button>
+                                            </form>
+                                          </td></tr>
                                     <?php
                                 }
                 }

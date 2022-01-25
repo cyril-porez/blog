@@ -9,7 +9,7 @@
         $password = $_POST["password"];
         $requete = mysqli_query($connex, "SELECT * FROM utilisateurs WHERE login = '$login'");
         $users = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-        var_dump($users);
+    
         if (count($users) != 0) {
             if (password_verify($password, $users[0]["password"])) {
                 $_SESSION["user"] = $users;
