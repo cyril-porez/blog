@@ -30,7 +30,11 @@
         </div>
         <div id="h3">
           <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
-                
+          <?php
+            if (!empty($_SESSION)) {
+              echo "<p>Bonjour " .$_SESSION['user'][0]['login']." !</p>"; 
+            }
+          ?>        
         </div>
     </div>
   </header>
