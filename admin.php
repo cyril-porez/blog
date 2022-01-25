@@ -154,8 +154,16 @@
                                         <td><?php echo $infoArticle['nom']; ?></td>
                                         <td><?php echo $infoArticle['date']; ?></td>
                                         <td><?php echo $infoArticle['login']; ?></td>
-                                        <td><button>Supprimer</button></td>
-                                        <td><button>Modifier</button></td>
+                                        <td>
+                                            <form action="DeleteArticle.php" method="get">
+                                                <button type="submit" name="" value=<?php echo $infoArticle['id']; ?>>Supprimer</button>
+                                            </form>
+                                        </td>
+                                        <td>
+                                            <form action="UpdateArticle.php" method="get">
+                                                <button type="submit" name="deleteArticle" value=<?php echo $infoArticle['id']; ?>>Modifier</button>
+                                            </form>
+                                        </td>
                                     </tr>
                                     <?php
                                 }
