@@ -57,7 +57,7 @@
                             <option value="<?=$categorie['id']?>"> <?= $categorie['nom']?></option>;
                         <?php }
                         ?>
-                        <input class="input1" type="submit"  value="executer">
+                        <input type="submit"  value="executer">
                     </select>
                 </form>
             </div>
