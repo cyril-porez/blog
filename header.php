@@ -1,3 +1,8 @@
+<?php
+ 
+  //var_dump($_SESSION["user"]);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,6 +30,7 @@
         </div>
         <div id="h3">
           <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
+                
         </div>
     </div>
   </header>
