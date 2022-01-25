@@ -11,7 +11,7 @@
         if (isset($_POST["text_article"]) && isset($_POST["categorie"])) {
             $txt_article = $_POST["text_article"];        
             $id_cat= $_POST["categorie"];        
-            $request2= mysqli_query($bdd, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', '$id_user', '$id_cat')");   
+            $request2= mysqli_query($connex, "INSERT INTO articles (article, id_utilisateur, id_categorie) VALUES ('$txt_article', '$id_user', '$id_cat')");   
         }
     }
     else {
