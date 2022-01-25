@@ -1,31 +1,16 @@
-#yes {
-    background-color: red;
-    color: white;
-    height: 30px;
-    width: 50px;
-    border-radius: 5px;
-    margin-left: 170px;
+#supp{
+text-align: center;
 }
-
-#no {
-    background-color: rgb(14, 212, 14);
-    color: white;
-    height: 30px;
-    width: 50px;
-    border-radius: 5px;
-
-}
-
-h1 {
+#voulez-vous{
     text-align: center;
+    margin-top: 10%;
+    font-weight: bold;
+    font-size: large;
+    color: red;
 }
-
-#textDelete {
-    margin-left: 100px;
-    font-size: 20px;
+#oui{
+    background-color: red;
 }
-
-#deleteUser {
-    margin-left: 15px;
-    font-family: 'Times New Roman', Times, serif;
+#centre_bouton{
+align-items: center;
 }

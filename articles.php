@@ -47,7 +47,7 @@
             require ('header.php');
         ?>
     </header>
-    <main> 
+    <main>
         <div class="choix--cat">
                 <form action="" method="get">
                     <select class="connect" name="categorie">
@@ -104,13 +104,13 @@
                         {
                             echo " <a href=articles.php?categorie=".$id_categorie."&start=".$five.">$i</a>&nbsp";
                             $five = $five + 5;
-                        }       
+                        }
                     }
                     else {
                         $i = 1;
                         $five = 0;
-                        while ($i <= $nbr_pages ) 
-                        { 
+                        while ($i <= $nbr_pages )
+                        {
                             echo " <a href='?start=$five'>$i</a>&nbsp";
                                 $five = $five + 5;
                                 $i++;

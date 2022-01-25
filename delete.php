@@ -25,14 +25,17 @@
         ?>
     </header>
     <main>
-        <h1>Supprimer des utilisateurs</h1>
+        <h1 id="supp">Supprimer des utilisateurs</h1>
 
-        <p>Voulez-vous supprimer l'utilisateur id = <?php echo $user[0]['id']; ?> et login = <?php echo $user[0]['login'] ?> ?</p>
-
-        <form action="" method="post">
-            <input type="submit" name="delete" id="oui" value="oui">
-            <input type="submit" name="back" id="non" value="non">
-        </form>
+        <p id="voulez-vous">Voulez-vous supprimer l'utilisateur dont l'id est <?php echo $user[0]['id']; ?> et le login est <?php echo $user[0]['login'] ?> ?</p>
+        <div class="centre_bouton">
+            <form action="" method="post">
+                <div>
+                    <input type="submit" name="delete" id="oui" value="oui">
+                    <input type="submit" name="back" id="non" value="non">
+                </div>
+            </form>
+        </div>
     </main>
     <footer>
         <?php

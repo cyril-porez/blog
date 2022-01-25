@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="css/index.css">
   <link rel="stylesheet" href="css/connexion.css">
   <link rel="stylesheet" href="css/inscription.css">
+  <link rel="stylesheet" href="css/profil.css">
   <link rel="stylesheet" href="css/categorie.css">
   <link rel="stylesheet" href="css/article.css">
   <link rel="stylesheet" href="css/articles.css">

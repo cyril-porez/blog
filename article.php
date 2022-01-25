@@ -114,7 +114,7 @@
            
         </div>
         <div>
-            <h1>Commentaire</h1>
+            <h1 id="titre_comment">Commentaire</h1>
             <?php
                 if (!empty($_SESSION)){
                     echo "<h3>Donner votre avis</h3>

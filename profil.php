@@ -79,7 +79,7 @@
         <?php require ('header.php'); ?>
     </header>
         <main id="main3">
-            <div class="page-profil">
+            <div id="page-profil">
             <?php
                 if(isset($_SESSION['user']))
                 {

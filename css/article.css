@@ -48,27 +48,45 @@ body{
     }
 }
 #msg{
-  width: 50%;
-  height: 60%;
+  width: 50vw;
+  height: 30vh;
   padding: 12px 20px;
   box-sizing: border-box;
-  border: 2px solid red;
+  border: none;
   border-radius: 4px;
-  background-color: #E2F5FC;
   font-size: 16px;
   resize: none;
+  box-shadow: red 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  background-color: white;
 }
 .avis{
     display: flex;
     justify-content: center;
+    height: 30vh;
 }
 .submitavis{
-    width: 10%;
+    width: 10vw;
+
 }
 #poster{
     margin-left: -30%;
 }
 #par{
     margin-right: -25%;
+}
+.avis, #msg{
+    animation: fadein 5s;
+    -webkit-animation: fadein 5s;
+}
+@keyframes fadein {
+    from {
+        opacity:0;
+    }
+    to {
+        opacity:1;
+    }
+}
+#titre_comment{
+    text-align: center;
 }
 
