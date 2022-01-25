@@ -115,15 +115,21 @@
                                                 <td class="textAdmin">' . $infoUser["id_droits"] . '</td>
                                                 <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; 
                             ?>
-                                                <form action="read.php" method="get">
-                                                    <td><button class="input_bnt" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</td>
-                                                </form>
-                                                <form action="update.php" method="get">
-                                                    <td><button class="input_bnt" type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button></td>
-                                                </form>
-                                                <form action="delete.php" method="get">
-                                                    <td><button class="input_bnt2" type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button></td>
-                                                </form>
+                                                <td>
+                                                    <form action="read.php" method="get">
+                                                        <button class="input_bnt" type="submit" name="read" id="read" value=<?php echo $infoUser["id"] ?>>Lire</button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="update.php" method="get">
+                                                        <button class="input_bnt" type="submit" name="update" id="update" value=<?php echo $infoUser["id"]; ?>>modifier</button>
+                                                    </form>
+                                                </td>
+                                                <td>
+                                                    <form action="delete.php" method="get">
+                                                        <button class="input_bnt2" type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button>
+                                                    </form>
+                                                </td>
                                             </tr> 
                                 <?php
                             }
