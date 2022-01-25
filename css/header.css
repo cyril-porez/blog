@@ -26,7 +26,9 @@ p{
   flex-direction: column;
   width: 100vh;
 }
-.burger{
-  float: left;
-  margin-left: 5%;
+#bonjour_user{
+  float: right;
+  margin-top: -4%;
+  margin-right: 10%;
+  font-size: 15px;
 }

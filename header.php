@@ -29,14 +29,14 @@
           <h1 id="spacenet">SPACENET</h1>
         </div>
         <div id="h3">
-          <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
-          <?php
-            if (!empty($_SESSION)) {
-              echo "<p>Bonjour " .$_SESSION['user'][0]['login']." !</p>"; 
-            }
-          ?>        
+            <p>Blog d'aerospatiale, d'aeronautique et d'astronomie</p>
         </div>
     </div>
+    <?php
+      if (!empty($_SESSION)) {
+        echo "<p id='bonjour_user'>Bonjour " .$_SESSION['user'][0]['login']." !</p>";
+      }
+    ?>
   </header>
   <?php
       require('navbar.php');
