@@ -60,8 +60,8 @@
             require ('header.php');            
         ?>
     </header>
-    <main>    
-    <div class="page-admin">        
+    <main>
+    <div class="page-admin">
         <div class="conteneur-admin">
             <div class ="conteneur-buttons-admin">
                 <form action="admin.php" method="post">
@@ -113,7 +113,7 @@
                                                 <td class="textAdmin">' . $infoUser["login"] . '</td>
                                                 <td class="textAdmin">' . $infoUser["email"] . '</td>
                                                 <td class="textAdmin">' . $infoUser["id_droits"] . '</td>
-                                                <td class="textAdmin">' . $subrstrPass. '...' . '</td>'; 
+                                                <td class="textAdmin">' . $subrstrPass. '...' . '</td>';
                             ?>
                                                 <td>
                                                     <form action="read.php" method="get">
@@ -130,7 +130,7 @@
                                                         <button class="input_bnt2" type="submit" name="delete" id="delete" value=<?php echo $infoUser["id"]; ?>>supprimer</button>
                                                     </form>
                                                 </td>
-                                            </tr> 
+                                            </tr>
                                 <?php
                             }
                 }
@@ -147,7 +147,7 @@
                         </thead>
                         <tbody>
                             <?php
-                                foreach($infoArticles as $infoArticle) { ?>
+                                foreach($infoArticles as $infoArticle){ ?>
                                     <tr>
                                         <td><?php echo $infoArticle['id']; ?></td>
                                         <td><?php echo $infoArticle['article']; ?></td>
@@ -155,13 +155,13 @@
                                         <td><?php echo $infoArticle['date']; ?></td>
                                         <td><?php echo $infoArticle['login']; ?></td>
                                         <td>
-                                            <form action="DeleteArticle.php" method="get">
-                                                <button type="submit" name="" value=<?php echo $infoArticle['id']; ?>>Supprimer</button>
+                                            <form action="deleteArticle.php" method="get">
+                                                <button type="submit" name="deleteArticle" value=<?php echo $infoArticle['id']; ?>>Supprimer</button>
                                             </form>
                                         </td>
                                         <td>
-                                            <form action="UpdateArticle.php" method="get">
-                                                <button type="submit" name="deleteArticle" value=<?php echo $infoArticle['id']; ?>>Modifier</button>
+                                            <form action="updateArticle.php" method="get">
+                                                <button type="submit" name="updateArticle" value=<?php echo $infoArticle['id']; ?>>Modifier</button>
                                             </form>
                                         </td>
                                     </tr>
