@@ -6,10 +6,14 @@ $requete_admin = mysqli_query($connex, "SELECT * FROM droits INNER JOIN utilisat
 
 
 $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
+<<<<<<< HEAD
 $navbaradmin = mysqli_fetch_all($requete_admin, MYSQLI_ASSOC);
 // var_dump($navbaradmin);
+=======
+>>>>>>> b4b767941aca503d345f04bd580d9881ae74eb0a
 ?>
 <link rel="stylesheet" href="css/navbar.css">
+<<<<<<< HEAD
 <div class="slidecontainer">
         <input type="checkbox" id="check">
     <label for="check">
@@ -24,6 +28,25 @@ $navbaradmin = mysqli_fetch_all($requete_admin, MYSQLI_ASSOC);
 
             <li><a href="creer-article.php">Creer un article</a></li>
             <?php
+=======
+        <div class="slidecontainer">
+            <input type="checkbox" id="check">
+            <label for="check">
+                <i class="fas fa-bars" id="btn"></i>
+                <img id="cancel" src="https://cdn-icons-png.flaticon.com/128/271/271218.png" alt="">
+            </label>
+        <div class="sidebar">
+        <ul>
+            <li><a href="index.php">Accueil</a></li>
+               <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 1337 ){
+                    echo '<li><a href="admin.php">Admin</a></li>
+                    <li><a href="creer-article.php">Creer un article</a></li>';
+                   }
+                ?>
+            <?php if(!empty($_SESSION['user']) && $_SESSION['user'][0]['id_droits'] == 42 ){
+                echo '<li><a href="creer-article.php">Creer un article</a></li>';
+                }
+>>>>>>> b4b767941aca503d345f04bd580d9881ae74eb0a
                 if(empty($_SESSION)){
                     echo '<li><a href="connexion.php">Connexion</a></li>
                     <li><a href="inscription.php">Inscription</a></li>';}
@@ -38,11 +61,11 @@ $navbaradmin = mysqli_fetch_all($requete_admin, MYSQLI_ASSOC);
                 <li><a href="">Categorie</a></li>
                 <div class="dropdown-content">
                 <?php
-                    foreach($navbarCategories as $navbarCategorie => $value){?>
-                        <a href="#"><p><?= $value['nom']; ?></p></a>
-                    <?php
+                    foreach($navbarCategories as $navbarCategorie => $value){
+                      echo "<a href= articles.php?categorie=". $value['id']."><p>".$value['nom']."</p></a>";
                     }
-                ?>
+                   
+                ?>                
                 </div>
             </div>
             <li><a href="articles.php">Articles</a></li>
