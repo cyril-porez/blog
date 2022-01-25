@@ -23,32 +23,21 @@
         $page = 0;
     }
 
-
-   
-    //var_dump($articles);
-    if (ceil($page/ $nbr_articles_par_pages) > $nbr_pages || $page < 1) {
-      //  header("Location: articles.php");
-    }
-
     // requete pour récupérer les infos de la categorie
     $requete3 = mysqli_query($connex, "SELECT * from categories");
     $categories = mysqli_fetch_all($requete3, MYSQLI_ASSOC);
-    //var_dump($categories);
-    //var_dump($debut);
 
     if (isset($_GET["categorie"])) {
         $id_categorie = $_GET["categorie"];   
         //requete permettant de récupérer les articles par catégorie par date decroissante limité à 5
         $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id  where id_categorie = $id_categorie ORDER BY date desc limit $nbr_articles_par_pages OFFSET $page");
         $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-        //var_dump($debut);
     }
    
     else {
         //requete permettant de récupérer tous les articles par date decroissante limité à 5
         $requete = mysqli_query($connex, "SELECT articles.id, article, nom, date, login  from articles inner join utilisateurs on articles.id_utilisateur = utilisateurs.id inner join categories on articles.id_categorie = categories.id ORDER BY date desc limit  $nbr_articles_par_pages OFFSET $page");
         $articles = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-        // var_dump($articles);
     }
 ?>
 <html>

@@ -3,8 +3,15 @@
     require ('bdd.php');
     
     $title = 'Article';
-    //var_dump($_SESSION["user"]);
+
     $recupArticle = $_GET['article'];
+
+    $requete_id_article = mysqli_query($connex, "SELECT count(id) as nbr_id from articles where id = '$recupArticle'");
+    $id_articles = mysqli_fetch_all($requete_id_article, MYSQLI_ASSOC);
+
+    if ($id_articles[0]['nbr_id'] == '0') {
+        header("Location: articles.php");
+    }
 
     if (!empty($_SESSION)) {
         $user = $_SESSION["user"][0]['id'];
@@ -132,8 +139,6 @@
                                     <div class="login">
                                          <?php echo "<div id ='poster'>Posté le :"." ".date_format(date_create($comArticle['date']), 'd/m/Y H:i:s').' '.'</div><div id="par">Posté par :'.' '.$comArticle['login'].'</div>';?>
                                     </div>
-
-                                    </legend>
                                     <textarea name="" id="commentaire" cols="30" rows="10" readonly><?php echo $comArticle['commentaire']?></textarea>
                                 </fieldset>
                             </div>
