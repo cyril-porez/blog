@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ('bdd.php');
+require_once('bdd.php');
 
 $title = 'Inscription';
 $msg = "";
@@ -57,7 +57,7 @@ $requete= mysqli_query($connex, "SELECT * FROM utilisateurs");
     <body>
         <header>
             <?php
-                require ('header.php');
+                require_once('header.php');
             ?>
         </header>
         <main id="main2">
@@ -83,7 +83,7 @@ $requete= mysqli_query($connex, "SELECT * FROM utilisateurs");
         </main>
         <footer>
             <?php
-                require ('footer.php');
+                require_once('footer.php');
             ?>
         </footer>    
     </body>

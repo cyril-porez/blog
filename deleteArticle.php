@@ -1,6 +1,6 @@
 <?php
 session_start();
-require ('bdd.php');
+require_once('bdd.php');
 
 $idArticle = $_GET['deleteArticle'];
 $selectarticle = mysqli_query($connex, "SELECT id, article FROM articles WHERE id = '$idArticle'");
@@ -18,7 +18,7 @@ else if (isset($_POST["back"])) {
 <body>
     <header>
         <?php
-            require ('header.php');
+            require_once('header.php');
         ?>
     </header>
     <main>
@@ -32,7 +32,7 @@ else if (isset($_POST["back"])) {
     </main>
     <footer>
         <?php
-            require('footer.php');
+            require_once('footer.php');
         ?>
     </footer>
 </body>

@@ -1,8 +1,3 @@
-<?php
- 
-  //var_dump($_SESSION["user"]);
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -39,5 +34,5 @@
     ?>
   </header>
   <?php
-      require('navbar.php');
+      require_once('navbar.php');
   ?>

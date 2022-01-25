@@ -1,5 +1,5 @@
 <?php
-require('bdd.php');
+require_once('bdd.php');
 $requeteCategorie = mysqli_query($connex, "SELECT * FROM categories");
 $navbarCategories = mysqli_fetch_all($requeteCategorie, MYSQLI_ASSOC);
 ?>

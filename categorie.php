@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
     
     $title = 'Categorie';
 
@@ -18,7 +18,7 @@
 <body class="page_cat">
     <header>
         <?php
-            require ('header.php');
+            require_once('header.php');
         ?>
     </header>
     <main class="categorie">
@@ -77,7 +77,7 @@
     </main>
     <footer>
         <?php
-            require('footer.php');
+            require_once('footer.php');
         ?>
     </footer>
 </body>

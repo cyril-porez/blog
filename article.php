@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
     
     $title = 'Article';
 
@@ -83,7 +83,7 @@
 <body>
     <header>
         <?php
-            require ('header.php');
+            require_once('header.php');
         ?>
     </header>
     <main id="mainarticle">
@@ -151,7 +151,7 @@
     </main>
     <footer>
         <?php 
-            require('footer.php'); 
+            require_once('footer.php'); 
         ?>
     </footer>
 </body>

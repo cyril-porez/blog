@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
     $title = 'Connexion';
     $msgError = "";
 
@@ -32,7 +32,7 @@
 <body>
     <header>
         <?php 
-            require ('header.php');           
+            require_once('header.php');           
         ?>
     </header>
     <main id="main1">
@@ -54,7 +54,7 @@
     </main>
     <footer>
         <?php
-            require ('footer.php');
+            require_once('footer.php');
         ?>
     </footer>
 </body>

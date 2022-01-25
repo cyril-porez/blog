@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
     
     $title = 'Accueil';
 
@@ -11,7 +11,7 @@
 <html>
     <main>
         <?php
-            require ('header.php');
+            require_once('header.php');
         ?>
         <div id="bloc">
             <video autoplay muted loop>
@@ -55,7 +55,7 @@
     </main>
     <footer>
         <?php 
-            require('footer.php')
+            require_once('footer.php')
         ?>
     </footer>        
 </body>

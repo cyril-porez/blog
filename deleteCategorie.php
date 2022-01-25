@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
 
     $title = 'deleteCategorie.php';
 
@@ -22,13 +22,10 @@
 <body>
     <header>
         <?php
-            require('header.php');
+            require_once('header.php');
         ?>
     </header>
     <main>
-        <?php
-            require('navbar.php');
-        ?>
         <h1 id="supp">Supprimer une categorie</h1>
 
         <p id="voulez-vous">Voulez vous supprimer la catégorie <?php echo $categories[0]['nom']; ?> ?</p>

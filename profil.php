@@ -1,6 +1,6 @@
 <?php
     session_start();
-    require ('bdd.php');
+    require_once('bdd.php');
     
     $title = 'Profil';
     $userConnect = $_SESSION["user"][0]["login"];
@@ -76,7 +76,7 @@
 <html>
 <body>
     <header>
-        <?php require ('header.php'); ?>
+        <?php require_once('header.php'); ?>
     </header>
         <main id="main3">
             <div id="page-profil">
@@ -116,7 +116,7 @@
     </main>
     <footer>
         <?php
-           require ('footer.php');
+           require_once('footer.php');
         ?>
     </footer>
 </body>
