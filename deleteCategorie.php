@@ -1,14 +1,14 @@
 <?php
     session_start();
     require ('bdd.php');
-    
+
     $title = 'deleteCategorie.php';
 
     $categorie = $_GET["delete"];
- 
+
     $requete = mysqli_query($connex, "SELECT * FROM categories where id = '$categorie'");
     $categories = mysqli_fetch_all($requete, MYSQLI_ASSOC);
-   
+
     if (isset($_POST["back"])) {
         header("Location: categorie.php");
     }
@@ -31,7 +31,7 @@
         ?>
         <h1 id="supp">Supprimer une categorie</h1>
 
-        <p id="voulez-vous">Voulez vous supprimer la catégorie <?php echo $categories[0]['nom']; ?> ?</p>   
+        <p id="voulez-vous">Voulez vous supprimer la catégorie <?php echo $categories[0]['nom']; ?> ?</p>
 
         <form action="" method="post">
             <input id="oui" type="submit" name="delete" value="oui">

@@ -93,7 +93,7 @@
                     <fieldset>
                         <legend>Modifer votre Email</legend>
                             <input class="connect" type="text" id="email" name="email" value="<?php echo $_SESSION['user'][0]['email'];?>">
-                            <input type="submit" name="modifEmail" value="Modifer">                   
+                            <input type="submit" name="modifEmail" value="Modifer">
                         </fieldset>
                 </form>
                 <form action="profil.php" method="post">
@@ -102,8 +102,8 @@
                             <input class="connect" type="text" id="login" name="login" value="<?php echo $_SESSION['user'][0]['login'];?>">
                             <input type="submit" name="modifLogin" value="Modifier">
                     </fieldset>
-                </form> 
-                <form action="profil.php" method="post">    
+                </form>
+                <form action="profil.php" method="post">
                     <fieldset>
                         <legend>modifier votre mot de passe</legend>
                         <input class="connect" type="password" id="password" name="password" placeholder="*********">
@@ -112,7 +112,7 @@
                     </fieldset>
                 </form>
             </div>
-        </div>   
+        </div>
     </main>
     <footer>
         <?php
