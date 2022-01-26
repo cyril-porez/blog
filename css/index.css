@@ -1,0 +1,47 @@
+
+body{
+    overflow-x: hidden;
+    /* background-size: cover; */
+    margin: 0;
+}
+main{
+    width: 100%;
+    min-height: 100vh;
+    margin-left: 0;
+    /* background-color: #000845; */
+    /* background-size: cover; */
+}
+/* .grandeimg{ */
+    /* width: 70vw;
+    height: 100vh; */
+    /* background-image: url('https://media.lesechos.com/api/v1/images/view/5bd2eea13e4546551c3f01fe/1280x720/2203796-arianespace-decroche-un-premier-contrat-commercial-pour-ariane-6-web-tete-0302232712290.jpg'); */
+/* } */
+.presentation{
+    background-color: #FFD473;
+    width: 50%;
+    display: flex;
+}
+
+.flex{
+    display: flex;
+   justify-content: center;
+   margin-bottom: 5%;
+}
+#bloc{
+margin-right: 0;
+}
+video{
+width: 100%;
+/* height: 100vh; */
+}
+#titre{
+font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+/* text-align: left; */
+color: #F8C107;
+}
+#h1{
+    align-items: center;
+}
+#index{
+    width: 30%;
+}
